@@ -4,31 +4,56 @@
   <meta charset="UTF-8" />
   <title>Vikhyath's Database</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background: linear-gradient(
-        180deg,
-        #F44336 0%,
-        #E53935 25%,
-        #D32F2F 60%,
-        #B71C1C 100%
+        -45deg,
+        #F44336,
+        #E53935,
+        #D32F2F,
+        #B71C1C
       );
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-color: #B71C1C;
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
       color: white;
       text-align: center;
       padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .logo {
       width: 30vw;
-      max-width: 200px;
+      max-width: 180px;
       height: auto;
-      margin: 20px auto;
+      margin: 0 auto 20px auto;
       display: block;
       animation: pulse 2.5s ease-in-out infinite;
     }
@@ -36,18 +61,19 @@
     @keyframes pulse {
       0%, 100% {
         transform: scale(1);
-        filter: drop-shadow(0 0 0px rgba(255,255,255,0.3));
+        filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
       }
       50% {
-        transform: scale(1.05);
-        filter: drop-shadow(0 0 10px rgba(255,255,255,0.6));
+        transform: scale(1.08);
+        filter: drop-shadow(0 0 15px rgba(255,255,255,0.7));
       }
     }
 
     h1 {
-      font-size: 2.8rem;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
     nav ul {
@@ -58,23 +84,34 @@
 
     nav li {
       margin: 15px 0;
+      animation: fadeIn 1s ease-in-out forwards;
+      opacity: 0;
     }
+
+    nav li:nth-child(1) { animation-delay: 0.2s; }
+    nav li:nth-child(2) { animation-delay: 0.4s; }
+    nav li:nth-child(3) { animation-delay: 0.6s; }
+
 
     nav a {
       text-decoration: none;
       color: #ffffff;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      padding: 12px 24px;
-      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 15px 30px;
+      border-radius: 50px;
       display: inline-block;
-      font-weight: bold;
-      transition: background 0.3s, transform 0.2s;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
 
     nav a:hover {
-      background: rgba(255, 255, 255, 0.3);
-      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05) translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
     }
 
     @media (min-width: 600px) {
@@ -84,16 +121,17 @@
       }
 
       nav li {
-        margin: 0 15px;
+        margin: 0 20px;
       }
     }
   </style>
 </head>
 <body>
 
-  <img src="logo.png" alt="Heart Logo" class="logo" />
-
-  <h1>Vikhyath's Database</h1>
+  <div class="container">
+    <img src="logo.png" alt="Heart Logo" class="logo" />
+    <h1>Vikhyath's Database</h1>
+  </div>
 
   <nav>
     <ul>
