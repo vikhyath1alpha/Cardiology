@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulmonary Embolism: A Comprehensive Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tiempos+Headline:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #CC3333; /* Darker red for primary elements like TOC hover/active, titles */
+            --secondary: #8B0000; /* A slightly different red for secondary text/titles */
+            --accent: #FF6347; /* Brighter, tomato-like red for highlights and citations */
+            --neutral: #fef2f2; /* Very light red/pink for overall background */
+            --base-100: #ffffff; /* White for content cards */
+            --base-content: #333333; /* Dark gray for general text */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--base-content);
+            line-height: 1.6;
+            background-color: var(--neutral); /* Apply neutral color to body */
+        }
+
+        .hero-title {
+            font-family: 'Tiempos Headline', serif;
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .section-title {
+            font-family: 'Tiempos Headline', serif;
+            font-weight: 700;
+        }
+
+        .vanta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .gradient-overlay {
+            /* Adjusted gradient to be variations of red */
+            background: linear-gradient(135deg, rgba(204, 51, 51, 0.9) 0%, rgba(255, 99, 71, 0.7) 100%);
+        }
+
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--base-100);
+            border-right: 1px solid #fbdada; /* Lighter red border */
+            overflow-y: auto;
+            z-index: 1000;
+            padding: 2rem 1.5rem;
+        }
+
+        .toc-fixed a.block.py-1.px-2.rounded.hover\:bg-slate-100.transition-colors:hover {
+            background-color: #fef0f0; /* Lighter hover for TOC links */
+        }
+
+        .toc-fixed a.block.py-1.px-2.rounded.bg-primary.text-white {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        .citation {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-decoration: none;
+            margin-left: 0.25rem;
+            transition: all 0.2s;
+        }
+
+        .citation:hover {
+            background: var(--primary);
+            transform: translateY(-1px);
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fff5f5 0%, #fee2e2 100%); /* Light red gradient */
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .evidence-level {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .class-i {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .class-ii {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .level-a {
+            border: 2px solid #166534;
+        }
+
+        .level-b {
+            border: 2px solid #92400e;
+        }
+
+        /* Specific section background colors */
+        section.bg-white {
+            background-color: var(--base-100);
+        }
+
+        section.bg-slate-50 {
+            background-color: var(--neutral);
+        }
+
+        /* Hero section specific styles */
+        .hero-section .text-white {
+            color: white;
+        }
+
+        .hero-section .text-red-300 {
+            color: #fca5a5; /* Lighter red for hero highlight */
+        }
+
+        .hero-section .text-blue-100 {
+            color: #fef0f0; /* Very light red/pink for hero subtext */
+        }
+
+        .hero-section .bg-white\/10 {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Specific highlight box and card colors */
+        .bg-gradient-to-r.from-blue-50.to-cyan-50 {
+            background: linear-gradient(to right, #ffe6e6, #ffd1d1); /* Light red variants */
+            border-left-color: var(--primary);
+        }
+        .bg-gradient-to-r.from-purple-50.to-pink-50 {
+            background: linear-gradient(to right, #fce9f2, #fbc8da); /* Pink/purple variants */
+            border-left-color: var(--secondary);
+        }
+        .bg-gradient-to-r.from-green-50.to-emerald-50 {
+            background: linear-gradient(to right, #e6ffec, #d1ffe1); /* Light green variants */
+            border-left-color: #166534; /* Green */
+        }
+        .bg-gradient-to-r.from-amber-50.to-orange-50 {
+            background: linear-gradient(to right, #fff4e6, #ffe0b3); /* Orange/amber variants */
+            border-left-color: #FFA500; /* Orange */
+        }
+
+        .bg-red-50 {
+            background-color: #ffebeb;
+        }
+        .bg-blue-50 {
+            background-color: #e6f0ff; /* Keep a light blue for contrast or specific elements */
+        }
+        .bg-purple-50 {
+            background-color: #f5e6ff;
+        }
+        .bg-cyan-50 {
+            background-color: #e0faff;
+        }
+        .bg-indigo-50 {
+            background-color: #e0e6ff;
+        }
+
+        .text-red-500 { color: #ef4444; }
+        .text-blue-500 { color: #3b82f6; }
+        .text-purple-500 { color: #a855f7; }
+        .text-green-500 { color: #22c55e; }
+        .text-amber-500 { color: #f59e0b; }
+        .text-cyan-600 { color: #0891b2; }
+        .text-indigo-600 { color: #4f46e5; }
+        .text-red-600 { color: #dc2626; }
+        .text-cyan-700 { color: #0e7490; }
+        .text-blue-700 { color: #1d4ed8; }
+        .text-purple-700 { color: #7e22ce; }
+        .text-primary { color: var(--primary); }
+        .text-secondary { color: var(--secondary); }
+        .text-accent { color: var(--accent); }
+
+
+        @media (max-width: 1024px) {
+            .toc-fixed {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .toc-fixed.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .text-7xl {
+                font-size: 3rem;
+            }
+
+            .text-6xl {
+                font-size: 2.5rem;
+            }
+
+            .text-5xl {
+                font-size: 2rem;
+            }
+
+            .text-4xl {
+                font-size: 1.75rem;
+            }
+
+            .text-3xl {
+                font-size: 1.5rem;
+            }
+
+            .text-2xl {
+                font-size: 1.25rem;
+            }
+
+            .text-xl {
+                font-size: 1.125rem;
+            }
+
+            .px-8 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .py-16 {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+
+            .py-12 {
+                padding-top: 1.5rem;
+                padding-bottom: 1.5rem;
+            }
+
+            .py-8 {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+
+            .py-6 {
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+            }
+
+            .p-8 {
+                padding: 1rem;
+            }
+
+            .p-6 {
+                padding: 0.75rem;
+            }
+
+            .p-4 {
+                padding: 0.5rem;
+            }
+
+            .m-8 {
+                margin: 1rem;
+            }
+
+            .m-6 {
+                margin: 0.75rem;
+            }
+
+            .m-4 {
+                margin: 0.5rem;
+            }
+
+            .m-2 {
+                margin: 0.25rem;
+            }
+
+            .grid-cols-3, .grid-cols-2, .lg\:grid-cols-3, .lg\:grid-cols-2, .md\:grid-cols-3, .md\:grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .flex-wrap {
+                flex-wrap: wrap;
+            }
+
+            .overflow-x-auto {
+                overflow-x: auto;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            .space-y-6 > * + * {
+                margin-top: 1rem;
+            }
+
+            .space-y-8 > * + * {
+                margin-top: 1rem;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .prose-lg p {
+                font-size: 1rem;
+            }
+
+            .prose-lg ul {
+                font-size: 1rem;
+            }
+        </style>
+  </head>
+
+  <body class="bg-neutral">
+    <nav class="toc-fixed">
+      <div class="mb-8">
+        <h3 class="section-title text-lg text-primary mb-4">Table of Contents</h3>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="#risk-stratification" class="block py-1 px-2 rounded hover:bg-slate-100 transition-colors">Risk Stratification & Guidelines</a>
+          </li>
+          <li>
+            <a href="#diagnostic-advances" class="block py-1 px-2 rounded hover:bg-slate-100 transition-colors">Diagnostic Advances</a>
+          </li>
+          <li>
+            <a href="#catheter-interventions" class="block py-1 px-2 rounded hover:bg-slate-100 transition-colors">Catheter-Directed Interventions</a>
+          </li>
+          <li>
+            <a href="#anticoagulation" class="block py-1 px-2 rounded hover:bg-slate-100 transition-colors">Anticoagulation Management</a>
+          </li>
+          <li>
+            <a href="#intermediate-risk" class="block py-1 px-2 rounded hover:bg-slate-100 transition-colors">Intermediate-Risk PE Management</a>
+          </li>
+          <li>
+            <a href="#long-term-sequelae" class="block py-1 px-2 rounded hover:bg-slate-100 transition-colors">Long-Term Sequelae & PERT</a>
+          </li>
+          <li>
+            <a href="#emerging-therapies" class="block py-1 px-2 rounded hover:bg-slate-100 transition-colors">Emerging Therapies</a>
+          </li>
+          <li>
+            <a href="#numerical-thresholds" class="block py-1 px-2 rounded hover:bg-slate-100 transition-colors">Key Numerical Thresholds</a>
+          </li>
+          <li>
+            <a href="#tables" class="block py-1 px-2 rounded hover:bg-slate-100 transition-colors">Quick Reference Tables</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="main-content">
+      <section class="relative min-h-screen flex items-center hero-section">
+        <div id="vanta-bg" class="vanta-bg"></div>
+        <div class="gradient-overlay absolute inset-0"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-8 py-16">
+          <div class="bento-grid">
+            <div class="space-y-8">
+              <div class="space-y-4">
+                <h1 class="hero-title text-7xl text-white leading-tight">
+                  Pulmonary
+                  <br>
+                  <span class="text-red-300">Embolism</span>
+                </h1>
+                <p class="text-xl text-blue-100 max-w-2xl">
+                  A Comprehensive Review for Cardiology Board Review (July 2025)
+                </p>
+              </div>
+
+              <div class="flex flex-wrap gap-4">
+                <span class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-white text-sm font-medium">
+                  <i class="fas fa-lungs-virus mr-2"></i>ESC/ERS 2019 Guidelines
+                </span>
+                <span class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-white text-sm font-medium">
+                  <i class="fas fa-chart-line mr-2"></i>PEERLESS Trial 2024
+                </span>
+              </div>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 space-y-6">
+              <h3 class="text-2xl font-bold text-white mb-4">Key Highlights</h3>
+              <div class="space-y-4">
+                <div class="flex items-start space-x-3">
+                  <i class="fas fa-check-circle text-red-300 mt-1"></i>
+                  <p class="text-blue-100">PEERLESS trial: LBMT favored over CDT in intermediate-risk PE</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <i class="fas fa-pills text-red-300 mt-1"></i>
+                  <p class="text-blue-100">Apixaban & Rivaroxaban preferred DOACs for acute PE</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <i class="fas fa-microscope text-red-300 mt-1"></i>
+                  <p class="text-blue-100">RISA-PE classification for granular risk stratification</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <i class="fas fa-heart-pulse text-red-300 mt-1"></i>
+                  <p class="text-blue-100">Routine follow-up 3-6 months post-PE for CTEPH screening</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="risk-stratification" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="section-title text-4xl text-primary mb-8">Current Risk Stratification and Guidelines</h2>
+
+          <div class="prose prose-lg max-w-none">
+            <h3 class="section-title text-2xl text-secondary mb-4">The 2019 ESC/ERS Guidelines</h3>
+            <p class="text-lg mb-6">
+              The <strong>2019 ESC/ERS Guidelines</strong> are the foundation for pulmonary embolism management, emphasizing a comprehensive risk stratification approach. The classification system categorizes patients into four risk groups:
+            </p>
+
+            <ul class="space-y-2 text-lg mb-6">
+              <li>•   **Low-risk PE**: Hemodynamically stable with PESI class I-II or sPESI = 0</li>
+              <li>•   **Intermediate-low risk PE**: Hemodynamically stable with PESI class III-IV or sPESI $\geq$1, but without both RV dysfunction and elevated cardiac biomarkers</li>
+              <li>•   **Intermediate-high risk PE**: Hemodynamically stable with PESI class III-IV or sPESI $\geq$1, plus both RV dysfunction and elevated cardiac biomarkers</li>
+              <li>•   **High-risk PE**: Hemodynamically unstable with systolic blood pressure <90 mmHg or requiring vasopressor support</li>
+            </ul>
+
+            <h4 class="font-bold text-xl mb-3">Mortality rates by risk category:</h4>
+            <ul class="space-y-2 text-md mb-6">
+              <li>•   Low-risk: 0.7%</li>
+              <li>•   Intermediate-low: 2.3%</li>
+              <li>•   Intermediate-high: 3.4-12.6%</li>
+              <li>•   High-risk: 30-60%</li>
+            </ul>
+
+            <h3 class="section-title text-2xl text-secondary mb-4 mt-12">Advanced Risk Stratification Tools</h3>
+
+            <div class="grid md:grid-cols-2 gap-6 mt-8">
+              <div class="bg-slate-50 p-6 rounded-lg border-l-4 border-primary">
+                <h4 class="font-bold text-lg mb-3">Novel Risk Classification Systems</h4>
+                <p class="text-sm mb-3">
+                  The **RISA-PE classification (2024)** adapts SCAI shock stages to PE, providing more granular risk stratification:
+                </p>
+                <ol class="space-y-3 text-sm">
+                  <li>**Stage A:** RV dysfunction + troponin elevation (mortality: 1.2%)</li>
+                  <li>**Stage B:** Stage A + lactate >2 mmol/L OR shock index $\geq$1 (mortality: 6.4%)</li>
+                  <li>**Stage C:** Persistent hypotension (mortality: 19.0%)</li>
+                  <li>**Stage D:** Obstructive shock (mortality: 25.6%)</li>
+                  <li>**Stage E:** Cardiac arrest (mortality: 57.7%)</li>
+                </ol>
+              </div>
+
+              <div class="bg-red-50 p-6 rounded-lg">
+                <h4 class="font-bold text-lg mb-3 flex items-center">
+                  <i class="fas fa-microscope text-accent mr-2"></i>
+                  Biomarker Integration
+                </h4>
+                <p class="text-sm mb-3">
+                  **Neutrophil-to-lymphocyte ratio (NLR)** and **platelet-to-lymphocyte ratio (PLR)** show promise as prognostic markers.
+                </p>
+                <p class="text-sm text-secondary">
+                  When integrated with ESC risk stratification, these biomarkers improved predictive accuracy (AUC 0.848 vs 0.771 for ESC stratification alone).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="diagnostic-advances" class="py-16 bg-neutral">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="section-title text-4xl text-primary mb-8">Diagnostic Advances</h2>
+
+          <h3 class="section-title text-2xl text-secondary mb-6">D-dimer Optimization</h3>
+          <p class="text-lg text-secondary mb-4">
+            The age-adjusted D-dimer cutoff has been validated to improve diagnostic efficiency:
+          </p>
+          <ul class="text-lg space-y-2 mb-8">
+            <li>•   Standard cutoff: <500 µg/L for all patients</li>
+            <li>•   Age-adjusted cutoff: <500 µg/L for patients $\leq$50 years, <(age $\times$ 10) µg/L for patients >50 years</li>
+          </ul>
+          <p class="text-lg text-secondary mb-8">
+            This approach increased the proportion of elderly patients (>75 years) in whom PE could be ruled out from 6.4% to 29.7%.
+          </p>
+
+          <h3 class="section-title text-2xl text-secondary mb-6">Biomarker Thresholds</h3>
+          <div class="highlight-box">
+            <h4 class="font-bold text-lg mb-4">Critical laboratory values for risk stratification:</h4>
+            <ul class="space-y-2">
+              <li>•   **Troponin I:**
+                <ul class="list-disc list-inside ml-4">
+                  <li>Low-risk threshold: <12 pg/mL</li>
+                  <li>High-risk threshold: 87 pg/mL (in patients with sPESI $\geq$1 or RV dysfunction)</li>
+                </ul>
+              </li>
+              <li>•   **NT-proBNP:** $\geq$600 pg/mL indicates increased mortality risk</li>
+              <li>•   **Lactate:** >2 mmol/L associated with worse outcomes</li>
+            </ul>
+          </div>
+
+          <h3 class="section-title text-2xl text-secondary mb-6 mt-12">Echocardiographic Assessment</h3>
+          <h4 class="font-bold text-xl mb-4">Key Parameters for Right Ventricular Assessment:</h4>
+          <div class="grid lg:grid-cols-2 gap-8">
+            <div class="bg-base-100 rounded-xl p-6 shadow-sm">
+              <ul class="text-sm space-y-3">
+                <li>•   **RV/LV ratio:** >1.0 indicates RV dysfunction</li>
+                <li>•   **TAPSE:** <17 mm associated with worse outcomes</li>
+                <li>•   **TAPSE/PASP ratio:**
+                  <ul class="list-disc list-inside ml-4">
+                    <li><0.40 (low-risk), <0.43 (intermediate-low), <0.34 (intermediate-high) associated with increased mortality</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="bg-base-100 rounded-xl p-6 shadow-sm">
+              <ul class="text-sm space-y-3">
+                <li>•   **RV global longitudinal strain (RVGLS):** $\leq$17.7% indicates dysfunction</li>
+                <li>The combination of RVGLS and RV/LV ratio provides superior prognostic value, with patients having high RVGLS (>17.7%) and low RV/LV ratio (<1.03) showing 99.0% 30-day survival.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="catheter-interventions" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="section-title text-4xl text-primary mb-8">Catheter-Directed Interventions: The New Paradigm</h2>
+
+          <h3 class="section-title text-2xl text-secondary mb-6">PEERLESS Trial (2024) - Practice-Changing Results</h3>
+          <div class="highlight-box">
+            <p class="text-lg mb-4">
+              The **PEERLESS trial** represents the largest randomized controlled trial comparing catheter-based interventions. In 550 patients with intermediate-risk PE:
+            </p>
+            <ul class="space-y-2 text-md mb-4">
+              <li>•   Primary endpoint (hierarchical win ratio): 5.01 (95% CI: 3.68-6.97, p<0.001) favoring large-bore mechanical thrombectomy (LBMT) over catheter-directed thrombolysis (CDT).</li>
+            </ul>
+            <h4 class="font-bold text-lg mb-3">Key findings:</h4>
+            <ul class="space-y-2 text-md">
+              <li>•   Clinical deterioration/bailout: 1.8% (LBMT) vs 5.4% (CDT), p=0.04</li>
+              <li>•   ICU utilization: 41.6% (LBMT) vs 98.6% (CDT) for admissions</li>
+              <li>•   Hospital stay: 4.5$\pm$2.8 vs 5.3$\pm$3.9 days</li>
+              <li>•   30-day readmission: 3.2% vs 7.9%</li>
+              <li>•   No difference in mortality or major bleeding</li>
+            </ul>
+          </div>
+
+          <h3 class="section-title text-2xl text-secondary mb-6 mt-12">Ultrasound-Assisted Thrombolysis (USAT)</h3>
+          <div class="bg-neutral p-6 rounded-lg border-l-4 border-accent mb-8">
+            <p class="text-lg mb-4">
+              **KNOCOUT PE Registry (2024)** demonstrated excellent safety profile:
+            </p>
+            <ul class="space-y-2 text-md">
+              <li>•   Mean alteplase dose: 18.1 mg (31% received $\leq$12 mg)</li>
+              <li>•   Major bleeding: 1.6% at 72 hours</li>
+              <li>•   30-day mortality: 1.0%</li>
+              <li>•   Significant improvement in RV function and quality of life</li>
+            </ul>
+          </div>
+
+          <h3 class="section-title text-2xl text-secondary mb-6">Mechanical Thrombectomy Systems</h3>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-red-50 p-6 rounded-lg">
+              <h4 class="font-bold text-lg mb-3">FlowTriever System outcomes:</h4>
+              <ul class="text-sm space-y-2">
+                <li>•   FLASH registry (800 patients): 30-day mortality 0.8%</li>
+                <li>•   FLAME study: 1.9% mortality in high-risk PE patients</li>
+                <li>•   Technical success: 100% across multiple studies</li>
+                <li>•   Immediate hemodynamic improvement: 23% reduction in mean PAP</li>
+              </ul>
+            </div>
+            <div class="bg-neutral p-6 rounded-lg border-l-4 border-primary">
+              <h4 class="font-bold text-lg mb-3">Safety considerations:</h4>
+              <p class="text-sm mb-2">Analysis of FDA MAUDE database revealed:</p>
+              <ul class="text-sm space-y-2">
+                <li>•   Most common complications: Pulmonary vascular perforation (26 cases), right heart injury/tamponade (9 cases)</li>
+                <li>•   Mortality events: 26 (FlowTriever) vs 28 (Penumbra Indigo)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="anticoagulation" class="py-16 bg-neutral">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="section-title text-4xl text-primary mb-8">Anticoagulation Management</h2>
+
+          <h3 class="section-title text-2xl text-secondary mb-6">DOAC Preferences</h3>
+          <div class="highlight-box">
+            <p class="text-lg mb-4">
+              Rivaroxaban and apixaban are preferred as monotherapy for acute PE:
+            </p>
+            <ul class="space-y-2 text-md mb-4">
+              <li>•   **Rivaroxaban:** 15 mg BID $\times$ 21 days, then 20 mg daily</li>
+              <li>•   **Apixaban:** 10 mg BID $\times$ 7 days, then 5 mg BID</li>
+            </ul>
+            <p class="text-lg mb-4">
+              Comparative effectiveness: Apixaban showed lower risk of recurrent VTE (HR 0.37, 95% CI: 0.24-0.55) and major bleeding (HR 0.54, 95% CI: 0.37-0.82) compared to rivaroxaban.
+            </p>
+          </div>
+
+          <h3 class="section-title text-2xl text-secondary mb-6 mt-12">Heparin Considerations</h3>
+          <div class="bg-base-100 rounded-xl p-6 shadow-sm">
+            <p class="text-lg mb-4">
+              LMWH vs UFH meta-analysis found no significant differences in:
+            </p>
+            <ul class="space-y-2 text-md">
+              <li>•   Short-term mortality: OR 0.89 (95% CI: 0.44-1.82)</li>
+              <li>•   Long-term mortality: OR 0.77 (95% CI: 0.50-1.21)</li>
+              <li>•   Major bleeding: OR 0.70 (95% CI: 0.38-1.32)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="intermediate-risk" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="section-title text-4xl text-primary mb-8">Intermediate-Risk PE: The Management Dilemma</h2>
+
+          <h3 class="section-title text-2xl text-secondary mb-6">Systemic Thrombolysis</h3>
+          <div class="highlight-box">
+            <p class="text-lg mb-4">
+              Half-dose thrombolysis (50 mg alteplase) shows promise:
+            </p>
+            <ul class="space-y-2 text-md mb-4">
+              <li>•   Improved RV-arterial coupling: TAPSE/PASP ratio improvement</li>
+              <li>•   Reduced RV dimensions: -6.00 mm reduction in RVD1</li>
+              <li>•   Acceptable bleeding risk: 3.5% major bleeding rate</li>
+            </ul>
+            <p class="text-lg mb-4">
+              Meta-analysis findings: Systemic thrombolysis in intermediate-risk PE showed:
+            </p>
+            <ul class="space-y-2 text-md">
+              <li>•   No mortality benefit: Similar mortality rates</li>
+              <li>•   Reduced need for escalation: Lower rates of vasopressor use and rescue therapy</li>
+              <li>•   Increased ICH risk: Higher intracranial hemorrhage rates</li>
+            </ul>
+          </div>
+
+          <h3 class="section-title text-2xl text-secondary mb-6 mt-12">Catheter-Directed Therapy Selection</h3>
+          <div class="bg-neutral p-6 rounded-lg border-l-4 border-accent">
+            <p class="text-lg mb-4">
+              Real-world comparative analysis (162 patients):
+            </p>
+            <ul class="space-y-2 text-md">
+              <li>•   Primary composite endpoint: 11.2% (CBT) vs 15.2% (CDT)</li>
+              <li>•   Major bleeding: 7.8% (CBT) vs 17.4% (CDT), p=0.042</li>
+              <li>•   Hemodynamic deterioration: 5% (CBT) vs 21.7% (CDT), p=0.036</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="long-term-sequelae" class="py-16 bg-neutral">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="section-title text-4xl text-primary mb-8">Long-Term Sequelae</h2>
+
+          <h3 class="section-title text-2xl text-secondary mb-6">Chronic Thromboembolic Pulmonary Hypertension (CTEPH)</h3>
+          <div class="highlight-box">
+            <p class="text-lg mb-4">
+              **COMMAND VTE Registry-2 (2024)** reported:
+            </p>
+            <ul class="space-y-2 text-md mb-4">
+              <li>•   Cumulative incidence: 2.3% at 3 years post-PE</li>
+              <li>•   Risk factors: Female gender (HR 2.09), longer symptom-to-diagnosis interval, hypoxemia, RV dysfunction, unprovoked PE</li>
+            </ul>
+            <h4 class="font-bold text-lg mb-3">CTEPH screening recommendations:</h4>
+            <ul class="space-y-2 text-md">
+              <li>•   Routine follow-up: 3-6 months post-PE for symptomatic patients</li>
+              <li>•   Imaging: Echocardiography, V/Q scan, or CTPA</li>
+              <li>•   Hemodynamic assessment: Right heart catheterization if suspected</li>
+            </ul>
+          </div>
+
+          <h3 class="section-title text-2xl text-secondary mb-6 mt-12">Post-PE Syndrome</h3>
+          <div class="bg-base-100 rounded-xl p-6 shadow-sm mb-8">
+            <p class="text-lg mb-4">
+              Prevalence: 40-60% of PE survivors
+            </p>
+            <p class="text-lg mb-4">
+              Components: Persistent dyspnea, exercise intolerance, impaired functional status after $\geq$3 months of adequate anticoagulation
+            </p>
+            <h4 class="font-bold text-lg mb-3">Neurophysiological mechanisms: Post-PE patients demonstrate:</h4>
+            <ul class="space-y-2 text-md">
+              <li>•   Higher inspiratory neural drive during exercise</li>
+              <li>•   Impaired gas exchange: Reduced DLCO (84$\pm$15 vs 104$\pm$14% predicted)</li>
+              <li>•   Reduced exercise capacity: Peak VO2 (76$\pm$14 vs 124$\pm$28% predicted)</li>
+            </ul>
+          </div>
+
+          <h3 class="section-title text-2xl text-secondary mb-6">PERT Programs: Multidisciplinary Approach</h3>
+          <div class="bg-neutral p-6 rounded-lg border-l-4 border-accent">
+            <h4 class="font-bold text-lg mb-3">PERT implementation benefits:</h4>
+            <ul class="space-y-2 text-md mb-4">
+              <li>•   Advanced therapy utilization: 23.2-fold higher odds of receiving interventional therapy</li>
+              <li>•   Improved outcomes: Despite higher severity, similar mortality rates</li>
+              <li>•   Streamlined care: Reduced time to intervention</li>
+            </ul>
+            <h4 class="font-bold text-lg mb-3">Follow-up protocols:</h4>
+            <ul class="space-y-2 text-md">
+              <li>•   Initial visit: 2 weeks to 3 months post-PE</li>
+              <li>•   Assessment focus: Anticoagulation management, symptom evaluation, complication screening</li>
+              <li>•   Long-term monitoring: CTEPH surveillance, functional assessment</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="emerging-therapies" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="section-title text-4xl text-primary mb-8">Emerging Therapies and Future Directions</h2>
+
+          <h3 class="section-title text-2xl text-secondary mb-6">Novel Interventional Approaches</h3>
+          <div class="highlight-box">
+            <p class="text-lg mb-4">
+              **3D-guided percutaneous thrombectomy** shows promise with:
+            </p>
+            <ul class="space-y-2 text-md">
+              <li>•   100% technical success in 16 patients</li>
+              <li>•   Significant hemodynamic improvement: Reduced PAP and improved oxygenation</li>
+              <li>•   Low complication rates: No major bleeding or procedural mortality</li>
+            </ul>
+          </div>
+
+          <h3 class="section-title text-2xl text-secondary mb-6 mt-12">Biomarker Research</h3>
+          <div class="bg-neutral p-6 rounded-lg border-l-4 border-accent">
+            <p class="text-lg mb-4">
+              **CLOT-5 score (2024)** demonstrated superior predictive accuracy:
+            </p>
+            <ul class="space-y-2 text-md">
+              <li>•   AUC: 0.901 vs 0.793 (PESI) and 0.728 (sPESI)</li>
+              <li>•   Incorporates: Vital signs, biomarkers, and imaging data</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="numerical-thresholds" class="py-16 bg-neutral">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="section-title text-4xl text-primary mb-8">Key Numerical Thresholds for Clinical Practice</h2>
+
+          <h3 class="section-title text-2xl text-secondary mb-6">Risk Stratification Cutoffs</h3>
+          <div class="bg-base-100 rounded-xl p-6 shadow-sm mb-8">
+            <ul class="space-y-2 text-md">
+              <li>•   **sPESI:** 0 (low-risk), $\geq$1 (intermediate-risk)</li>
+              <li>•   **PESI:** >175.5 indicates high mortality risk</li>
+              <li>•   **Shock index:** $\geq$1.0 indicates higher risk</li>
+            </ul>
+          </div>
+
+          <h3 class="section-title text-2xl text-secondary mb-6">Biomarker Thresholds</h3>
+          <div class="bg-base-100 rounded-xl p-6 shadow-sm mb-8">
+            <ul class="space-y-2 text-md">
+              <li>•   **D-dimer:** Age-adjusted >50 years: (age $\times$ 10) µg/L</li>
+              <li>•   **Troponin I:** <12 pg/mL (low-risk), >87 pg/mL (high-risk with RV dysfunction)</li>
+              <li>•   **NT-proBNP:** $\geq$600 pg/mL (increased mortality risk)</li>
+              <li>•   **Lactate:** >2 mmol/L (associated with poor outcomes)</li>
+            </ul>
+          </div>
+
+          <h3 class="section-title text-2xl text-secondary mb-6">Echocardiographic Cutoffs</h3>
+          <div class="bg-base-100 rounded-xl p-6 shadow-sm">
+            <ul class="space-y-2 text-md">
+              <li>•   **RV/LV ratio:** >1.0 (RV dysfunction)</li>
+              <li>•   **TAPSE:** <17 mm (RV dysfunction)</li>
+              <li>•   **TAPSE/PASP:** <0.40 (low-risk), <0.43 (intermediate-low), <0.34 (intermediate-high)</li>
+              <li>•   **RVGLS:** $\leq$17.7% (RV dysfunction)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="tables" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="section-title text-4xl text-primary mb-8">Quick Reference Tables</h2>
+
+          <div class="bg-neutral rounded-xl p-8 shadow-sm mb-8">
+            <h3 class="section-title text-xl mb-6">Table 1: ESC/ERS 2019 PE Risk Classification and Mortality</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead class="bg-slate-100">
+                  <tr>
+                    <th class="text-left p-3 font-semibold">Risk Group</th>
+                    <th class="text-left p-3 font-semibold">Criteria</th>
+                    <th class="text-left p-3 font-semibold">30-day Mortality</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200">
+                  <tr class="hover:bg-slate-100">
+                    <td class="p-3 font-medium">Low-risk PE</td>
+                    <td class="p-3">Hemodynamically stable with PESI class I-II or sPESI = 0</td>
+                    <td class="p-3">0.7%</td>
+                  </tr>
+                  <tr class="hover:bg-slate-100">
+                    <td class="p-3 font-medium">Intermediate-low risk PE</td>
+                    <td class="p-3">Hemodynamically stable with PESI class III-IV or sPESI $\geq$1, no RV dysfunction & no elevated cardiac biomarkers</td>
+                    <td class="p-3">2.3%</td>
+                  </tr>
+                  <tr class="hover:bg-slate-100">
+                    <td class="p-3 font-medium">Intermediate-high risk PE</td>
+                    <td class="p-3">Hemodynamically stable with PESI class III-IV or sPESI $\geq$1, with both RV dysfunction and elevated cardiac biomarkers</td>
+                    <td class="p-3">3.4-12.6%</td>
+                  </tr>
+                  <tr class="hover:bg-slate-100">
+                    <td class="p-3 font-medium">High-risk PE</td>
+                    <td class="p-3">Hemodynamically unstable with systolic blood pressure <90 mmHg or requiring vasopressor support</td>
+                    <td class="p-3">30-60%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="bg-neutral rounded-xl p-8 shadow-sm mb-8">
+            <h3 class="section-title text-xl mb-6">Table 2: Summary of Recent Major Clinical Trials in PE (2022-2025)</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead class="bg-slate-100">
+                  <tr>
+                    <th class="text-left p-3 font-semibold">Trial/Registry</th>
+                    <th class="text-left p-3 font-semibold">Population</th>
+                    <th class="text-left p-3 font-semibold">Intervention</th>
+                    <th class="text-left p-3 font-semibold">Key Findings</th>
+                    <th class="text-left p-3 font-semibold">Impact</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200">
+                  <tr class="hover:bg-slate-100">
+                    <td class="p-3 font-medium">PEERLESS (2024)</td>
+                    <td class="p-3">Intermediate-risk PE</td>
+                    <td class="p-3">LBMT vs CDT</td>
+                    <td class="p-3">LBMT superior for hierarchical composite endpoint (Win Ratio 5.01)</td>
+                    <td class="p-3">Favors LBMT for intermediate-risk PE</td>
+                  </tr>
+                  <tr class="hover:bg-slate-100">
+                    <td class="p-3 font-medium">KNOCOUT PE Registry (2024)</td>
+                    <td class="p-3">USAT patients</td>
+                    <td class="p-3">Ultrasound-Assisted Thrombolysis</td>
+                    <td class="p-3">Low major bleeding (1.6%), 30-day mortality (1.0%)</td>
+                    <td class="p-3">Supported safety/efficacy of USAT</td>
+                  </tr>
+                  <tr class="hover:bg-slate-100">
+                    <td class="p-3 font-medium">FLASH Registry</td>
+                    <td class="p-3">FlowTriever patients (800)</td>
+                    <td class="p-3">FlowTriever Mechanical Thrombectomy</td>
+                    <td class="p-3">30-day mortality 0.8%, 100% technical success</td>
+                    <td class="p-3">Demonstrated safety and effectiveness of FlowTriever</td>
+                  </tr>
+                  <tr class="hover:bg-slate-100">
+                    <td class="p-3 font-medium">COMMAND VTE Registry-2 (2024)</td>
+                    <td class="p-3">PE survivors</td>
+                    <td class="p-3">Long-term follow-up</td>
+                    <td class="p-3">CTEPH cumulative incidence 2.3% at 3 years</td>
+                    <td class="p-3">Informed CTEPH incidence and risk factors</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="bg-primary text-white py-12">
+        <div class="max-w-6xl mx-auto px-8">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="section-title text-xl mb-4">Key References</h3>
+              <div class="space-y-2 text-sm">
+                <p>• 2019 ESC/ERS Guidelines for the diagnosis and management of acute pulmonary embolism</p>
+                <p>• PEERLESS Trial (2024)</p>
+                <p>• KNOCOUT PE Registry (2024)</p>
+                <p>• ACC/AHA Statements on Pulmonary Embolism</p>
+              </div>
+            </div>
+            <div>
+              <h3 class="section-title text-xl mb-4">Clinical Applications</h3>
+              <div class="space-y-2 text-sm">
+                <p>• Risk-stratified approach for PE management</p>
+                <p>• Tailored interventional therapy based on PEERLESS trial</p>
+                <p>• Optimized D-dimer and biomarker use</p>
+                <p>• Importance of PERT programs and long-term follow-up</p>
+              </div>
+            </div>
+          </div>
+          <div class="border-t border-red-400 mt-8 pt-8 text-center text-sm">
+            <p>This comprehensive review synthesizes current evidence for PE management based on the latest international guidelines and clinical trial data.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+        // Initialize Vanta.js background
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0xCC3333, /* Primary red from the image */
+            backgroundColor: 0x8B0000, /* Darker red from the image */
+            points: 8.00,
+            maxDistance: 20.00,
+            spacing: 16.00
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const tocToggle = document.createElement('button');
+        tocToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        tocToggle.className = 'fixed top-4 left-4 z-50 bg-primary text-white p-3 rounded-lg shadow-lg lg:hidden';
+        const toc = document.querySelector('.toc-fixed');
+
+        tocToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toc.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (toc.classList.contains('open') && !toc.contains(e.target) && !tocToggle.contains(e.target)) {
+                toc.classList.remove('open');
+            }
+        });
+
+        document.body.appendChild(tocToggle);
+
+        // Highlight active section in TOC
+        const sections = document.querySelectorAll('section[id]');
+        const tocLinks = document.querySelectorAll('.toc-fixed a[href^="#"]');
+
+        const observerOptions = {
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    tocLinks.forEach(link => {
+                        link.classList.remove('bg-primary', 'text-white');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('bg-primary', 'text-white');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+  </body>
+
+</html>
