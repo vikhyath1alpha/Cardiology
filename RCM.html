@@ -1,0 +1,1959 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Restrictive Cardiomyopathy: A Cardiology Board Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --accent: #f59e0b;
+            --neutral: #1f2937;
+            --base-100: #ffffff;
+            --base-200: #f8fafc;
+            --base-300: #e2e8f0;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--neutral);
+            background-color: var(--base-100);
+            overflow-x: hidden;
+        }
+        
+        .serif {
+            font-family: 'Crimson Text', serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .grain-overlay {
+            position: relative;
+        }
+        
+        .grain-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .toc-fixed {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            width: 280px;
+            max-height: calc(100vh - 4rem);
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--base-300);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .main-content {
+            margin-left: 320px;
+            max-width: calc(100vw - 360px);
+        }
+        
+        .citation {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-decoration: none;
+            margin-left: 2px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .citation:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+            margin: 3rem 0;
+        }
+        
+        .mermaid-container {
+            display: flex;
+            justify-content: center;
+            min-height: 300px;
+            max-height: 800px;
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mermaid-container .mermaid {
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            cursor: grab;
+            transition: transform 0.3s ease;
+            transform-origin: center center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            touch-action: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .mermaid-container .mermaid svg {
+            max-width: 100%;
+            height: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .mermaid-container .mermaid:active {
+            cursor: grabbing;
+        }
+
+        .mermaid-container.zoomed .mermaid {
+            height: 100%;
+            width: 100%;
+            cursor: grab;
+        }
+
+        .mermaid-controls {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .mermaid-control-btn {
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #374151;
+            font-size: 14px;
+            min-width: 36px;
+            height: 36px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mermaid-control-btn:hover {
+            background: #f8fafc;
+            border-color: #3b82f6;
+            color: #3b82f6;
+            transform: translateY(-1px);
+        }
+
+        .mermaid-control-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Mermaid theme customization */
+        .mermaid .node rect,
+        .mermaid .node circle,
+        .mermaid .node ellipse,
+        .mermaid .node polygon {
+            stroke-width: 2px;
+        }
+        
+        .mermaid .edgePath .path {
+            stroke-width: 2px;
+        }
+        
+        .mermaid .edgeLabel {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 4px;
+            padding: 2px 6px;
+        }
+        
+@media (max-width: 1280px) {
+    .toc-fixed {
+        position: relative;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    .main-content {
+        margin-left: 0;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .mermaid-control-btn:not(.reset-zoom) {
+        display: none;
+    }
+    .mermaid-controls {
+        top: auto;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .toc-fixed {
+        display: none;
+    }
+    .main-content {
+        margin-left: 0;
+        max-width: 100%;
+    }
+}
+    </style>
+  </head>
+
+  <body>
+    <!-- Table of Contents -->
+    <nav class="toc-fixed">
+      <h3 class="text-lg font-semibold mb-4 text-gray-900">Contents</h3>
+      <ul class="space-y-2 text-sm">
+        <li>
+          <a href="#hero" class="text-blue-600 hover:text-blue-800 transition-colors">Overview</a>
+        </li>
+        <li>
+          <a href="#definition" class="text-blue-600 hover:text-blue-800 transition-colors">Definition &amp; Classification</a>
+        </li>
+        <li>
+          <a href="#epidemiology" class="text-blue-600 hover:text-blue-800 transition-colors">Epidemiology</a>
+        </li>
+        <li>
+          <a href="#etiology" class="text-blue-600 hover:text-blue-800 transition-colors">Etiology &amp; Pathophysiology</a>
+        </li>
+        <li>
+          <a href="#clinical" class="text-blue-600 hover:text-blue-800 transition-colors">Clinical Presentation</a>
+        </li>
+        <li>
+          <a href="#diagnostic" class="text-blue-600 hover:text-blue-800 transition-colors">Diagnostic Workup</a>
+        </li>
+        <li>
+          <a href="#pathology" class="text-blue-600 hover:text-blue-800 transition-colors">Pathology</a>
+        </li>
+        <li>
+          <a href="#differential" class="text-blue-600 hover:text-blue-800 transition-colors">Differential Diagnosis</a>
+        </li>
+        <li>
+          <a href="#management" class="text-blue-600 hover:text-blue-800 transition-colors">Management</a>
+        </li>
+        <li>
+          <a href="#prognosis" class="text-blue-600 hover:text-blue-800 transition-colors">Prognosis</a>
+        </li>
+        <li>
+          <a href="#advances" class="text-blue-600 hover:text-blue-800 transition-colors">Recent Advances</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Hero Section -->
+      <section id="hero" class="relative min-h-screen flex items-center">
+        <div class="absolute inset-0 hero-gradient grain-overlay"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 py-8 md:py-16">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 class="serif text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                <span class="italic">Restrictive</span>
+                <br/>
+                Cardiomyopathy
+              </h1>
+              <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+                A comprehensive review of pathophysiology, diagnosis, and management strategies for this rare myocardial disorder
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-4 py-2 bg-white/20 backdrop-blur text-white rounded-full text-sm">
+                  <i class="fas fa-heart-pulse mr-2"></i>Cardiology
+                </span>
+                <span class="px-4 py-2 bg-white/20 backdrop-blur text-white rounded-full text-sm">
+                  <i class="fas fa-microscope mr-2"></i>Pathophysiology
+                </span>
+                <span class="px-4 py-2 bg-white/20 backdrop-blur text-white rounded-full text-sm">
+                  <i class="fas fa-stethoscope mr-2"></i>Clinical Medicine
+                </span>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="bg-white/10 backdrop-blur p-6 rounded-lg">
+                <h3 class="text-white font-semibold mb-2">Key Features</h3>
+                <ul class="text-blue-100 text-sm space-y-1">
+                  <li>• Diastolic dysfunction</li>
+                  <li>• Preserved systolic function</li>
+                  <li>• Biatrial enlargement</li>
+                  <li>• Increased stiffness</li>
+                </ul>
+              </div>
+              <div class="bg-white/10 backdrop-blur p-6 rounded-lg">
+                <h3 class="text-white font-semibold mb-2">Prevalence</h3>
+                <p class="text-blue-100 text-sm">~0.1 per 10,000 adults</p>
+                <p class="text-blue-100 text-sm">3-5% of cardiomyopathies</p>
+              </div>
+              <div class="bg-white/10 backdrop-blur p-6 rounded-lg col-span-2">
+                <h3 class="text-white font-semibold mb-2">Critical Distinction</h3>
+                <p class="text-blue-100 text-sm italic">
+                  &#34;Differentiating RCM from constrictive pericarditis is crucial - one may be curable with surgery, while the other requires medical management.&#34;
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Definition Section -->
+      <section id="definition" class="py-16 px-6">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Definition &amp; Classification</h2>
+
+          <div class="highlight-box">
+            <h3 class="text-lg font-semibold mb-3 text-amber-900">Core Definition</h3>
+            <p class="text-gray-700">
+              Restrictive cardiomyopathy is characterized by <strong>impaired ventricular filling due to increased myocardial stiffness, leading to diastolic dysfunction, while systolic function is typically preserved in early stages</strong>
+              <a href="https://www.dynamed.com/condition/restrictive-cardiomyopathy-rcm" class="citation" target="_blank">58</a>.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 mt-8">
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+              <h3 class="text-xl font-semibold mb-4 text-gray-900">
+                <i class="fas fa-dna text-blue-600 mr-2"></i>Primary RCM
+              </h3>
+              <p class="text-gray-700 mb-4">Intrinsic myocardial disease, often genetic</p>
+              <ul class="space-y-2 text-sm text-gray-600">
+                <li>• <strong>Sarcomeric gene mutations:</strong> TNNI3, MYH7, TNNT2<a href="https://www.ncbi.nlm.nih.gov/books/NBK537234/" class="citation" target="_blank">133</a>
+                </li>
+                <li>• <strong>Cytoskeletal proteins:</strong> DES, FLNC, TTN<a href="https://journals.lww.com/hfji/fulltext/2025/04001/2025_hfai_guidelines_for_diagnosis_and_management.1.aspx" class="citation" target="_blank">65</a>
+                </li>
+                <li>• <strong>Metabolic proteins:</strong> CRYAB<a href="https://www.mdpi.com/2075-4418/13/24/3666" class="citation" target="_blank">68</a>
+                </li>
+                <li>• <strong>Idiopathic forms</strong></li>
+              </ul>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+              <h3 class="text-xl font-semibold mb-4 text-gray-900">
+                <i class="fas fa-layer-group text-purple-600 mr-2"></i>Secondary RCM
+              </h3>
+              <p class="text-gray-700 mb-4">Systemic diseases affecting the heart</p>
+              <ul class="space-y-2 text-sm text-gray-600">
+                <li>• <strong>Infiltrative:</strong> Amyloidosis, Sarcoidosis<a href="https://www.ncbi.nlm.nih.gov/books/NBK537234/" class="citation" target="_blank">45</a>
+                </li>
+                <li>• <strong>Storage:</strong> Hemochromatosis, Fabry disease<a href="https://www.ncbi.nlm.nih.gov/books/NBK537234/" class="citation" target="_blank">2</a>
+                </li>
+                <li>• <strong>Fibrotic:</strong> Radiation, Scleroderma<a href="https://www.msdmanuals.com/professional/cardiovascular-disorders/cardiomyopathies/restrictive-cardiomyopathy" class="citation" target="_blank">4</a>
+                </li>
+                <li>• <strong>Endomyocardial:</strong> EMF, Hypereosinophilia<a href="https://www.mdpi.com/2075-4418/13/24/3666" class="citation" target="_blank">1</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <img src="https://kimi-web-img.moonshot.cn/img/media.springernature.com/a86795e98f1f9fe3712a7cafbc1e80b7b5c01580.jpg" alt="Microscopic view of myocardial fibrosis" class="w-full rounded-lg shadow-lg" size="medium" aspect="wide" style="photo" query="myocardial fibrosis histology" referrerpolicy="no-referrer" data-modified="1" data-score="11595.00"/>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Epidemiology Section -->
+      <section id="epidemiology" class="py-16 px-6 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Epidemiology</h2>
+
+          <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+              <div class="text-center">
+                <div class="text-3xl font-bold text-blue-600 mb-2">0.1</div>
+                <p class="text-sm text-gray-600">per 10,000 adults (UK 2018)<a href="https://www.dynamed.com/condition/restrictive-cardiomyopathy-rcm" class="citation" target="_blank">58</a>
+                </p>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-purple-600 mb-2">3-5%</div>
+                <p class="text-sm text-gray-600">of all cardiomyopathies<a href="https://www.pathologyoutlines.com/topic/heartidiopathicrestrictive.html" class="citation" target="_blank">56</a>
+                </p>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-pink-600 mb-2">1.5:1</div>
+                <p class="text-sm text-gray-600">Female:Male ratio<a href="https://www.pathologyoutlines.com/topic/heartidiopathicrestrictive.html" class="citation" target="_blank">192</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="highlight-box">
+              <h3 class="text-lg font-semibold mb-3 text-amber-900">Pediatric Considerations</h3>
+              <p class="text-gray-700">
+                In children, RCM accounts for <strong>less than 2.5-4.5% of pediatric cardiomyopathy cases</strong>
+                <a href="https://www.dynamed.com/condition/restrictive-cardiomyopathy-rcm" class="citation" target="_blank">58</a>,
+                with a particularly poor prognosis - <strong>two-year survival less than 50% without transplantation</strong>
+                <a href="https://www.pathologyoutlines.com/topic/heartidiopathicrestrictive.html" class="citation" target="_blank">192</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Etiology Section -->
+      <section id="etiology" class="py-16 px-6">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Etiology &amp; Pathophysiology</h2>
+
+          <div class="grid lg:grid-cols-2 gap-8">
+            <div class="space-y-6">
+              <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                <h3 class="text-xl font-semibold mb-4 text-gray-900">
+                  <i class="fas fa-dna text-blue-600 mr-2"></i>Genetic Mechanisms
+                </h3>
+                <p class="text-gray-700 mb-4">
+                  Primary RCM often involves mutations affecting cardiac proteins:
+                </p>
+                <ul class="space-y-3 text-sm">
+                  <li class="flex items-start">
+                    <span class="text-blue-600 mr-2">▸</span>
+                    <div>
+                      <strong>Sarcomeric genes:</strong> TNNI3 mutations increase Ca²⁺ sensitivity, causing diastolic dysfunction<a href="https://www.pathologyoutlines.com/topic/heartidiopathicrestrictive.html" class="citation" target="_blank">192</a>
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-blue-600 mr-2">▸</span>
+                    <div>
+                      <strong>Cytoskeletal defects:</strong> DES mutations cause desmin aggregate accumulation<a href="https://www.mdpi.com/2077-0383/10/9/1954" class="citation" target="_blank">193</a>
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-blue-600 mr-2">▸</span>
+                    <div>
+                      <strong>Metabolic proteins:</strong> CRYAB mutations affect heat shock proteins<a href="https://www.mdpi.com/2075-4418/13/24/3666" class="citation" target="_blank">68</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                <h3 class="text-xl font-semibold mb-4 text-gray-900">
+                  <i class="fas fa-heart-pulse text-red-600 mr-2"></i>Pathophysiological Mechanisms
+                </h3>
+                <div class="space-y-4">
+                  <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                    <i class="fas fa-arrow-right text-red-600 mr-3"></i>
+                    <span class="text-sm">Increased ventricular stiffness</span>
+                  </div>
+                  <div class="flex items-center p-3 bg-orange-50 rounded-lg">
+                    <i class="fas fa-arrow-right text-orange-600 mr-3"></i>
+                    <span class="text-sm">Impaired diastolic filling</span>
+                  </div>
+                  <div class="flex items-center p-3 bg-yellow-50 rounded-lg">
+                    <i class="fas fa-arrow-right text-yellow-600 mr-3"></i>
+                    <span class="text-sm">Elevated ventricular pressures</span>
+                  </div>
+                  <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                    <i class="fas fa-arrow-right text-green-600 mr-3"></i>
+                    <span class="text-sm">Biatrial enlargement &amp; congestion</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                <h3 class="text-xl font-semibold mb-4 text-gray-900">
+                  <i class="fas fa-microscope text-purple-600 mr-2"></i>Secondary Causes
+                </h3>
+                <div class="space-y-4">
+                  <div class="border-l-4 border-purple-500 pl-4">
+                    <h4 class="font-semibold text-gray-900">Infiltrative Diseases</h4>
+                    <p class="text-sm text-gray-600">Amyloid fibrils deposit in extracellular matrix, physically restricting myocardial expansion<a href="https://www.mdpi.com/2075-4418/13/24/3666" class="citation" target="_blank">56</a>
+                    </p>
+                  </div>
+                  <div class="border-l-4 border-blue-500 pl-4">
+                    <h4 class="font-semibold text-gray-900">Storage Disorders</h4>
+                    <p class="text-sm text-gray-600">Iron (hemochromatosis) or glycosphingolipids (Fabry) accumulate within cardiomyocytes<a href="https://www.mdpi.com/2075-4418/13/24/3666" class="citation" target="_blank">68</a>
+                    </p>
+                  </div>
+                  <div class="border-l-4 border-green-500 pl-4">
+                    <h4 class="font-semibold text-gray-900">Endomyocardial Fibrosis</h4>
+                    <p class="text-sm text-gray-600">Fibrous tissue deposition on endocardial surface, encasing papillary muscles<a href="https://www.msdmanuals.com/professional/cardiovascular-disorders/cardiomyopathies/restrictive-cardiomyopathy" class="citation" target="_blank">217</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-lg border border-blue-200">
+                <h3 class="text-lg font-semibold mb-3 text-gray-900">Common Pathological Processes</h3>
+                <ul class="space-y-2 text-sm text-gray-700">
+                  <li>• Interstitial fibrosis</li>
+                  <li>• Myocardial infiltration</li>
+                  <li>• Storage material accumulation</li>
+                  <li>• Endomyocardial thickening</li>
+                  <li>• Cellular toxicity and dysfunction</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Clinical Presentation Section -->
+      <section id="clinical" class="py-16 px-6 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Clinical Presentation</h2>
+
+          <div class="grid lg:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+              <h3 class="text-lg font-semibold mb-4 text-gray-900">
+                <i class="fas fa-lungs text-blue-600 mr-2"></i>Cardinal Symptoms
+              </h3>
+              <ul class="space-y-2 text-sm">
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                  Dyspnea on exertion (earliest symptom)<a href="https://journals.lww.com/accd/abstract/9900/restrictive_cardiomyopathy__a_comprehensive.28.aspx" class="citation" target="_blank">87</a>
+                </li>
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                  Exercise intolerance
+                </li>
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                  Fatigue and weakness
+                </li>
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                  Orthopnea &amp; PND
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+              <h3 class="text-lg font-semibold mb-4 text-gray-900">
+                <i class="fas fa-water text-cyan-600 mr-2"></i>Signs of Congestion
+              </h3>
+              <ul class="space-y-2 text-sm">
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-cyan-600 rounded-full mr-2"></span>
+                  Jugular venous distension (JVD)
+                </li>
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-cyan-600 rounded-full mr-2"></span>
+                  Peripheral edema
+                </li>
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-cyan-600 rounded-full mr-2"></span>
+                  Ascites &amp; hepatomegaly<a href="https://www.ncbi.nlm.nih.gov/books/NBK537234/" class="citation" target="_blank">113</a>
+                </li>
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-cyan-600 rounded-full mr-2"></span>
+                  Bibasilar crackles
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+              <h3 class="text-lg font-semibold mb-4 text-gray-900">
+                <i class="fas fa-heart-broken text-red-600 mr-2"></i>Arrhythmias
+              </h3>
+              <ul class="space-y-2 text-sm">
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-red-600 rounded-full mr-2"></span>
+                  Atrial fibrillation (most common)<a href="https://www.sciencedirect.com/topics/medicine-and-dentistry/restrictive-cardiomyopathy" class="citation" target="_blank">133</a>
+                </li>
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-red-600 rounded-full mr-2"></span>
+                  Atrial flutter
+                </li>
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-red-600 rounded-full mr-2"></span>
+                  Heart block (in infiltrative disease)
+                </li>
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-red-600 rounded-full mr-2"></span>
+                  Thromboembolic events<a href="https://www.ncbi.nlm.nih.gov/books/NBK537234/" class="citation" target="_blank">113</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="highlight-box">
+            <h3 class="text-lg font-semibold mb-3 text-amber-900">Physical Examination Pearls</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-2">Key Findings</h4>
+                <ul class="space-y-1 text-sm text-gray-700">
+                  <li>• Rapid &#39;y&#39; descent in JVP</li>
+                  <li>• Kussmaul sign (paradoxical JVP rise on inspiration)</li>
+                  <li>• S3 or S4 gallop (less common than DCM)</li>
+                  <li>• Functional AV valve regurgitation murmurs</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-2">Pediatric Presentation</h4>
+                <ul class="space-y-1 text-sm text-gray-700">
+                  <li>• Poor feeding &amp; failure to thrive<a href="https://pubmed.ncbi.nlm.nih.gov/37646638/" class="citation" target="_blank">120</a>
+                  </li>
+                  <li>• Recurrent respiratory infections</li>
+                  <li>• Non-specific fatigue and weakness</li>
+                  <li>• Often rapid progression</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <img src="https://kimi-web-img.moonshot.cn/img/lexipol.brightspotcdn.com/4023264e828a9b88b924d93a08b91a5ae217851b" alt="Physical examination demonstrating jugular venous distension" class="w-full rounded-lg shadow-lg" size="large" aspect="wide" style="photo" query="jugular venous distension physical exam" referrerpolicy="no-referrer" data-modified="1" data-score="11495.00"/>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Diagnostic Workup Section -->
+      <section id="diagnostic" class="py-16 px-6">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Diagnostic Workup</h2>
+
+          <div class="grid lg:grid-cols-2 gap-8 mb-8">
+            <div class="space-y-6">
+              <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                <h3 class="text-lg font-semibold mb-4 text-gray-900">
+                  <i class="fas fa-heartbeat text-red-600 mr-2"></i>Electrocardiography (ECG)
+                </h3>
+                <div class="space-y-3">
+                  <div class="flex items-start">
+                    <i class="fas fa-wave-square text-blue-600 mt-1 mr-2"></i>
+                    <div>
+                      <strong>Biatrial enlargement:</strong> Tall P waves (II), deep negative P (V1)<a href="https://www.sciencedirect.com/topics/medicine-and-dentistry/restrictive-cardiomyopathy" class="citation" target="_blank">153</a>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <i class="fas fa-chart-line text-orange-600 mt-1 mr-2"></i>
+                    <div>
+                      <strong>Low voltage QRS:</strong> Especially in amyloidosis
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <i class="fas fa-random text-purple-600 mt-1 mr-2"></i>
+                    <div>
+                      <strong>Arrhythmias:</strong> AF, flutter, conduction abnormalities<a href="https://www.sciencedirect.com/topics/medicine-and-dentistry/restrictive-cardiomyopathy" class="citation" target="_blank">133</a>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <i class="fas fa-exclamation-triangle text-yellow-600 mt-1 mr-2"></i>
+                    <div>
+                      <strong>Non-specific ST-T changes</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                <h3 class="text-lg font-semibold mb-4 text-gray-900">
+                  <i class="fas fa-procedures text-green-600 mr-2"></i>Cardiac Catheterization
+                </h3>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h4 class="font-semibold text-gray-900 mb-2">Hemodynamic Findings</h4>
+                  <ul class="space-y-2 text-sm text-gray-700">
+                    <li>• <strong>Elevated ventricular filling pressures</strong>
+                      <a href="https://www.sciencedirect.com/topics/medicine-and-dentistry/restrictive-cardiomyopathy" class="citation" target="_blank">153</a>
+                    </li>
+                    <li>• <strong>&#34;Dip-and-plateau&#34; pattern</strong> (square root sign)</li>
+                    <li>• LVEDP often &gt; RVEDP by &gt;5 mmHg</li>
+                    <li>• Reduced cardiac output</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                <h3 class="text-lg font-semibold mb-4 text-gray-900">
+                  <i class="fas fa-heart text-blue-600 mr-2"></i>Echocardiography
+                </h3>
+                <div class="space-y-3">
+                  <div class="bg-blue-50 p-3 rounded-lg">
+                    <strong class="text-blue-900">Structural Findings:</strong>
+                    <ul class="text-sm text-blue-800 mt-1 space-y-1">
+                      <li>• Normal/near-normal ventricular sizes<a href="https://www.dynamed.com/condition/restrictive-cardiomyopathy-rcm" class="citation" target="_blank">58</a>
+                      </li>
+                      <li>• Preserved LV systolic function</li>
+                      <li>• Biatrial enlargement<a href="https://www.sciencedirect.com/topics/medicine-and-dentistry/restrictive-cardiomyopathy" class="citation" target="_blank">133</a>
+                      </li>
+                      <li>• Variable wall thickness</li>
+                    </ul>
+                  </div>
+                  <div class="bg-green-50 p-3 rounded-lg">
+                    <strong class="text-green-900">Doppler Features:</strong>
+                    <ul class="text-sm text-green-800 mt-1 space-y-1">
+                      <li>• High E wave, short deceleration time (&lt;150 ms)<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12170462/" class="citation" target="_blank">54</a>
+                      </li>
+                      <li>• Reduced e&#39; velocity (septal e&#39; &lt; 7 cm/s)</li>
+                      <li>• Elevated E/e&#39; ratio (&gt;14-15)</li>
+                      <li>• Dilated IVC with reduced collapse</li>
+                    </ul>
+                  </div>
+                  <div class="bg-purple-50 p-3 rounded-lg">
+                    <strong class="text-purple-900">Advanced Techniques:</strong>
+                    <ul class="text-sm text-purple-800 mt-1 space-y-1">
+                      <li>• Reduced global longitudinal strain (GLS)<a href="https://www.imrpress.com/journal/RCM/26/6/10.31083/RCM36280/htm" class="citation" target="_blank">8</a>
+                      </li>
+                      <li>• Speckle tracking abnormalities</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                <h3 class="text-lg font-semibold mb-4 text-gray-900">
+                  <i class="fas fa-magnet text-purple-600 mr-2"></i>Cardiac MRI (CMR)
+                </h3>
+                <div class="space-y-3">
+                  <div class="flex items-start">
+                    <i class="fas fa-search text-blue-600 mt-1 mr-2"></i>
+                    <div class="text-sm">
+                      <strong>Tissue characterization:</strong> Superior to echo for infiltration detection<a href="https://www.mdpi.com/2077-0383/13/23/7166" class="citation" target="_blank">10</a>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <i class="fas fa-image text-green-600 mt-1 mr-2"></i>
+                    <div class="text-sm">
+                      <strong>Late Gadolinium Enhancement:</strong> Pattern-specific (subendocardial in amyloidosis)<a href="https://www.mdpi.com/2077-0383/13/23/7166" class="citation" target="_blank">10</a>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <i class="fas fa-ruler text-orange-600 mt-1 mr-2"></i>
+                    <div class="text-sm">
+                      <strong>Parametric mapping:</strong> T1 mapping, ECV quantification for fibrosis<a href="https://www.imrpress.com/journal/RCM/26/6/10.31083/RCM36280/htm" class="citation" target="_blank">8</a>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <i class="fas fa-weight text-red-600 mt-1 mr-2"></i>
+                    <div class="text-sm">
+                      <strong>Iron quantification:</strong> T2* for hemochromatosis<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8932380/" class="citation" target="_blank">7</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-8">
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+              <h3 class="text-lg font-semibold mb-4 text-gray-900">
+                <i class="fas fa-microscope text-indigo-600 mr-2"></i>Endomyocardial Biopsy
+              </h3>
+              <div class="space-y-4">
+                <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                  <h4 class="font-semibold text-yellow-800 mb-2">Selective Role</h4>
+                  <p class="text-sm text-yellow-700">
+                    Primarily when specific treatable etiology suspected and cannot be diagnosed non-invasively<a href="https://journals.lww.com/hfji/fulltext/2025/04001/2025_hfai_guidelines_for_diagnosis_and_management.1.aspx" class="citation" target="_blank">65</a>
+                  </p>
+                </div>
+
+                <div class="space-y-3">
+                  <div class="flex items-start">
+                    <span class="text-purple-600 mr-2">•</span>
+                    <div class="text-sm">
+                      <strong>Amyloidosis:</strong> Congo red with apple-green birefringence<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12105824/" class="citation" target="_blank">176</a>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <span class="text-blue-600 mr-2">•</span>
+                    <div class="text-sm">
+                      <strong>Sarcoidosis:</strong> Non-caseating granulomas (low sensitivity)<a href="https://www.mdpi.com/2075-4418/13/24/3666" class="citation" target="_blank">56</a>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <span class="text-red-600 mr-2">•</span>
+                    <div class="text-sm">
+                      <strong>Hemochromatosis:</strong> Prussian blue iron staining<a href="https://www.mdpi.com/2075-4418/13/24/3666" class="citation" target="_blank">56</a>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <span class="text-green-600 mr-2">•</span>
+                    <div class="text-sm">
+                      <strong>Primary RCM:</strong> Non-specific fibrosis and hypertrophy<a href="https://www.ncbi.nlm.nih.gov/books/NBK537234/" class="citation" target="_blank">173</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+              <h3 class="text-lg font-semibold mb-4 text-gray-900">
+                <i class="fas fa-dna text-teal-600 mr-2"></i>Genetic Testing
+              </h3>
+              <div class="space-y-4">
+                <div class="bg-teal-50 p-4 rounded-lg">
+                  <h4 class="font-semibold text-teal-800 mb-2">Increasing Importance</h4>
+                  <p class="text-sm text-teal-700">
+                    Crucial for primary/familial RCM - enables cascade screening and prognostic information<a href="https://www.sciencedirect.com/topics/medicine-and-dentistry/restrictive-cardiomyopathy" class="citation" target="_blank">133</a>
+                  </p>
+                </div>
+
+                <div class="space-y-2">
+                  <div class="text-sm">
+                    <strong>Gene Panels Include:</strong>
+                  </div>
+                  <ul class="space-y-1 text-sm text-gray-600 ml-4">
+                    <li>• Sarcomeric: MYH7, TNNT2, TNNI3, TPM1</li>
+                    <li>• Cytoskeletal: DES, FLNC, TTN</li>
+                    <li>• Metabolic: CRYAB</li>
+                    <li>• Disease-specific: TTR, GLA</li>
+                  </ul>
+                </div>
+
+                <div class="bg-orange-50 p-3 rounded-lg border-l-4 border-orange-400">
+                  <p class="text-sm text-orange-800">
+                    <strong>Interpretation complexity:</strong> Variants of uncertain significance (VUS) require correlation with clinical picture
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Pathology Section -->
+      <section id="pathology" class="py-16 px-6 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Pathology</h2>
+
+          <div class="grid lg:grid-cols-2 gap-8">
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+              <h3 class="text-lg font-semibold mb-4 text-gray-900">
+                <i class="fas fa-search text-blue-600 mr-2"></i>Histopathological Spectrum
+              </h3>
+              <div class="space-y-4">
+                <div class="border-l-4 border-blue-500 pl-4">
+                  <h4 class="font-semibold text-gray-900">Primary RCM</h4>
+                  <p class="text-sm text-gray-600 mb-2">
+                    Non-specific findings dominate:
+                  </p>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Interstitial fibrosis (diffuse or focal)<a href="https://www.ncbi.nlm.nih.gov/books/NBK537234/" class="citation" target="_blank">173</a>
+                    </li>
+                    <li>• Myocyte hypertrophy</li>
+                    <li>• Perimyocytic collagen lattice (EM)<a href="https://www.pathologyoutlines.com/topic/heartidiopathicrestrictive.html" class="citation" target="_blank">159</a>
+                    </li>
+                    <li>• Desmin aggregate accumulation (DES mutations)</li>
+                  </ul>
+                </div>
+
+                <div class="highlight-box !my-6">
+                  <h4 class="font-semibold text-amber-900 mb-2">Electron Microscopy Features</h4>
+                  <p class="text-sm text-gray-700">
+                    In MYH7-related RCM: electron-dense materials from focal myocyte degeneration, tubular structures, pseudo-inclusion bodies<a href="https://europepmc.org/article/med/34057638" class="citation" target="_blank">188</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+              <h3 class="text-lg font-semibold mb-4 text-gray-900">
+                <i class="fas fa-microscope text-purple-600 mr-2"></i>Disease-Specific Findings
+              </h3>
+              <div class="space-y-4">
+                <div class="border-l-4 border-purple-500 pl-4">
+                  <h4 class="font-semibold text-gray-900">Amyloidosis</h4>
+                  <p class="text-sm text-gray-600">
+                    Congo red-positive extracellular deposits with apple-green birefringence under polarized light<a href="https://www.ncbi.nlm.nih.gov/books/NBK537234/" class="citation" target="_blank">173</a>
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-red-500 pl-4">
+                  <h4 class="font-semibold text-gray-900">Sarcoidosis</h4>
+                  <p class="text-sm text-gray-600">
+                    Non-caseating granulomas with epithelioid histiocytes, giant cells, lymphocytes<a href="https://www.ncbi.nlm.nih.gov/books/NBK537234/" class="citation" target="_blank">173</a>
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-blue-500 pl-4">
+                  <h4 class="font-semibold text-gray-900">Hemochromatosis</h4>
+                  <p class="text-sm text-gray-600">
+                    Prussian blue staining reveals iron granules within cardiomyocytes<a href="https://www.ncbi.nlm.nih.gov/books/NBK537234/" class="citation" target="_blank">173</a>
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-green-500 pl-4">
+                  <h4 class="font-semibold text-gray-900">Fabry Disease</h4>
+                  <p class="text-sm text-gray-600">
+                    Lysosomal glycosphingolipid accumulation with concentric lamellar bodies on EM<a href="https://www.ncbi.nlm.nih.gov/books/NBK537234/" class="citation" target="_blank">173</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <img src="https://kimi-web-img.moonshot.cn/img/www.rarediseaseadvisor.com/1d3c82da251cfc9a749ae458efa2699063192daf.jpg" alt="Microscopic histopathology of myocardial tissue showing amyloid deposits" class="w-full rounded-lg shadow-lg" size="large" aspect="wide" style="photo" query="cardiac amyloidosis histopathology" referrerpolicy="no-referrer" data-modified="1" data-score="11598.00"/>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Differential Diagnosis Section -->
+      <section id="differential" class="py-16 px-6">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Differential Diagnosis</h2>
+
+          <div class="highlight-box mb-8">
+            <h3 class="text-lg font-semibold mb-3 text-amber-900">
+              <i class="fas fa-exclamation-triangle mr-2"></i>Critical Distinction
+            </h3>
+            <p class="text-gray-700">
+              Differentiating RCM from constrictive pericarditis is paramount - <strong>constrictive pericarditis may be curable with pericardiectomy, while RCM management focuses on symptom relief and treating underlying causes</strong>.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden mb-8">
+            <div class="bg-gray-50 px-6 py-4 border-b border-gray-200">
+              <h3 class="text-xl font-semibold text-gray-900">RCM vs Constrictive Pericarditis</h3>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full">
+                <thead class="bg-gray-100">
+                  <tr>
+                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900">Feature</th>
+                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900">Restrictive Cardiomyopathy</th>
+                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900">Constrictive Pericarditis</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                  <tr>
+                    <td class="px-6 py-4 font-medium text-gray-900">Pathophysiology</td>
+                    <td class="px-6 py-4 text-sm text-gray-600">Intrinsic myocardial disease (stiffness)</td>
+                    <td class="px-6 py-4 text-sm text-gray-600">Pericardial disease (thickened/fibrotic pericardium)</td>
+                  </tr>
+                  <tr class="bg-gray-50">
+                    <td class="px-6 py-4 font-medium text-gray-900">Pericardium</td>
+                    <td class="px-6 py-4 text-sm text-gray-600">Normal thickness</td>
+                    <td class="px-6 py-4 text-sm text-gray-600">Often thickened (&gt;3-4 mm)</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 font-medium text-gray-900">Mitral Annular e&#39;</td>
+                    <td class="px-6 py-4 text-sm text-gray-600">Reduced (septal e&#39; &lt; 7 cm/s)</td>
+                    <td class="px-6 py-4 text-sm text-gray-600">Preserved (septal e&#39; &gt; 8-9 cm/s)</td>
+                  </tr>
+                  <tr class="bg-gray-50">
+                    <td class="px-6 py-4 font-medium text-gray-900">Respiratory Variation</td>
+                    <td class="px-6 py-4 text-sm text-gray-600">Minimal (&lt;15-25%)</td>
+                    <td class="px-6 py-4 text-sm text-gray-600">Significant (&gt;25%)</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 font-medium text-gray-900">LVEDP vs RVEDP</td>
+                    <td class="px-6 py-4 text-sm text-gray-600">LVEDP &gt; RVEDP by &gt;5 mmHg</td>
+                    <td class="px-6 py-4 text-sm text-gray-600">LVEDP ≈ RVEDP (within 5 mmHg)</td>
+                  </tr>
+                  <tr class="bg-gray-50">
+                    <td class="px-6 py-4 font-medium text-gray-900">Ventricular Interdependence</td>
+                    <td class="px-6 py-4 text-sm text-gray-600">Less pronounced</td>
+                    <td class="px-6 py-4 text-sm text-gray-600">Pronounced, discordant</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+              <h3 class="text-lg font-semibold mb-4 text-gray-900">
+                <i class="fas fa-heart text-red-600 mr-2"></i>Other Cardiomyopathies
+              </h3>
+              <ul class="space-y-2 text-sm">
+                <li class="flex items-start">
+                  <span class="text-red-600 mr-2">•</span>
+                  <div>
+                    <strong>Hypertrophic (HCM):</strong> Significant LVH, different diastolic pattern<a href="https://www.sciencedirect.com/topics/medicine-and-dentistry/restrictive-cardiomyopathy" class="citation" target="_blank">133</a>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-red-600 mr-2">•</span>
+                  <div>
+                    <strong>Dilated (DCM):</strong> Systolic dysfunction, ventricular dilation
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-red-600 mr-2">•</span>
+                  <div>
+                    <strong>Myocarditis:</strong> Acute/chronic inflammation leading to fibrosis
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+              <h3 class="text-lg font-semibold mb-4 text-gray-900">
+                <i class="fas fa-lungs text-blue-600 mr-2"></i>Ischemic &amp; Hypertensive
+              </h3>
+              <ul class="space-y-2 text-sm">
+                <li class="flex items-start">
+                  <span class="text-blue-600 mr-2">•</span>
+                  <div>
+                    <strong>Coronary artery disease:</strong> Ischemia-induced diastolic dysfunction
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-600 mr-2">•</span>
+                  <div>
+                    <strong>Hypertensive heart disease:</strong> Increased LV mass, impaired relaxation<a href="https://www.sciencedirect.com/topics/medicine-and-dentistry/restrictive-cardiomyopathy" class="citation" target="_blank">133</a>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-600 mr-2">•</span>
+                  <div>
+                    <strong>LVOT obstruction:</strong> Secondary effects on diastolic function
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+              <h3 class="text-lg font-semibold mb-4 text-gray-900">
+                <i class="fas fa-disease text-purple-600 mr-2"></i>Systemic Conditions
+              </h3>
+              <ul class="space-y-2 text-sm">
+                <li class="flex items-start">
+                  <span class="text-purple-600 mr-2">•</span>
+                  <div>
+                    <strong>Scleroderma:</strong> Myocardial fibrosis<a href="https://www.sciencedirect.com/topics/medicine-and-dentistry/restrictive-cardiomyopathy" class="citation" target="_blank">133</a>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-purple-600 mr-2">•</span>
+                  <div>
+                    <strong>Radiation therapy:</strong> Progressive myocardial fibrosis
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-purple-600 mr-2">•</span>
+                  <div>
+                    <strong>Neoplastic infiltration:</strong> Metastatic disease
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Management Section -->
+      <section id="management" class="py-16 px-6 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Management</h2>
+
+          <div class="highlight-box mb-8">
+            <h3 class="text-lg font-semibold mb-3 text-amber-900">General Principles</h3>
+            <p class="text-gray-700 mb-3">
+              Treatment is frequently unsatisfactory unless a specific, treatable underlying cause can be identified. Management is primarily <strong>supportive, focusing on symptom relief and complication management</strong>
+              <a href="https://www.msdmanuals.com/professional/cardiovascular-disorders/cardiomyopathies/restrictive-cardiomyopathy" class="citation" target="_blank">4</a>.
+            </p>
+            <p class="text-gray-700">
+              <strong>Standard heart failure medications</strong> (ACE inhibitors, ARBs, many beta-blockers) are generally <strong>poorly tolerated and may be harmful</strong> due to vasodilatory effects in preload-dependent patients.
+            </p>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-8 mb-8">
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+              <h3 class="text-xl font-semibold mb-4 text-gray-900">
+                <i class="fas fa-pills text-blue-600 mr-2"></i>Medical Management
+              </h3>
+              <div class="space-y-4">
+                <div class="border-l-4 border-blue-500 pl-4">
+                  <h4 class="font-semibold text-gray-900">Diuretics</h4>
+                  <p class="text-sm text-gray-600 mb-2">Mainstay for fluid overload management</p>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Loop diuretics (furosemide) primary therapy<a href="https://www.msdmanuals.com/professional/cardiovascular-disorders/cardiomyopathies/restrictive-cardiomyopathy" class="citation" target="_blank">4</a>
+                    </li>
+                    <li>• Thiazides for resistant edema<a href="https://journals.lww.com/hfji/fulltext/2025/04001/2025_hfai_guidelines_for_diagnosis_and_management.1.aspx" class="citation" target="_blank">11</a>
+                    </li>
+                    <li>• Careful titration required</li>
+                  </ul>
+                </div>
+
+                <div class="border-l-4 border-red-500 pl-4">
+                  <h4 class="font-semibold text-gray-900">Anticoagulation</h4>
+                  <p class="text-sm text-gray-600 mb-2">For thromboembolic prevention</p>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Indicated for AF/flutter<a href="https://www.msdmanuals.com/professional/cardiovascular-disorders/cardiomyopathies/restrictive-cardiomyopathy" class="citation" target="_blank">4</a>
+                    </li>
+                    <li>• NOACs preferred over warfarin<a href="https://journals.lww.com/hfji/fulltext/2025/04001/2025_hfai_guidelines_for_diagnosis_and_management.1.aspx" class="citation" target="_blank">11</a>
+                    </li>
+                    <li>• Consider in high-risk conditions</li>
+                  </ul>
+                </div>
+
+                <div class="border-l-4 border-purple-500 pl-4">
+                  <h4 class="font-semibold text-gray-900">Antiarrhythmics</h4>
+                  <p class="text-sm text-gray-600 mb-2">Arrhythmia management</p>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Rate control for AF (cautious beta-blockers)<a href="https://www.msdmanuals.com/professional/cardiovascular-disorders/cardiomyopathies/restrictive-cardiomyopathy" class="citation" target="_blank">4</a>
+                    </li>
+                    <li>• Amiodarone for rhythm control<a href="https://journals.lww.com/hfji/fulltext/2025/04001/2025_hfai_guidelines_for_diagnosis_and_management.1.aspx" class="citation" target="_blank">11</a>
+                    </li>
+                    <li>• Catheter ablation in select cases</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+              <h3 class="text-xl font-semibold mb-4 text-gray-900">
+                <i class="fas fa-procedures text-green-600 mr-2"></i>Device &amp; Surgical Therapy
+              </h3>
+              <div class="space-y-4">
+                <div class="border-l-4 border-green-500 pl-4">
+                  <h4 class="font-semibold text-gray-900">Device Therapy</h4>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• <strong>Pacemakers:</strong> Symptomatic bradyarrhythmias, AV block<a href="https://www.sciencedirect.com/topics/medicine-and-dentistry/restrictive-cardiomyopathy" class="citation" target="_blank">133</a>
+                    </li>
+                    <li>• <strong>ICDs:</strong> Primary/secondary prevention for ventricular arrhythmias</li>
+                    <li>• <strong>CRT:</strong> Generally not beneficial (preserved systolic function)</li>
+                  </ul>
+                </div>
+
+                <div class="border-l-4 border-orange-500 pl-4">
+                  <h4 class="font-semibold text-gray-900">Cardiac Transplantation</h4>
+                  <p class="text-sm text-gray-600 mb-2">
+                    Definitive treatment for end-stage disease<a href="https://www.mdpi.com/2075-4418/13/24/3666" class="citation" target="_blank">1</a>
+                  </p>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Best chance for long-term survival</li>
+                    <li>• Early referral essential</li>
+                    <li>• Eligibility depends on comorbidities</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
+            <div class="bg-gray-50 px-6 py-4 border-b border-gray-200">
+              <h3 class="text-xl font-semibold text-gray-900">Management of Specific Etiologies</h3>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full">
+                <thead class="bg-gray-100">
+                  <tr>
+                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900">Etiology</th>
+                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900">Specific Management Strategies</th>
+                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900">Key Agents/Therapies</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                  <tr>
+                    <td class="px-6 py-4 font-medium text-gray-900">
+                      <strong>Transthyretin (ATTR) Amyloidosis</strong>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-600">TTR stabilizers, TTR gene silencers</td>
+                    <td class="px-6 py-4 text-sm text-gray-600">Tafamidis<a href="https://jrcd.eu/article/view/340.pdf" class="citation" target="_blank">9</a>, Patisiran, Inotersen, Diflunisal</td>
+                  </tr>
+                  <tr class="bg-gray-50">
+                    <td class="px-6 py-4 font-medium text-gray-900">
+                      <strong>Light-Chain (AL) Amyloidosis</strong>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-600">Chemotherapy to eradicate plasma cell dyscrasia</td>
+                    <td class="px-6 py-4 text-sm text-gray-600">Proteasome inhibitors (Bortezomib), Autologous stem cell transplant</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 font-medium text-gray-900">
+                      <strong>Cardiac Sarcoidosis</strong>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-600">Immunosuppressive therapy</td>
+                    <td class="px-6 py-4 text-sm text-gray-600">Corticosteroids (Prednisone), Methotrexate<a href="https://jrcd.eu/article/view/340.pdf" class="citation" target="_blank">9</a>
+                    </td>
+                  </tr>
+                  <tr class="bg-gray-50">
+                    <td class="px-6 py-4 font-medium text-gray-900">
+                      <strong>Iron Overload (Hemochromatosis)</strong>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-600">Iron depletion therapy</td>
+                    <td class="px-6 py-4 text-sm text-gray-600">Phlebotomy, Iron chelators (Deferoxamine)<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8932380/" class="citation" target="_blank">7</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 font-medium text-gray-900">
+                      <strong>Fabry Disease</strong>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-600">Enzyme replacement therapy (ERT)</td>
+                    <td class="px-6 py-4 text-sm text-gray-600">Agalsidase alfa/beta, Migalastat<a href="https://www.msdmanuals.com/professional/cardiovascular-disorders/cardiomyopathies/restrictive-cardiomyopathy" class="citation" target="_blank">4</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Prognosis Section -->
+      <section id="prognosis" class="py-16 px-6">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Prognosis</h2>
+
+          <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-lg mb-8">
+            <h3 class="text-lg font-semibold mb-3 text-red-900">
+              <i class="fas fa-exclamation-triangle mr-2"></i>General Prognosis: Often Poor
+            </h3>
+            <p class="text-red-800 mb-3">
+              The overall prognosis for restrictive cardiomyopathy is generally poor due to progressive diastolic dysfunction and limited efficacy of medical therapies<a href="https://www.pathologyoutlines.com/topic/heartidiopathicrestrictive.html" class="citation" target="_blank">192</a>.
+            </p>
+            <div class="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <strong class="text-red-900">Pediatric RCM:</strong>
+                <ul class="text-red-700 mt-1 space-y-1">
+                  <li>• Two-year survival &lt;50% without transplantation<a href="https://www.mdpi.com/2075-4418/13/24/3666" class="citation" target="_blank">74</a>
+                  </li>
+                  <li>• Rapid progression typical</li>
+                  <li>• High arrhythmia burden</li>
+                </ul>
+              </div>
+              <div>
+                <strong class="text-red-900">Adult RCM:</strong>
+                <ul class="text-red-700 mt-1 space-y-1">
+                  <li>• Untreated ATTR: 3-4 year median survival<a href="https://www.mdpi.com/2077-0383/14/13/4785" class="citation" target="_blank">213</a>
+                  </li>
+                  <li>• AL amyloidosis: More aggressive course</li>
+                  <li>• Progression to advanced HF common</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-8 mb-8">
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+              <h3 class="text-xl font-semibold mb-4 text-gray-900">
+                <i class="fas fa-chart-line text-blue-600 mr-2"></i>Factors Influencing Prognosis
+              </h3>
+              <div class="space-y-3">
+                <div class="flex items-start">
+                  <i class="fas fa-dna text-purple-600 mt-1 mr-2"></i>
+                  <div class="text-sm">
+                    <strong>Underlying etiology:</strong> Genetic forms, specific mutations
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-heart text-red-600 mt-1 mr-2"></i>
+                  <div class="text-sm">
+                    <strong>Diastolic dysfunction severity:</strong> Degree of ventricular stiffening
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-random text-orange-600 mt-1 mr-2"></i>
+                  <div class="text-sm">
+                    <strong>Arrhythmias:</strong> AF control, ventricular arrhythmias
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-lungs text-blue-600 mt-1 mr-2"></i>
+                  <div class="text-sm">
+                    <strong>Pulmonary hypertension:</strong> Reactive component development
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-procedures text-green-600 mt-1 mr-2"></i>
+                  <div class="text-sm">
+                    <strong>RV dysfunction:</strong> Right heart failure presence
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-user-clock text-teal-600 mt-1 mr-2"></i>
+                  <div class="text-sm">
+                    <strong>Age at diagnosis:</strong> Pediatric onset typically worse
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+              <h3 class="text-xl font-semibold mb-4 text-gray-900">
+                <i class="fas fa-baby text-pink-600 mr-2"></i>Pediatric Specific Considerations
+              </h3>
+              <div class="space-y-4">
+                <div class="bg-pink-50 p-4 rounded-lg">
+                  <h4 class="font-semibold text-pink-900 mb-2">Clinical Challenges</h4>
+                  <ul class="text-sm text-pink-800 space-y-1">
+                    <li>• Non-specific symptoms (poor feeding, failure to thrive)<a href="https://pubmed.ncbi.nlm.nih.gov/37646638/" class="citation" target="_blank">120</a>
+                    </li>
+                    <li>• Recurrent respiratory infections</li>
+                    <li>• Often genetic basis (sarcomeric, DES mutations)</li>
+                    <li>• Rapid progression to severe HF</li>
+                  </ul>
+                </div>
+
+                <div class="bg-orange-50 p-4 rounded-lg">
+                  <h4 class="font-semibold text-orange-900 mb-2">High-Risk Features</h4>
+                  <ul class="text-sm text-orange-800 space-y-1">
+                    <li>• Life-threatening arrhythmias</li>
+                    <li>• High sudden cardiac death risk</li>
+                    <li>• Pulmonary hypertension development</li>
+                    <li>• Thromboembolic complications</li>
+                  </ul>
+                </div>
+
+                <div class="bg-green-50 p-4 rounded-lg">
+                  <h4 class="font-semibold text-green-900 mb-2">Management Priority</h4>
+                  <ul class="text-sm text-green-800 space-y-1">
+                    <li>• Cardiac transplantation mainstay<a href="https://www.mdpi.com/2075-4418/13/24/3666" class="citation" target="_blank">74</a>
+                    </li>
+                    <li>• Early referral to pediatric HF centers</li>
+                    <li>• Family screening and genetic counseling</li>
+                    <li>• Timely evaluation and listing</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-lg border border-blue-200">
+            <h3 class="text-xl font-semibold mb-4 text-gray-900">
+              <i class="fas fa-lightbulb text-yellow-600 mr-2"></i>Prognostic Improvement Strategies
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6 text-sm">
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-2">Early Diagnosis</h4>
+                <p class="text-gray-700">Multimodality imaging, genetic testing, advanced biomarkers</p>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-2">Targeted Therapy</h4>
+                <p class="text-gray-700">Etiology-specific treatments, novel agents for amyloidosis</p>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-2">Transplant Timing</h4>
+                <p class="text-gray-700">Early referral, appropriate patient selection criteria</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Recent Advances Section -->
+      <section id="advances" class="py-16 px-6 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Recent Advances &amp; Future Directions</h2>
+
+          <div class="grid lg:grid-cols-2 gap-8 mb-8">
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+              <h3 class="text-xl font-semibold mb-4 text-gray-900">
+                <i class="fas fa-microscope text-blue-600 mr-2"></i>Diagnostic Imaging Advances
+              </h3>
+              <div class="space-y-4">
+                <div class="border-l-4 border-blue-500 pl-4">
+                  <h4 class="font-semibold text-gray-900">Cardiac MRI Innovation</h4>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Native T1 mapping for diffuse fibrosis<a href="https://www.imrpress.com/journal/RCM/26/6/10.31083/RCM36280/htm" class="citation" target="_blank">53</a>
+                    </li>
+                    <li>• Extracellular volume (ECV) quantification<a href="https://www.mdpi.com/2077-0383/13/23/7166" class="citation" target="_blank">55</a>
+                    </li>
+                    <li>• Pattern recognition for specific etiologies</li>
+                    <li>• Pre-LGE detection capabilities</li>
+                  </ul>
+                </div>
+
+                <div class="border-l-4 border-green-500 pl-4">
+                  <h4 class="font-semibold text-gray-900">Echocardiography Evolution</h4>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Speckle-tracking echocardiography (STE)<a href="https://www.imrpress.com/journal/RCM/26/6/10.31083/RCM36280/htm" class="citation" target="_blank">8</a>
+                    </li>
+                    <li>• Myocardial work indices</li>
+                    <li>• Subtle systolic dysfunction detection</li>
+                    <li>• Strain imaging advancements</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+              <h3 class="text-xl font-semibold mb-4 text-gray-900">
+                <i class="fas fa-flask text-purple-600 mr-2"></i>Novel Biomarkers
+              </h3>
+              <div class="space-y-4">
+                <div class="bg-purple-50 p-4 rounded-lg">
+                  <h4 class="font-semibold text-purple-900 mb-2">Serum Biomarkers</h4>
+                  <ul class="text-sm text-purple-800 space-y-1">
+                    <li>• Myocardial stress markers</li>
+                    <li>• Fibrosis-related proteins</li>
+                    <li>• Disease-specific markers (amyloidogenic chains)</li>
+                    <li>• Risk stratification tools</li>
+                  </ul>
+                </div>
+
+                <div class="bg-teal-50 p-4 rounded-lg">
+                  <h4 class="font-semibold text-teal-900 mb-2">Imaging Biomarkers</h4>
+                  <ul class="text-sm text-teal-800 space-y-1">
+                    <li>• Quantitative tissue characterization</li>
+                    <li>• Disease progression monitoring</li>
+                    <li>• Treatment response assessment</li>
+                    <li>• Early detection capabilities</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden mb-8">
+            <div class="bg-gray-50 px-6 py-4 border-b border-gray-200">
+              <h3 class="text-xl font-semibold text-gray-900">Evolving Management Strategies</h3>
+            </div>
+            <div class="p-6">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-3">
+                    <i class="fas fa-pills text-green-600 mr-2"></i>Disease-Specific Therapies
+                  </h4>
+                  <div class="space-y-3 text-sm">
+                    <div class="flex items-start">
+                      <span class="text-green-600 mr-2">•</span>
+                      <div>
+                        <strong>ATTR amyloidosis:</strong> TTR stabilizers (tafamidis), gene silencers<a href="https://jrcd.eu/article/view/340.pdf" class="citation" target="_blank">9</a>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <span class="text-blue-600 mr-2">•</span>
+                      <div>
+                        <strong>AL amyloidosis:</strong> Novel chemotherapy combinations
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <span class="text-purple-600 mr-2">•</span>
+                      <div>
+                        <strong>Sarcoidosis:</strong> Advanced immunosuppressive protocols<a href="https://jrcd.eu/article/view/340.pdf" class="citation" target="_blank">9</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-3">
+                    <i class="fas fa-dna text-orange-600 mr-2"></i>Future Directions
+                  </h4>
+                  <div class="space-y-3 text-sm">
+                    <div class="flex items-start">
+                      <span class="text-orange-600 mr-2">•</span>
+                      <div>
+                        <strong>Gene-based therapies:</strong> For genetic RCM forms
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <span class="text-teal-600 mr-2">•</span>
+                      <div>
+                        <strong>Anti-fibrotic agents:</strong> Clinical trials ongoing
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <span class="text-red-600 mr-2">•</span>
+                      <div>
+                        <strong>Mechanical support:</strong> Devices for RCM patients
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-3 gap-6">
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-200">
+              <h3 class="text-lg font-semibold mb-3 text-gray-900">
+                <i class="fas fa-search text-blue-600 mr-2"></i>Research Focus
+              </h3>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li>• Systematic reviews improving diagnostic accuracy</li>
+                <li>• Meta-analyses of imaging biomarkers</li>
+                <li>• Genetic studies expanding gene associations</li>
+                <li>• Standardized diagnostic criteria development</li>
+              </ul>
+            </div>
+
+            <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-lg border border-green-200">
+              <h3 class="text-lg font-semibold mb-3 text-gray-900">
+                <i class="fas fa-chart-line text-green-600 mr-2"></i>Translational Research
+              </h3>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li>• Molecular mechanism understanding</li>
+                <li>• Translational research emphasis</li>
+                <li>• Well-designed clinical trials</li>
+                <li>• Precision medicine approaches</li>
+              </ul>
+            </div>
+
+            <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-lg border border-purple-200">
+              <h3 class="text-lg font-semibold mb-3 text-gray-900">
+                <i class="fas fa-rocket text-purple-600 mr-2"></i>Clinical Impact
+              </h3>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li>• Earlier and more accurate diagnoses</li>
+                <li>• Improved patient management</li>
+                <li>• Enhanced risk stratification</li>
+                <li>• Better treatment outcomes</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <img src="https://kimi-web-img.moonshot.cn/img/f6publishing.blob.core.windows.net/f262590be22381f8f26eb1594e8fc02292df3cf8.png" alt="Cardiac MRI showing advanced tissue characterization" class="w-full rounded-lg shadow-lg" size="large" aspect="wide" style="photo" query="cardiac MRI tissue characterization" referrerpolicy="no-referrer" data-modified="1" data-score="11592.00"/>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pathophysiology Diagram -->
+      <section class="py-16 px-6">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="serif text-3xl font-bold text-gray-900 mb-8 text-center">Pathophysiology of Restrictive Cardiomyopathy</h2>
+          <div class="mermaid-container">
+            <div class="mermaid-controls">
+              <button class="mermaid-control-btn zoom-in" title="放大">
+                <i class="fas fa-search-plus"></i>
+              </button>
+              <button class="mermaid-control-btn zoom-out" title="缩小">
+                <i class="fas fa-search-minus"></i>
+              </button>
+              <button class="mermaid-control-btn reset-zoom" title="重置">
+                <i class="fas fa-expand-arrows-alt"></i>
+              </button>
+              <button class="mermaid-control-btn fullscreen" title="全屏查看">
+                <i class="fas fa-expand"></i>
+              </button>
+            </div>
+            <div class="mermaid" id="pathophysiology-diagram">
+              graph TD
+              A[&#34;Genetic Mutations
+              <br/>TNNI3, MYH7, DES&#34;] --&gt; B[&#34;Myocardial Stiffness
+              <br/>Increased ventricular stiffness&#34;]
+              C[&#34;Infiltrative Diseases
+              <br/>Amyloidosis, Sarcoidosis&#34;] --&gt; B
+              D[&#34;Storage Disorders
+              <br/>Hemochromatosis, Fabry&#34;] --&gt; B
+              E[&#34;Fibrotic Processes
+              <br/>Radiation, Scleroderma&#34;] --&gt; B
+              F[&#34;Endomyocardial
+              <br/>Hypereosinophilia, EMF&#34;] --&gt; B
+
+              B --&gt; G[&#34;Impaired Diastolic Filling
+              <br/>Reduced ventricular compliance&#34;]
+              G --&gt; H[&#34;Elevated Ventricular Pressures
+              <br/>Increased end-diastolic pressures&#34;]
+              H --&gt; I[&#34;Biatrial Enlargement
+              <br/>Chronic pressure overload&#34;]
+              H --&gt; J[&#34;Pulmonary Congestion
+              <br/>Elevated left-sided pressures&#34;]
+              H --&gt; K[&#34;Systemic Congestion
+              <br/>Elevated right-sided pressures&#34;]
+
+              I --&gt; L[&#34;Atrial Arrhythmias
+              <br/>AF, Atrial Flutter&#34;]
+              J --&gt; M[&#34;Dyspnea, Orthopnea
+              <br/>Pulmonary symptoms&#34;]
+              K --&gt; N[&#34;Edema, Ascites
+              <br/>Hepatomegaly, JVD&#34;]
+
+              L --&gt; O[&#34;Thromboembolic Risk
+              <br/>Stroke, Systemic embolism&#34;]
+              M --&gt; P[&#34;Exercise Intolerance
+              <br/>Limited cardiac output reserve&#34;]
+              N --&gt; P
+
+              style A fill:#e1f5fe,stroke:#1a237e,stroke-width:2px,color:#000
+              style B fill:#f3e5f5,stroke:#4a148c,stroke-width:2px,color:#000
+              style G fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#000
+              style O fill:#ffebee,stroke:#b71c1c,stroke-width:2px,color:#000
+              style P fill:#ffebee,stroke:#b71c1c,stroke-width:2px,color:#000
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+          <h3 class="text-2xl font-semibold mb-4">Restrictive Cardiomyopathy</h3>
+          <p class="text-gray-300 mb-6">
+            A comprehensive review of pathophysiology, diagnosis, and management strategies for cardiology board review and clinical practice.
+          </p>
+          <div class="flex justify-center space-x-6 text-sm text-gray-400">
+            <span>Evidence-based medicine</span>
+            <span>•</span>
+            <span>Current guidelines</span>
+            <span>•</span>
+            <span>Clinical excellence</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#2563eb',
+                primaryTextColor: '#1f2937',
+                primaryBorderColor: '#1d4ed8',
+                lineColor: '#64748b',
+                secondaryColor: '#f8fafc',
+                tertiaryColor: '#e2e8f0',
+                background: '#ffffff',
+                mainBkg: '#ffffff',
+                secondaryBkg: '#f8fafc',
+                tertiaryBkg: '#e2e8f0',
+                primaryTextColor: '#1f2937',
+                secondaryTextColor: '#374151',
+                tertiaryTextColor: '#6b7280',
+                lineColor: '#64748b',
+                textColor: '#1f2937',
+                nodeBkg: '#ffffff',
+                nodeBorder: '#2563eb',
+                clusterBkg: '#f8fafc',
+                clusterBorder: '#d1d5db',
+                defaultLinkColor: '#64748b',
+                titleColor: '#1f2937',
+                edgeLabelBackground: '#ffffff',
+                nodeTextColor: '#1f2937',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '14px'
+            },
+            flowchart: {
+                useMaxWidth: false,
+                htmlLabels: true,
+                curve: 'basis',
+                padding: 20
+            }
+        });
+
+        // Initialize Mermaid Controls for zoom and pan
+        function initializeMermaidControls() {
+            const containers = document.querySelectorAll('.mermaid-container');
+
+            containers.forEach(container => {
+            const mermaidElement = container.querySelector('.mermaid');
+            let scale = 1;
+            let isDragging = false;
+            let startX, startY, translateX = 0, translateY = 0;
+
+            // 触摸相关状态
+            let isTouch = false;
+            let touchStartTime = 0;
+            let initialDistance = 0;
+            let initialScale = 1;
+            let isPinching = false;
+
+            // Zoom controls
+            const zoomInBtn = container.querySelector('.zoom-in');
+            const zoomOutBtn = container.querySelector('.zoom-out');
+            const resetBtn = container.querySelector('.reset-zoom');
+            const fullscreenBtn = container.querySelector('.fullscreen');
+
+            function updateTransform() {
+                mermaidElement.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+
+                if (scale > 1) {
+                container.classList.add('zoomed');
+                } else {
+                container.classList.remove('zoomed');
+                }
+
+                mermaidElement.style.cursor = isDragging ? 'grabbing' : 'grab';
+            }
+
+            if (zoomInBtn) {
+                zoomInBtn.addEventListener('click', () => {
+                scale = Math.min(scale * 1.25, 4);
+                updateTransform();
+                });
+            }
+
+            if (zoomOutBtn) {
+                zoomOutBtn.addEventListener('click', () => {
+                scale = Math.max(scale / 1.25, 0.3);
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+                updateTransform();
+                });
+            }
+
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                scale = 1;
+                translateX = 0;
+                translateY = 0;
+                updateTransform();
+                });
+            }
+
+            if (fullscreenBtn) {
+                fullscreenBtn.addEventListener('click', () => {
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                } else if (container.msRequestFullscreen) {
+                    container.msRequestFullscreen();
+                }
+                });
+            }
+
+            // Mouse Events
+            mermaidElement.addEventListener('mousedown', (e) => {
+                if (isTouch) return; // 如果是触摸设备，忽略鼠标事件
+
+                isDragging = true;
+                startX = e.clientX - translateX;
+                startY = e.clientY - translateY;
+                mermaidElement.style.cursor = 'grabbing';
+                updateTransform();
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging && !isTouch) {
+                translateX = e.clientX - startX;
+                translateY = e.clientY - startY;
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseleave', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            // 获取两点之间的距离
+            function getTouchDistance(touch1, touch2) {
+                return Math.hypot(
+                touch2.clientX - touch1.clientX,
+                touch2.clientY - touch1.clientY
+                );
+            }
+
+            // Touch Events - 触摸事件处理
+            mermaidElement.addEventListener('touchstart', (e) => {
+                isTouch = true;
+                touchStartTime = Date.now();
+
+                if (e.touches.length === 1) {
+                // 单指拖动
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+
+                } else if (e.touches.length === 2) {
+                // 双指缩放
+                isPinching = true;
+                isDragging = false;
+
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                initialDistance = getTouchDistance(touch1, touch2);
+                initialScale = scale;
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchmove', (e) => {
+                if (e.touches.length === 1 && isDragging && !isPinching) {
+                // 单指拖动
+                const touch = e.touches[0];
+                translateX = touch.clientX - startX;
+                translateY = touch.clientY - startY;
+                updateTransform();
+
+                } else if (e.touches.length === 2 && isPinching) {
+                // 双指缩放
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                const currentDistance = getTouchDistance(touch1, touch2);
+
+                if (initialDistance > 0) {
+                    const newScale = Math.min(Math.max(
+                    initialScale * (currentDistance / initialDistance),
+                    0.3
+                    ), 4);
+                    scale = newScale;
+                    updateTransform();
+                }
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchend', (e) => {
+                // 重置状态
+                if (e.touches.length === 0) {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                // 延迟重置isTouch，避免鼠标事件立即触发
+                setTimeout(() => {
+                    isTouch = false;
+                }, 100);
+                } else if (e.touches.length === 1 && isPinching) {
+                // 从双指变为单指，切换为拖动模式
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+                }
+
+                updateTransform();
+            });
+
+            mermaidElement.addEventListener('touchcancel', (e) => {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                setTimeout(() => {
+                isTouch = false;
+                }, 100);
+
+                updateTransform();
+            });
+
+            // Enhanced wheel zoom with better center point handling
+            container.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                const rect = container.getBoundingClientRect();
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const delta = e.deltaY > 0 ? 0.9 : 1.1;
+                const newScale = Math.min(Math.max(scale * delta, 0.3), 4);
+
+                // Adjust translation to zoom towards center
+                if (newScale !== scale) {
+                const scaleDiff = newScale / scale;
+                translateX = translateX * scaleDiff;
+                translateY = translateY * scaleDiff;
+                scale = newScale;
+
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+
+                updateTransform();
+                }
+            });
+
+            // Initialize display
+            updateTransform();
+            });
+        }
+
+        // Initialize mermaid controls after page loads
+        setTimeout(initializeMermaidControls, 1000);
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight active section in TOC
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.toc-fixed a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-blue-800', 'font-semibold');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('text-blue-800', 'font-semibold');
+                }
+            });
+        });
+    </script>
+  
+
+</body></html>

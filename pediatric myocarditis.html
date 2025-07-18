@@ -1,0 +1,1250 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Pediatric Myocarditis: A Cardiology Board Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --accent: #f59e0b;
+            --neutral: #1f2937;
+            --base-100: #ffffff;
+            --base-200: #f8fafc;
+            --base-300: #e2e8f0;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--neutral);
+        }
+        
+        .serif {
+            font-family: 'Crimson Text', serif;
+        }
+        
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            z-index: 1000;
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .content-wrapper {
+            margin-left: 280px;
+            min-height: 100vh;
+            transition: margin-left 0.3s ease;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(45deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.7));
+            backdrop-filter: blur(2px);
+        }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+        
+        .citation {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted var(--primary);
+            transition: all 0.2s ease;
+        }
+        
+        .citation:hover {
+            background-color: rgba(37, 99, 235, 0.1);
+            border-bottom-style: solid;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-section .serif {
+                font-size: 2.25rem;
+                line-height: 2.5rem;
+            }
+            
+            .hero-section p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .toc-fixed {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .toc-fixed.open {
+                transform: translateX(0);
+            }
+            
+            .content-wrapper {
+                margin-left: 0;
+            }
+        }
+        
+        .toc-link {
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            padding: 0.5rem 0;
+            border-left: 2px solid transparent;
+            padding-left: 1rem;
+            transition: all 0.2s ease;
+        }
+        
+        .toc-link:hover,
+        .toc-link.active {
+            color: white;
+            border-left-color: var(--accent);
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(4px);
+        }
+        
+        .toc-link.sub {
+            font-size: 0.9rem;
+            padding-left: 2rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+            margin: 3rem 0;
+            border-radius: 1px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+        }
+        
+        .data-table {
+            background: white;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .data-table th {
+            background: linear-gradient(135deg, var(--primary), #3b82f6);
+            color: white;
+            padding: 1rem;
+            font-weight: 600;
+        }
+        
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--base-300);
+        }
+        
+        .data-table tr:nth-child(even) {
+            background: var(--base-200);
+        }
+        
+        .executive-summary {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 1px solid #bfdbfe;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--primary);
+        }
+        
+        .toggle-toc {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1100;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (max-width: 1024px) {
+            .toggle-toc {
+                display: block;
+            }
+        }
+    </style>
+  </head>
+
+  <body class="bg-gray-50">
+    <!-- Toggle TOC Button -->
+    <button class="toggle-toc" onclick="toggleTOC()">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Fixed Table of Contents -->
+    <nav class="toc-fixed" id="toc">
+      <div class="mb-6">
+        <h3 class="text-white font-bold text-lg mb-4">Table of Contents</h3>
+        <a href="#executive-summary" class="toc-link">Executive Summary</a>
+        <a href="#etiology" class="toc-link">1. Etiology &amp; Pathogenesis</a>
+        <a href="#etiology-agents" class="toc-link sub">1.1 Etiological Agents</a>
+        <a href="#etiology-mechanisms" class="toc-link sub">1.2 Pathophysiological Mechanisms</a>
+        <a href="#etiology-sex" class="toc-link sub">1.3 Sex Differences</a>
+        <a href="#clinical" class="toc-link">2. Clinical Presentation</a>
+        <a href="#clinical-spectrum" class="toc-link sub">2.1 Clinical Spectrum</a>
+        <a href="#clinical-workup" class="toc-link sub">2.2 Diagnostic Workup</a>
+        <a href="#clinical-cmr" class="toc-link sub">2.3 Advanced Imaging</a>
+        <a href="#clinical-emb" class="toc-link sub">2.4 Endomyocardial Biopsy</a>
+        <a href="#management" class="toc-link">3. Management &amp; Treatment</a>
+        <a href="#management-supportive" class="toc-link sub">3.1 Supportive Care</a>
+        <a href="#management-immunomod" class="toc-link sub">3.2 Immunomodulatory Therapy</a>
+        <a href="#management-antiviral" class="toc-link sub">3.3 Antiviral Therapy</a>
+        <a href="#management-arrhythmias" class="toc-link sub">3.4 Arrhythmia Management</a>
+        <a href="#management-mcs" class="toc-link sub">3.5 Mechanical Support</a>
+        <a href="#prognosis" class="toc-link">4. Prognosis &amp; Outcomes</a>
+        <a href="#prognosis-short" class="toc-link sub">4.1 Short-term Prognosis</a>
+        <a href="#prognosis-predictors" class="toc-link sub">4.2 Predictors of Outcomes</a>
+        <a href="#prognosis-scd" class="toc-link sub">4.3 Sudden Cardiac Death</a>
+        <a href="#prognosis-recovery" class="toc-link sub">4.4 Ventricular Recovery</a>
+        <a href="#comparison" class="toc-link">5. Comparison with Adults</a>
+        <a href="#comparison-etiology" class="toc-link sub">5.1 Etiology Differences</a>
+        <a href="#comparison-clinical" class="toc-link sub">5.2 Clinical Variations</a>
+        <a href="#comparison-management" class="toc-link sub">5.3 Management Differences</a>
+        <a href="#comparison-prognosis" class="toc-link sub">5.4 Prognostic Differences</a>
+        <a href="#recent" class="toc-link">6. Recent Research</a>
+        <a href="#recent-studies" class="toc-link sub">6.1 Key Findings</a>
+        <a href="#recent-diagnostics" class="toc-link sub">6.2 Diagnostic Updates</a>
+        <a href="#recent-treatment" class="toc-link sub">6.3 Evolving Strategies</a>
+        <a href="#recent-covid" class="toc-link sub">6.4 COVID-19 Impact</a>
+        <a href="#recent-guidelines" class="toc-link sub">6.5 Expert Consensus</a>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-overlay">
+          <div class="container mx-auto px-6 py-16">
+            <div class="bento-grid">
+              <div class="space-y-8">
+                <div class="space-y-4">
+                  <h1 class="serif text-5xl md:text-6xl font-bold text-white leading-tight">
+                    <em class="text-amber-300">Pediatric Myocarditis</em>
+                    <br/>
+                    A Cardiology Board Review
+                  </h1>
+                  <p class="text-xl text-gray-200 max-w-2xl">
+                    Comprehensive analysis of inflammatory heart disease in children: from viral pathogenesis to advanced imaging and evolving therapeutic strategies.
+                  </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+                  <div class="stat-card bg-white/10 backdrop-blur border border-white/20 text-white">
+                    <div class="text-3xl font-bold text-amber-300">6-8%</div>
+                    <div class="text-sm text-gray-300">In-hospital mortality</div>
+                  </div>
+                  <div class="stat-card bg-white/10 backdrop-blur border border-white/20 text-white">
+                    <div class="text-3xl font-bold text-amber-300">30%</div>
+                    <div class="text-sm text-gray-300">Progress to DCM</div>
+                  </div>
+                  <div class="stat-card bg-white/10 backdrop-blur border border-white/20 text-white">
+                    <div class="text-3xl font-bold text-amber-300">87.5%</div>
+                    <div class="text-sm text-gray-300">CMR sensitivity</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="relative">
+                <img src="https://kimi-web-img.moonshot.cn/img/dfzljdn9uc3pi.cloudfront.net/68706d6c47221c5efc1eb720ae21083530d895d5.jpg" alt="Medical illustration of pediatric myocarditis" class="w-full h-96 object-cover rounded-lg shadow-2xl" size="large" aspect="wide" query="pediatric myocarditis medical illustration" referrerpolicy="no-referrer" data-modified="1" data-score="11585.00"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Executive Summary -->
+      <section id="executive-summary" class="py-16">
+        <div class="container mx-auto px-6">
+          <div class="executive-summary">
+            <h2 class="serif text-3xl font-bold text-gray-900 mb-6">Executive Summary</h2>
+            <div class="prose prose-lg max-w-none">
+              <p class="text-lg leading-relaxed mb-4">
+                Pediatric myocarditis represents a complex inflammatory condition of the heart muscle with highly variable clinical presentation, ranging from subclinical disease to fulminant heart failure and sudden cardiac death. This comprehensive review synthesizes current evidence on etiology, diagnosis, management, and outcomes.
+              </p>
+
+              <div class="grid md:grid-cols-2 gap-6 mt-8">
+                <div class="space-y-4">
+                  <h3 class="font-semibold text-gray-900">Key Findings</h3>
+                  <ul class="space-y-2 text-gray-700">
+                    <li class="flex items-start">
+                      <i class="fas fa-virus text-blue-500 mt-1 mr-2 flex-shrink-0"></i>
+                      <span>Viral infections, particularly <strong>Parvovirus B19</strong> and enteroviruses, remain the predominant cause</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-heart text-red-500 mt-1 mr-2 flex-shrink-0"></i>
+                      <span><strong>Cardiac MRI</strong> with Lake Louise Criteria achieves 87.5% diagnostic sensitivity</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-chart-line text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                      <span>Novel biomarkers <strong>SII &gt;1050</strong> and <strong>SIRI &gt;1.9</strong> predict fulminant disease</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-shield-alt text-purple-500 mt-1 mr-2 flex-shrink-0"></i>
+                      <span><strong>Immunomodulatory therapy</strong> shows promise in severe pediatric cases</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="space-y-4">
+                  <h3 class="font-semibold text-gray-900">Clinical Implications</h3>
+                  <ul class="space-y-2 text-gray-700">
+                    <li class="flex items-start">
+                      <i class="fas fa-exclamation-triangle text-amber-500 mt-1 mr-2 flex-shrink-0"></i>
+                      <span>High clinical suspicion required due to non-specific presentations</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-stethoscope text-blue-500 mt-1 mr-2 flex-shrink-0"></i>
+                      <span>Early recognition and supportive care critical for outcomes</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-microscope text-green-500 mt-1 mr-2 flex-shrink-0"></i>
+                      <span>Advanced imaging reduces need for invasive biopsy</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i class="fas fa-clock text-red-500 mt-1 mr-2 flex-shrink-0"></i>
+                      <span>Long-term follow-up essential due to risk of DCM progression</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1: Etiology and Pathogenesis -->
+      <section id="etiology" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">1. Etiology and Pathogenesis</h2>
+
+          <div id="etiology-agents" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">1.1 Common Etiological Agents</h3>
+            <p class="text-gray-700 mb-6">
+              Myocarditis in children is predominantly caused by <strong>viral infections</strong>, with a diverse range of other infectious and non-infectious agents implicated <a href="https://www.uptodate.com/contents/clinical-manifestations-and-diagnosis-of-myocarditis-in-children" class="citation">[1]</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10008072/" class="citation">[2]</a>. Recent data suggest <strong>Parvovirus B19 is the most common virus isolated</strong> in children with myocarditis <a href="https://www.researchgate.net/publication/378515113_Myocarditis_in_childrenEtiology_Pathogenesis_Epidemiology_Clinical_presentation" class="citation">[131]</a>.
+            </p>
+
+            <div class="data-table mb-8">
+              <table class="w-full">
+                <thead>
+                  <tr>
+                    <th class="text-left">Etiological Category</th>
+                    <th class="text-left">Specific Agents/Examples</th>
+                    <th class="text-left">Clinical Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="font-semibold">Viral</td>
+                    <td>Enteroviruses, Parvovirus B19, HHV-6, Adenovirus, SARS-CoV-2</td>
+                    <td>Most common cause; PVB19 predominant in recent reports</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">Bacterial</td>
+                    <td><em>H. influenzae</em>, <em>Streptococcus</em>, Lyme carditis</td>
+                    <td>Less common than viral causes</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">Fungal</td>
+                    <td><em>Histoplasma</em>, <em>Candida</em></td>
+                    <td>Rare, typically in immunocompromised hosts</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">Protozoal</td>
+                    <td><em>T. cruzi</em> (Chagas), Rickettsial species</td>
+                    <td>Regionally endemic diseases</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">Non-Infectious</td>
+                    <td>Autoimmune diseases, Drug reactions, Toxins</td>
+                    <td>Diverse mechanisms; giant cell myocarditis has poor prognosis</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">COVID-19 Related</td>
+                    <td>SARS-CoV-2 infection, mRNA vaccines</td>
+                    <td>Higher risk from infection vs. vaccine in children</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="highlight-box">
+              <h4 class="font-semibold text-gray-900 mb-2"><i class="fas fa-info-circle text-amber-500 mr-2"></i>Key Insight</h4>
+              <p class="text-gray-700">
+                Myocarditis shows <strong>bimodal age distribution</strong> with peaks in infancy and adolescence, and higher incidence in males (1.5:1 to 1.8:1 ratio) and Black/Hispanic children <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10008072/" class="citation">[5]</a>.
+              </p>
+            </div>
+          </div>
+
+          <div id="etiology-mechanisms" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">1.2 Pathophysiological Mechanisms</h3>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-4">Viral Entry and Replication</h4>
+                <p class="text-gray-700 mb-4">
+                  Specific cellular receptors facilitate viral entry: <strong>Coxsackie-adenoviral receptor (CAR)</strong> for enteroviruses and <strong>erythrocyte P-antigen receptor</strong> for Parvovirus B19 <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5715726/" class="citation">[4]</a>.
+                </p>
+
+                <h4 class="font-semibold text-gray-900 mb-4">Innate Immune Activation</h4>
+                <p class="text-gray-700">
+                  Infected cells release DAMPs, triggering pro-inflammatory cytokines (TNF-α, IL-1β, IL-6) and recruiting neutrophils and monocytes <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10008072/" class="citation">[2]</a>.
+                </p>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-4">Adaptive Immune Response</h4>
+                <p class="text-gray-700 mb-4">
+                  Antigen-specific T-lymphocytes (CD4+, CD8+) and B-lymphocytes contribute to viral clearance but also cause myocardial damage through cytokine production and direct cytotoxicity.
+                </p>
+
+                <h4 class="font-semibold text-gray-900 mb-4">Progression to DCM</h4>
+                <p class="text-gray-700">
+                  Chronic inflammation leads to progressive fibrosis, adverse ventricular remodeling, and development of <strong>dilated cardiomyopathy</strong>
+                  <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5715726/" class="citation">[4]</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div id="etiology-sex" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">1.3 Sex Differences and Immune Response</h3>
+            <p class="text-gray-700 mb-6">
+              Myocarditis exhibits <strong>male predominance</strong> (1.5:1 to 1.8:1 ratio) across pediatric age groups <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10008072/" class="citation">[5]</a>. Experimental evidence suggests <strong>estrogen may have cardioprotective effects</strong> by attenuating inflammatory responses, while <strong>androgens might exacerbate inflammation</strong>
+              <a href="https://www.europeanreview.org/wp/wp-content/uploads/11479-11495.pdf" class="citation">[133]</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Section 2: Clinical Presentation and Diagnosis -->
+      <section id="clinical" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">2. Clinical Presentation and Diagnosis</h2>
+
+          <div id="clinical-spectrum" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">2.1 Spectrum of Clinical Manifestations</h3>
+            <p class="text-gray-700 mb-6">
+              Clinical presentation is <strong>highly variable</strong>, ranging from asymptomatic to fulminant heart failure and sudden cardiac death <a href="https://www.uptodate.com/contents/clinical-manifestations-and-diagnosis-of-myocarditis-in-children" class="citation">[1]</a>. Up to 83% of children require multiple healthcare visits before diagnosis <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9760052/" class="citation">[7]</a>.
+            </p>
+
+            <div class="data-table mb-8">
+              <table class="w-full">
+                <thead>
+                  <tr>
+                    <th class="text-left">Presentation Type</th>
+                    <th class="text-left">Symptoms &amp; Signs</th>
+                    <th class="text-left">Key Characteristics</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="font-semibold">Subclinical</td>
+                    <td>Incidental ECG/Echo abnormalities</td>
+                    <td>Discovered during evaluation for other conditions</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">Acute Non-Fulminant</td>
+                    <td>Fever, fatigue, feeding intolerance, tachycardia</td>
+                    <td>Most common presentation; symptoms develop over days-weeks</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">Fulminant</td>
+                    <td>Sudden severe heart failure, cardiogenic shock</td>
+                    <td>Rapid onset within 1-2 days; better recovery if survived</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">Chronic/DCM</td>
+                    <td>Persistent heart failure, exercise intolerance</td>
+                    <td>May represent progression from undiagnosed acute cases</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">Arrhythmia-Predominant</td>
+                    <td>Palpitations, syncope, sustained VT</td>
+                    <td>Can occur without significant ventricular dysfunction</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">Sudden Cardiac Death</td>
+                    <td>Often no preceding symptoms</td>
+                    <td>Diagnosis often made post-mortem</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="clinical-workup" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">2.2 Diagnostic Workup</h3>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+              <div class="stat-card">
+                <h4 class="font-semibold text-gray-900 mb-3"><i class="fas fa-heartbeat text-red-500 mr-2"></i>Cardiac Biomarkers</h4>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Troponin I/T (myocardial injury)</li>
+                  <li>• BNP/NT-proBNP (heart failure)</li>
+                  <li>• Elevated but non-specific</li>
+                </ul>
+              </div>
+
+              <div class="stat-card">
+                <h4 class="font-semibold text-gray-900 mb-3"><i class="fas fa-wave-square text-blue-500 mr-2"></i>Electrocardiography</h4>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Sinus tachycardia</li>
+                  <li>• ST-T wave changes</li>
+                  <li>• Arrhythmias, low voltage</li>
+                </ul>
+              </div>
+
+              <div class="stat-card">
+                <h4 class="font-semibold text-gray-900 mb-3"><i class="fas fa-heart text-green-500 mr-2"></i>Echocardiography</h4>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• LV dysfunction/dilation</li>
+                  <li>• Regional wall motion abnormalities</li>
+                  <li>• Myocardial strain imaging</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div id="clinical-cmr" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">2.3 Advanced Imaging: Cardiac MRI</h3>
+
+            <div class="highlight-box mb-8">
+              <h4 class="font-semibold text-gray-900 mb-2"><i class="fas fa-magnet text-blue-500 mr-2"></i>Revised Lake Louise Criteria (2018)</h4>
+              <p class="text-gray-700">
+                Requires <strong>one T1-based criterion AND one T2-based criterion</strong> for diagnosis, achieving 87.5% sensitivity with parametric mapping <a href="https://link.springer.com/article/10.1007/s40119-023-00309-6" class="citation">[69]</a>.
+              </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-4">T1-Based Criteria</h4>
+                <ul class="space-y-2 text-gray-700">
+                  <li>• Prolonged native T1 mapping</li>
+                  <li>• Elevated ECV fraction (≥35% linked to MACE)</li>
+                  <li>• Late gadolinium enhancement (non-ischemic pattern)</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-4">T2-Based Criteria</h4>
+                <ul class="space-y-2 text-gray-700">
+                  <li>• Increased T2 relaxation time</li>
+                  <li>• High signal intensity on T2-STIR</li>
+                  <li>• Elevated myocardium:skeletal muscle ratio</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div id="clinical-emb" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">2.4 Endomyocardial Biopsy</h3>
+            <p class="text-gray-700 mb-6">
+              EMB remains the <strong>historical gold standard</strong> but has limited routine use due to invasiveness and sampling error (sensitivity 10-35% with &lt;5 samples) <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6352488/" class="citation">[10]</a>.
+            </p>
+
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+              <h4 class="font-semibold text-blue-900 mb-2">Current Indications for EMB</h4>
+              <ul class="text-blue-800 space-y-1">
+                <li>• Rapidly progressive heart failure unresponsive to therapy</li>
+                <li>• Suspected giant cell or eosinophilic myocarditis</li>
+                <li>• Life-threatening arrhythmias of unknown etiology</li>
+                <li>• Failure to improve with standard care</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Section 3: Management and Treatment -->
+      <section id="management" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">3. Management and Treatment</h2>
+
+          <div id="management-supportive" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">3.1 Supportive Care and Hemodynamics</h3>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-4">Respiratory Support</h4>
+                <ul class="space-y-2 text-gray-700">
+                  <li>• Maintain O₂ saturations ≥90%</li>
+                  <li>• NIPPV (CPAP) for respiratory distress</li>
+                  <li>• High-risk intubation: ketamine preferred</li>
+                  <li>• Consider pre-induction inotropes</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-4">Hemodynamic Management</h4>
+                <ul class="space-y-2 text-gray-700">
+                  <li>• <strong>Milrinone</strong>: First-line inotrope (0.5-1 mcg/kg/min)</li>
+                  <li>• Judicious fluid management</li>
+                  <li>• Vasopressors for vasoplegic shock</li>
+                  <li>• ECMO for refractory cases</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div id="management-immunomod" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">3.2 Immunomodulatory Therapies</h3>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+              <div class="stat-card">
+                <h4 class="font-semibold text-gray-900 mb-3"><i class="fas fa-syringe text-blue-500 mr-2"></i>IVIG Therapy</h4>
+                <p class="text-sm text-gray-700 mb-3">
+                  Common in pediatric practice; recent meta-analysis shows improved LVEF and reduced mortality <a href="https://journals.viamedica.pl/cardiology_journal/article/view/95175" class="citation">[96]</a>.
+                </p>
+                <div class="text-xs text-gray-600">
+                  <strong>Mechanisms:</strong> Viral neutralization, cytokine modulation, complement inhibition
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <h4 class="font-semibold text-gray-900 mb-3"><i class="fas fa-pills text-green-500 mr-2"></i>Corticosteroids</h4>
+                <p class="text-sm text-gray-700 mb-3">
+                  Indicated for immune-mediated forms (giant cell, eosinophilic myocarditis) and severe fulminant cases.
+                </p>
+                <div class="text-xs text-gray-600">
+                  <strong>Considerations:</strong> May impair viral clearance if given too early
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="management-antiviral" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">3.3 Antiviral and Specific Therapies</h3>
+            <p class="text-gray-700 mb-6">
+              Specific antiviral therapy limited to identified pathogens: <strong>HIV, CMV, HHV-6</strong>. No proven agents for common causes like Parvovirus B19 or enteroviruses <a href="https://www.revespcardiol.org/en-diagnosis-and-treatment-of-myocarditis-a-articulo-S1885585724001567" class="citation">[92]</a>.
+            </p>
+          </div>
+
+          <div id="management-arrhythmias" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">3.4 Management of Arrhythmias</h3>
+
+            <div class="grid md:grid-cols-3 gap-4 mb-8">
+              <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                <h5 class="font-semibold text-red-900 mb-2">Unstable Tachyarrhythmias</h5>
+                <p class="text-sm text-red-800">Immediate cardioversion/defibrillation</p>
+              </div>
+              <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                <h5 class="font-semibold text-yellow-900 mb-2">Stable Tachyarrhythmias</h5>
+                <p class="text-sm text-yellow-800">Antiarrhythmics (amiodarone, lidocaine)</p>
+              </div>
+              <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <h5 class="font-semibold text-blue-900 mb-2">Bradyarrhythmias</h5>
+                <p class="text-sm text-blue-800">Temporary pacing if hemodynamically significant</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="management-mcs" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">3.5 Mechanical Circulatory Support</h3>
+            <div class="highlight-box">
+              <h4 class="font-semibold text-gray-900 mb-2"><i class="fas fa-heart-pulse text-red-500 mr-2"></i>ECMO Considerations</h4>
+              <p class="text-gray-700 mb-4">
+                11-55% of pediatric myocarditis patients may require MCS. Early initiation crucial before irreversible end-organ damage <a href="https://www.evelinalondon.nhs.uk/resources/our-services/hospital/south-thames-retrieval-service/Myocarditis.pdf" class="citation">[31]</a>.
+              </p>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h5 class="font-semibold text-gray-900 mb-2">Indications</h5>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• Refractory cardiogenic shock</li>
+                    <li>• Life-threatening arrhythmias</li>
+                    <li>• Cardiac arrest</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 class="font-semibold text-gray-900 mb-2">Goals</h5>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• Bridge to recovery</li>
+                    <li>• Bridge to transplantation</li>
+                    <li>• Stabilization during arrhythmias</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Section 4: Prognosis and Outcomes -->
+      <section id="prognosis" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">4. Prognosis and Outcomes</h2>
+
+          <div id="prognosis-short" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">4.1 Short-term and Long-term Prognosis</h3>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+              <div class="stat-card">
+                <div class="text-3xl font-bold text-red-500 mb-2">6-8%</div>
+                <div class="text-sm text-gray-700">In-hospital mortality</div>
+                <div class="text-xs text-gray-500 mt-1">Overall reported rate</div>
+              </div>
+              <div class="stat-card">
+                <div class="text-3xl font-bold text-amber-500 mb-2">30%</div>
+                <div class="text-sm text-gray-700">Progress to DCM</div>
+                <div class="text-xs text-gray-500 mt-1">Biopsy-confirmed cases</div>
+              </div>
+              <div class="stat-card">
+                <div class="text-3xl font-bold text-green-500 mb-2">69%</div>
+                <div class="text-sm text-gray-700">Fulminant deaths in 7 days</div>
+                <div class="text-xs text-gray-500 mt-1">Early critical period</div>
+              </div>
+            </div>
+
+            <p class="text-gray-700 mb-6">
+              Many children experience <strong>complete recovery</strong> with normalization of cardiac function within weeks to months. However, a subset progresses to chronic DCM requiring long-term management <a href="https://www.sciencedirect.com/science/article/abs/pii/S1058981325000074" class="citation">[37]</a>.
+            </p>
+          </div>
+
+          <div id="prognosis-predictors" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">4.2 Predictors of Poor Outcomes</h3>
+
+            <div class="data-table mb-8">
+              <table class="w-full">
+                <thead>
+                  <tr>
+                    <th class="text-left">Predictor Category</th>
+                    <th class="text-left">Specific Factors</th>
+                    <th class="text-left">Clinical Significance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="font-semibold">Demographic</td>
+                    <td>Age &lt;12 years, particularly infants</td>
+                        <td>Worse prognosis in younger children</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">Clinical</td>
+                    <td>Low LVEF at admission, hepatomegaly</td>
+                    <td>Strong predictors of adverse outcomes</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">Biomarkers</td>
+                    <td>Elevated troponin, NT-proBNP, CK-MB</td>
+                    <td>Correlate with disease severity</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">Novel Indices</td>
+                    <td>SII &gt;1050, SIRI &gt;1.9</td>
+                    <td>Early predictors of fulminant disease</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">ECG</td>
+                    <td>ST-segment changes, loss of sinus rhythm</td>
+                    <td>Associated with ECMO/transplant/death</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="prognosis-scd" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">4.3 Risk of Sudden Cardiac Death</h3>
+            <div class="bg-red-50 border-l-4 border-red-400 p-6">
+              <h4 class="font-semibold text-red-900 mb-3"><i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>SCD Risk Factors</h4>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h5 class="font-semibold text-red-800 mb-2">Acute Phase</h5>
+                  <ul class="text-sm text-red-700 space-y-1">
+                    <li>• Malignant ventricular arrhythmias</li>
+                    <li>• Extensive myocardial inflammation</li>
+                    <li>• Severe conduction system involvement</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 class="font-semibold text-red-800 mb-2">Chronic Phase</h5>
+                  <ul class="text-sm text-red-700 space-y-1">
+                    <li>• Patchy myocardial fibrosis</li>
+                    <li>• Residual scarring</li>
+                    <li>• Re-entrant ventricular arrhythmias</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="mt-4 p-4 bg-white rounded-lg">
+                <h5 class="font-semibold text-gray-900 mb-2">Athlete Considerations</h5>
+                <p class="text-sm text-gray-700">
+                  Temporary restriction from competitive sports during active myocarditis and recovery period. Return-to-play requires normalization of function, absence of arrhythmias, and resolution of inflammation.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div id="prognosis-recovery" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">4.4 Recovery of Ventricular Function</h3>
+            <p class="text-gray-700 mb-6">
+              Recovery is <strong>variable</strong> and depends on initial injury severity. Many children experience complete spontaneous recovery, while others progress to chronic DCM <a href="https://www.cureus.com/articles/374261-pediatric-myocarditis-management-with-dual-immunotherapy-a-case-report-highlighting-ivig-and-methylprednisolone-efficacy.pdf?email=" class="citation">[125]</a>.
+            </p>
+
+            <div class="highlight-box">
+              <h4 class="font-semibold text-gray-900 mb-2"><i class="fas fa-chart-line text-green-500 mr-2"></i>Recovery Patterns</h4>
+              <p class="text-gray-700">
+                <strong>Fulminant myocarditis</strong> often shows better complete recovery if acute phase is survived, compared to acute non-fulminant cases that progress to chronic DCM <a href="https://renaissance.stonybrookmedicine.edu/system/files/Myocarditis_Pericarditis_pedsinreview_2019.pdf" class="citation">[59]</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Section 5: Comparison with Adults -->
+      <section id="comparison" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">5. Comparison with Adult Myocarditis</h2>
+
+          <div id="comparison-etiology" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">5.1 Etiology and Pathogenesis Differences</h3>
+
+            <div class="data-table mb-8">
+              <table class="w-full">
+                <thead>
+                  <tr>
+                    <th class="text-left">Feature</th>
+                    <th class="text-left">Pediatric</th>
+                    <th class="text-left">Adult</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="font-semibold">Common Viruses</td>
+                    <td>Enteroviruses, Parvovirus B19, Adenovirus</td>
+                    <td>Parvovirus B19, HHV-6, Hepatitis C</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">MIS Association</td>
+                    <td><strong>Majority of acute cases</strong></td>
+                    <td>Less common</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">Vaccine-associated</td>
+                    <td>4.6% of cases</td>
+                    <td>9.4% of cases</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">Toxic Myocarditis</td>
+                    <td>Rare</td>
+                    <td>Immune checkpoint inhibitors</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">Immune Response</td>
+                    <td>Immature system, different cytokine profiles</td>
+                    <td>Developed/senescent system</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="comparison-clinical" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">5.2 Clinical Presentation Variations</h3>
+
+            <div class="grid md:grid-cols-2 gap-8">
+              <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <h4 class="font-semibold text-blue-900 mb-4"><i class="fas fa-child text-blue-500 mr-2"></i>Pediatric Presentation</h4>
+                <ul class="space-y-2 text-blue-800">
+                  <li>• <strong>Non-specific symptoms</strong> predominant</li>
+                  <li>• Fever, fatigue, poor feeding</li>
+                  <li>• Respiratory distress (misdiagnosed as pneumonia)</li>
+                  <li>• GI symptoms, hepatomegaly</li>
+                  <li>• <strong>Fulminant presentation more common</strong></li>
+                  <li>• Systemic inflammatory syndrome features</li>
+                </ul>
+              </div>
+
+              <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                <h4 class="font-semibold text-green-900 mb-4"><i class="fas fa-user text-green-500 mr-2"></i>Adult Presentation</h4>
+                <ul class="space-y-2 text-green-800">
+                  <li>• <strong>ACS-like symptoms</strong> common</li>
+                  <li>• Acute chest pain predominant</li>
+                  <li>• Ischemic ECG changes</li>
+                  <li>• Elevated cardiac biomarkers</li>
+                  <li>• More localized cardiac symptoms</li>
+                  <li>• Fewer extra-cardiac manifestations</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div id="comparison-management" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">5.3 Management Approach Differences</h3>
+
+            <div class="highlight-box">
+              <h4 class="font-semibold text-gray-900 mb-3">Key Management Differences</h4>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h5 class="font-semibold text-gray-900 mb-2">Pediatric Approach</h5>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• More aggressive hemodynamic support</li>
+                    <li>• Higher use of immunomodulatory therapies</li>
+                    <li>• More frequent antiviral therapy</li>
+                    <li>• Lower threshold for ECMO</li>
+                    <li>• Age-specific dosing considerations</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 class="font-semibold text-gray-900 mb-2">Adult Approach</h5>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• More conventional cardiac care initially</li>
+                    <li>• Immunomodulation for specific subtypes</li>
+                    <li>• Focus on coronary evaluation</li>
+                    <li>• Different MCS considerations</li>
+                    <li>• Comorbidity management</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="comparison-prognosis" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">5.4 Prognostic Outcomes</h3>
+            <p class="text-gray-700 mb-6">
+              A 2025 study found <strong>no significant age-related disparity</strong> in 30-day major adverse cardiac events (18.1% children vs 13.4% adults) <a href="https://hal.science/hal-05083099/file/2025%20Karsenty%20et%20al.%2C%20Acute%20myocarditis.pdf" class="citation">[138]</a>.
+            </p>
+
+            <div class="bg-amber-50 border-l-4 border-amber-400 p-4">
+              <h4 class="font-semibold text-amber-900 mb-2">Unique Pediatric Considerations</h4>
+              <ul class="text-amber-800 space-y-1">
+                <li>• Higher rates of heart failure and cardiogenic shock at presentation</li>
+                <li>• Extra-cardiac symptoms associated with increased MACE risk</li>
+                <li>• Fulminant myocarditis more common but better recovery potential</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Section 6: Recent Research and Guidelines -->
+      <section id="recent" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+          <h2 class="serif text-4xl font-bold text-gray-900 mb-8">6. Recent Research and Guidelines (2022-Present)</h2>
+
+          <div id="recent-studies" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">6.1 Key Findings from Recent Studies</h3>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+              <div class="stat-card">
+                <h4 class="font-semibold text-gray-900 mb-3"><i class="fas fa-chart-bar text-blue-500 mr-2"></i>Novel Inflammatory Indices</h4>
+                <p class="text-sm text-gray-700 mb-3">
+                  <strong>SII &gt;1050</strong> and <strong>SIRI &gt;1.9</strong> within first 6 hours predict fulminant myocarditis and adverse outcomes <a href="https://pubmed.ncbi.nlm.nih.gov/40310387/" class="citation">[35]</a>.
+                </p>
+                <div class="text-xs text-gray-600 bg-blue-50 p-2 rounded">
+                  Derived from routine CBC parameters (neutrophils, lymphocytes, platelets)
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <h4 class="font-semibold text-gray-900 mb-3"><i class="fas fa-microscope text-green-500 mr-2"></i>Biomarker Analysis</h4>
+                <p class="text-sm text-gray-700 mb-3">
+                  DNI, ESR, CRP, AST, CK-MB, NT-proBNP, and troponin-T significantly different between spontaneous recovery and ECMO-requiring groups <a href="https://www.medrxiv.org/content/10.1101/2023.05.25.23290562v1.full.pdf" class="citation">[43]</a>.
+                </p>
+              </div>
+            </div>
+
+            <div class="highlight-box">
+              <h4 class="font-semibold text-gray-900 mb-2"><i class="fas fa-users text-purple-500 mr-2"></i>Nationwide Study Findings</h4>
+              <p class="text-gray-700">
+                Large prospective study (328 children vs 417 adults) showed children exhibit more clinical and biological inflammatory syndromes, extra-cardiac manifestations, and severe presentations requiring increased support <a href="https://hal.science/hal-05083099/file/2025%20Karsenty%20et%20al.%2C%20Acute%20myocarditis.pdf" class="citation">[138]</a>.
+              </p>
+            </div>
+          </div>
+
+          <div id="recent-diagnostics" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">6.2 Updates on Diagnostic Criteria</h3>
+
+            <div class="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg p-6 mb-8">
+              <h4 class="font-semibold text-gray-900 mb-4"><i class="fas fa-magnet text-blue-500 mr-2"></i>CMR Diagnostic Advances</h4>
+              <div class="grid md:grid-cols-3 gap-4">
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-blue-600 mb-2">87.5%</div>
+                  <div class="text-sm text-gray-700">Diagnostic sensitivity with parametric mapping</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-purple-600 mb-2">2018</div>
+                  <div class="text-sm text-gray-700">Revised Lake Louise Criteria established</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-green-600 mb-2">T1+T2</div>
+                  <div class="text-sm text-gray-700">Requires one criterion from each</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-4">T1-Based Markers</h4>
+                <ul class="space-y-2 text-gray-700">
+                  <li>• Prolonged native T1 mapping</li>
+                  <li>• Elevated ECV fraction</li>
+                  <li>• Late gadolinium enhancement</li>
+                  <li>• Non-ischemic patterns (subepicardial/mid-myocardial)</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-4">T2-Based Markers</h4>
+                <ul class="space-y-2 text-gray-700">
+                  <li>• Increased T2 relaxation time</li>
+                  <li>• High T2-STIR signal intensity</li>
+                  <li>• Elevated myocardium:skeletal muscle ratio</li>
+                  <li>• Quantitative T2 mapping</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div id="recent-treatment" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">6.3 Evolving Treatment Strategies</h3>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+              <div class="stat-card">
+                <h4 class="font-semibold text-gray-900 mb-3">IVIG Therapy</h4>
+                <p class="text-sm text-gray-700 mb-2">Meta-analysis shows improved LVEF and reduced in-hospital mortality</p>
+                <div class="text-xs text-green-600 bg-green-50 p-2 rounded">Evidence growing</div>
+              </div>
+
+              <div class="stat-card">
+                <h4 class="font-semibold text-gray-900 mb-3">Immunosuppression</h4>
+                <p class="text-sm text-gray-700 mb-2">TIMIC trial shows lasting benefits in virus-negative inflammatory cases</p>
+                <div class="text-xs text-blue-600 bg-blue-50 p-2 rounded">Ongoing trials</div>
+              </div>
+
+              <div class="stat-card">
+                <h4 class="font-semibold text-gray-900 mb-3">IMPROVE-MC Trial</h4>
+                <p class="text-sm text-gray-700 mb-2">Evaluating 12-month azathioprine + prednisone in children</p>
+                <div class="text-xs text-purple-600 bg-purple-50 p-2 rounded">Multicenter RCT</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="recent-covid" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">6.4 COVID-19 and Vaccines Impact</h3>
+
+            <div class="bg-gradient-to-r from-red-50 to-orange-50 border-l-4 border-red-400 p-6 mb-8">
+              <h4 class="font-semibold text-red-900 mb-3"><i class="fas fa-virus text-red-500 mr-2"></i>COVID-19 Myocarditis</h4>
+              <p class="text-red-800 mb-4">
+                Children at <strong>greater risk from COVID-19 infection</strong> than from mRNA vaccines. Myocarditis can occur as acute illness or part of MIS-C.
+              </p>
+
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded-lg">
+                  <h5 class="font-semibold text-gray-900 mb-2">SARS-CoV-2 Infection</h5>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• Higher risk in children</li>
+                    <li>• Can be severe in MIS-C</li>
+                    <li>• Requires immunomodulatory treatment</li>
+                  </ul>
+                </div>
+                <div class="bg-white p-4 rounded-lg">
+                  <h5 class="font-semibold text-gray-900 mb-2">mRNA Vaccines</h5>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• Typically mild cases</li>
+                    <li>• Rapid clinical recovery</li>
+                    <li>• Benefits outweigh risks</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="recent-guidelines" class="mb-12">
+            <h3 class="serif text-2xl font-semibold text-gray-800 mb-6">6.5 Recent Expert Consensus and Guidelines</h3>
+
+            <div class="space-y-6">
+              <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h4 class="font-semibold text-gray-900 mb-3">
+                  <i class="fas fa-heart text-red-500 mr-2"></i>2021 AHA Scientific Statement
+                </h4>
+                <p class="text-gray-700 mb-4">
+                  Strong endorsement of <strong>Cardiac MRI with revised Lake Louise Criteria</strong> for diagnosing and confirming acute myocarditis in children <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11647491/" class="citation">[89]</a>.
+                </p>
+                <div class="text-sm text-gray-600 bg-gray-50 p-3 rounded">
+                  Emphasis on ventricular function assessment and tissue characterization (edema, hyperemia, necrosis, fibrosis)
+                </div>
+              </div>
+
+              <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h4 class="font-semibold text-gray-900 mb-3">
+                  <i class="fas fa-magnet text-blue-500 mr-2"></i>2022 SCMR Expert Consensus
+                </h4>
+                <p class="text-gray-700 mb-4">
+                  Guidelines for <strong>CMR in acquired pediatric heart disease</strong>, including parametric mapping techniques and myocardial strain imaging <a href="https://pubmed.ncbi.nlm.nih.gov/36906691/" class="citation">[61]</a>.
+                </p>
+              </div>
+
+              <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h4 class="font-semibold text-gray-900 mb-3">
+                  <i class="fas fa-stethoscope text-green-500 mr-2"></i>Management Recommendations
+                </h4>
+                <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
+                  <div>
+                    <h5 class="font-semibold mb-2">General Approach</h5>
+                    <ul class="space-y-1">
+                      <li>• Supportive care foundation</li>
+                      <li>• 3-6 months sports restriction</li>
+                      <li>• Full cardiac evaluation before return</li>
+                      <li>• Heart failure guidelines adherence</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 class="font-semibold mb-2">Center-Specific</h5>
+                    <ul class="space-y-1">
+                      <li>• Multidisciplinary team development</li>
+                      <li>• Individualized immunomodulation</li>
+                      <li>• Antiviral therapy if indicated</li>
+                      <li>• EMB for specific indications</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6">
+          <div class="text-center">
+            <p class="text-gray-400">
+              This comprehensive review synthesizes current evidence on pediatric myocarditis for cardiology board preparation and clinical practice.
+            </p>
+            <p class="text-gray-500 text-sm mt-2">
+              All data sources are cited and linked throughout the document for further reference.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+        // Table of Contents functionality
+        function toggleTOC() {
+            const toc = document.getElementById('toc');
+            toc.classList.toggle('open');
+        }
+
+        // Smooth scrolling for TOC links
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+
+                // Close TOC on mobile after clicking a link
+                if (window.innerWidth <= 1024) {
+                    document.getElementById('toc').classList.remove('open');
+                }
+            });
+        });
+
+        // Active TOC link highlighting
+        function updateActiveTOCLink() {
+            const sections = document.querySelectorAll('section[id], div[id]');
+            const tocLinks = document.querySelectorAll('.toc-link');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    currentSection = section.id;
+                }
+            });
+            
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Update active TOC link on scroll
+        window.addEventListener('scroll', updateActiveTOCLink);
+        
+        // Close TOC when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            const toc = document.getElementById('toc');
+            const toggleButton = document.querySelector('.toggle-toc');
+            
+            if (window.innerWidth <= 1024 && 
+                toc.classList.contains('open') && 
+                !toc.contains(event.target) && 
+                !toggleButton.contains(event.target)) {
+                toc.classList.remove('open');
+            }
+        });
+
+        // Initialize
+        updateActiveTOCLink();
+    </script>
+  
+
+</body></html>

@@ -1,0 +1,1234 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronic Coronary Syndromes: A Comprehensive Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tiempos+Headline:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e40af;
+            --secondary: #64748b;
+            --accent: #0ea5e9;
+            --neutral: #f8fafc;
+            --base-100: #ffffff;
+            --base-content: #1e293b;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--base-content);
+            line-height: 1.6;
+        }
+        
+        .hero-title {
+            font-family: 'Tiempos Headline', serif;
+            font-weight: 700;
+            font-style: italic;
+        }
+        
+        .section-title {
+            font-family: 'Tiempos Headline', serif;
+            font-weight: 700;
+        }
+        
+        .vanta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .gradient-overlay {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.9) 0%, rgba(14, 165, 233, 0.7) 100%);
+        }
+        
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--base-100);
+            border-right: 1px solid #e2e8f0;
+            overflow-y: auto;
+            z-index: 1000;
+            padding: 2rem 1.5rem;
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        
+        .citation {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-decoration: none;
+            margin-left: 0.25rem;
+            transition: all 0.2s;
+        }
+        
+        .citation:hover {
+            background: var(--primary);
+            transform: translateY(-1px);
+        }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .evidence-level {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+        
+        .class-i {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .class-ii {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .level-a {
+            border: 2px solid #166534;
+        }
+        
+        .level-b {
+            border: 2px solid #92400e;
+        }
+        
+        @media (max-width: 1024px) {
+            .toc-fixed {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .toc-fixed.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .text-7xl {
+                font-size: 3rem;
+            }
+
+            .text-6xl {
+                font-size: 2.5rem;
+            }
+
+            .text-5xl {
+                font-size: 2rem;
+            }
+
+            .text-4xl {
+                font-size: 1.75rem;
+            }
+
+            .text-3xl {
+                font-size: 1.5rem;
+            }
+
+            .text-2xl {
+                font-size: 1.25rem;
+            }
+
+            .text-xl {
+                font-size: 1.125rem;
+            }
+
+            .px-8 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .py-16 {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+
+            .py-12 {
+                padding-top: 1.5rem;
+                padding-bottom: 1.5rem;
+            }
+
+            .py-8 {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+
+            .py-6 {
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+            }
+
+            .p-8 {
+                padding: 1rem;
+            }
+
+            .p-6 {
+                padding: 0.75rem;
+            }
+
+            .p-4 {
+                padding: 0.5rem;
+            }
+
+            .m-8 {
+                margin: 1rem;
+            }
+
+            .m-6 {
+                margin: 0.75rem;
+            }
+
+            .m-4 {
+                margin: 0.5rem;
+            }
+
+            .m-2 {
+                margin: 0.25rem;
+            }
+
+            .grid-cols-3, .grid-cols-2, .lg\:grid-cols-3, .lg\:grid-cols-2, .md\:grid-cols-3, .md\:grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .flex-wrap {
+                flex-wrap: wrap;
+            }
+
+            .overflow-x-auto {
+                overflow-x: auto;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            .space-y-6 > * + * {
+                margin-top: 1rem;
+            }
+
+            .space-y-8 > * + * {
+                margin-top: 1rem;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .prose-lg p {
+                font-size: 1rem;
+            }
+
+            .prose-lg ul {
+                font-size: 1rem;
+            }
+        }
+    </style>
+  </head>
+
+  <body class="bg-neutral">
+    <!-- Table of Contents -->
+    <nav class="toc-fixed">
+      <div class="mb-8">
+        <h3 class="section-title text-lg text-primary mb-4">Table of Contents</h3>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="#definition" class="block py-1 px-2 rounded hover:bg-slate-100 transition-colors">Definition & Classification</a>
+          </li>
+          <li>
+            <a href="#pathophysiology" class="block py-1 px-2 rounded hover:bg-slate-100 transition-colors">Pathophysiology</a>
+          </li>
+          <li>
+            <a href="#diagnosis" class="block py-1 px-2 rounded hover:bg-slate-100 transition-colors">Diagnosis</a>
+          </li>
+          <li>
+            <a href="#management" class="block py-1 px-2 rounded hover:bg-slate-100 transition-colors">Management</a>
+          </li>
+          <li>
+            <a href="#trials" class="block py-1 px-2 rounded hover:bg-slate-100 transition-colors">Recent Clinical Trials</a>
+          </li>
+          <li>
+            <a href="#tables" class="block py-1 px-2 rounded hover:bg-slate-100 transition-colors">Quick Reference Tables</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Hero Section -->
+      <section class="relative min-h-screen flex items-center">
+        <div id="vanta-bg" class="vanta-bg"></div>
+        <div class="gradient-overlay absolute inset-0"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-8 py-16">
+          <div class="bento-grid">
+            <!-- Main Hero Content -->
+            <div class="space-y-8">
+              <div class="space-y-4">
+                <h1 class="hero-title text-7xl text-white leading-tight">
+                  Chronic Coronary
+                  <br>
+                  <span class="text-cyan-200">Syndromes</span>
+                </h1>
+                <p class="text-xl text-blue-100 max-w-2xl">
+                  A Comprehensive Review for Cardiology Board Review (July 2025)
+                </p>
+              </div>
+
+              <div class="flex flex-wrap gap-4">
+                <span class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-white text-sm font-medium">
+                  <i class="fas fa-heart-pulse mr-2"></i>ESC 2024 Guidelines
+                </span>
+                <span class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-white text-sm font-medium">
+                  <i class="fas fa-stethoscope mr-2"></i>ACC/AHA 2023 Updates
+                </span>
+              </div>
+            </div>
+
+            <!-- Key Highlights -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 space-y-6">
+              <h3 class="text-2xl font-bold text-white mb-4">Key Highlights</h3>
+              <div class="space-y-4">
+                <div class="flex items-start space-x-3">
+                  <i class="fas fa-check-circle text-cyan-300 mt-1"></i>
+                  <p class="text-blue-100">New 4-step diagnostic approach with RF-CL model</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <i class="fas fa-pills text-cyan-300 mt-1"></i>
+                  <p class="text-blue-100">Clopidogrel monotherapy now Class IA recommendation</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <i class="fas fa-microscope text-cyan-300 mt-1"></i>
+                  <p class="text-blue-100">ANOCA/INOCA emphasis with specific management</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <i class="fas fa-chart-line text-cyan-300 mt-1"></i>
+                  <p class="text-blue-100">LDL-C target <1.4 mmol/L with≥50% reduction</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Definition Section -->
+      <section id="definition" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="section-title text-4xl text-primary mb-8">Definition and Classification of Chronic Coronary Syndromes</h2>
+
+          <div class="prose prose-lg max-w-none">
+            <h3 class="section-title text-2xl text-secondary mb-4">ESC 2024 Definition</h3>
+            <p class="text-lg mb-6">
+              The <strong>2024 European Society of Cardiology (ESC) Guidelines</strong> define Chronic Coronary Syndromes (CCS) as a range of clinical presentations arising from <strong>structural and/or functional alterations related to chronic diseases of the coronary arteries and/or microcirculation</strong>
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11840264/" class="citation" target="_blank">5</a>
+              <a href="https://conferences.medicom-publishers.com/specialisation/cardiology/esc-2024/guidelines-for-the-management-of-chronic-coronary-syndromes/" class="citation" target="_blank">380</a>.
+              These alterations lead to a <strong>temporary, reversible mismatch between myocardial oxygen demand and blood supply</strong>, resulting in myocardial hypoperfusion and ischemia.
+            </p>
+
+            <div class="highlight-box">
+              <h4 class="font-bold text-lg mb-3">Key Evolution from 2019 Guidelines</h4>
+              <ul class="space-y-2">
+                <li>• Expanded pathophysiological concepts to include microvascular disease and vasospastic disorders</li>
+                <li>• Alignment with 2023 AHA/ACC terminology shift to "chronic coronary disease (CCD)"</li>
+                <li>• Emphasis on stepwise diagnostic and therapeutic approach</li>
+              </ul>
+            </div>
+
+            <h3 class="section-title text-2xl text-secondary mb-4 mt-12">Clinical Spectrum and Presentations</h3>
+
+            <div class="grid md:grid-cols-2 gap-6 mt-8">
+              <div class="bg-slate-50 p-6 rounded-lg border-l-4 border-primary">
+                <h4 class="font-bold text-lg mb-3">Five Key Patient Populations</h4>
+                <ol class="space-y-3 text-sm">
+                  <li><strong>1.</strong> Nonacute patients post-ACS or revascularization</li>
+                  <li><strong>2.</strong> Patients with heart failure of ischemic/cardiometabolic origin</li>
+                  <li><strong>3.</strong> Symptomatic patients with reproducible stress-induced angina</li>
+                  <li><strong>4.</strong> Patients with ANOCA/INOCA (angina/ischemia without obstructive CAD)</li>
+                  <li><strong>5.</strong> Asymptomatic patients with abnormal test results</li>
+                </ol>
+              </div>
+
+              <div class="bg-blue-50 p-6 rounded-lg">
+                <h4 class="font-bold text-lg mb-3 flex items-center">
+                  <i class="fas fa-exclamation-triangle text-amber-500 mr-2"></i>
+                  ANOCA/INOCA Emphasis
+                </h4>
+                <p class="text-sm mb-3">
+                  <strong>Angina with No Obstructive Coronary Arteries (ANOCA)</strong> and <strong>Ischemia with No Obstructive Coronary Arteries (INOCA)</strong> represent significant advancements in understanding CCS pathophysiology.
+                </p>
+                <p class="text-sm text-secondary">
+                  The 2024 ESC guidelines place increased emphasis on diagnosing and managing these conditions
+                  <a href="https://www.revespcardiol.org/en-comments-on-esc-2024-guidelines-articulo-S188558572400313X" class="citation" target="_blank">416</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pathophysiology Section -->
+      <section id="pathophysiology" class="py-16 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="section-title text-4xl text-primary mb-8">Pathophysiology of Chronic Coronary Syndromes</h2>
+
+          <p class="text-lg text-secondary mb-8">
+            The pathophysiology of CCS is complex and multifactorial, involving both structural and functional abnormalities in epicardial coronary arteries and coronary microcirculation
+            <a href="https://conferences.medicom-publishers.com/specialisation/cardiology/esc-2024/guidelines-for-the-management-of-chronic-coronary-syndromes/" class="citation" target="_blank">404</a>.
+          </p>
+
+          <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Epicardial CAD -->
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+              <div class="flex items-center mb-4">
+                <i class="fas fa-artery text-red-500 text-2xl mr-3"></i>
+                <h3 class="section-title text-xl">Epicardial CAD</h3>
+              </div>
+              <p class="text-sm text-secondary mb-4">
+                Characterized by atherosclerotic plaque accumulation in large coronary arteries, leading to luminal narrowing and reduced blood flow during increased myocardial demand.
+              </p>
+              <div class="space-y-2 text-sm">
+                <div class="flex items-center">
+                  <i class="fas fa-circle text-red-400 text-xs mr-2"></i>
+                  <span>Chronic inflammatory process</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-circle text-red-400 text-xs mr-2"></i>
+                  <span>Lipid accumulation & macrophage infiltration</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-circle text-red-400 text-xs mr-2"></i>
+                  <span>Vulnerable plaque formation</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Endothelial Dysfunction -->
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+              <div class="flex items-center mb-4">
+                <i class="fas fa-microscope text-blue-500 text-2xl mr-3"></i>
+                <h3 class="section-title text-xl">Endothelial Dysfunction</h3>
+              </div>
+              <p class="text-sm text-secondary mb-4">
+                Critical early event in atherosclerosis pathogenesis, particularly in ANOCA/INOCA patients, involving imbalance between vasodilating and vasoconstricting factors.
+              </p>
+              <div class="bg-blue-50 p-3 rounded text-xs">
+                <strong>Diagnostic Gold Standard:</strong> Acetylcholine provocation testing to assess endothelial function
+                <a href="https://pubmed.ncbi.nlm.nih.gov/40122215/" class="citation" target="_blank">385</a>
+              </div>
+            </div>
+
+            <!-- Microvascular Dysfunction -->
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+              <div class="flex items-center mb-4">
+                <i class="fas fa-project-diagram text-purple-500 text-2xl mr-3"></i>
+                <h3 class="section-title text-xl">Microvascular Dysfunction</h3>
+              </div>
+              <p class="text-sm text-secondary mb-4">
+                Structural/functional abnormalities in pre-arterioles and arterioles (&lt;500 µm) impairing myocardial blood flow regulation.
+              </p>
+              <div class="space-y-2 text-sm">
+                <div class="bg-purple-50 p-2 rounded">
+                  <strong>Coronary Flow Reserve (CFR):</strong> &lt;2.0-2.5 suggests CMD
+                </div>
+                <div class="bg-purple-50 p-2 rounded">
+                  <strong>Index of Microcirculatory Resistance (IMR):</strong> Elevated values indicate dysfunction
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-12">
+            <div class="highlight-box">
+              <h4 class="font-bold text-lg mb-4">
+                <i class="fas fa-heart-pulse mr-2 text-primary"></i>
+                Coronary Vasospasm and Plaque Vulnerability
+              </h4>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h5 class="font-semibold mb-2">Vasospastic Angina</h5>
+                  <p class="text-sm text-secondary mb-3">
+                    Transient, intense constriction of epicardial coronary artery segments, potentially leading to complete occlusion and myocardial ischemia.
+                  </p>
+                  <p class="text-xs text-secondary">
+                    Associated with hyperreactivity of vascular smooth muscle cells and endothelial dysfunction
+                    <a href="https://www.ecrjournal.com/articles/what-new-2024-european-society-cardiology-congress-management-chronic-coronary-syndromes?language_content_entity=en" class="citation" target="_blank">388</a>.
+                  </p>
+                </div>
+                <div>
+                  <h5 class="font-semibold mb-2">Plaque Vulnerability</h5>
+                  <p class="text-sm text-secondary mb-3">
+                    Vulnerable plaques characterized by thin fibrous cap, large lipid-rich necrotic core, positive remodeling, and significant inflammation.
+                  </p>
+                  <p class="text-xs text-secondary">
+                    Many acute events arise from rupture of previously non-obstructive plaques
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3111722/" class="citation" target="_blank">391</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Diagnosis Section -->
+      <section id="diagnosis" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="section-title text-4xl text-primary mb-8">Diagnosis of Chronic Coronary Syndromes</h2>
+
+          <h3 class="section-title text-2xl text-secondary mb-6">ESC 2024: Four-Step Diagnostic Approach</h3>
+
+          <div class="space-y-8">
+            <!-- Step 1 -->
+            <div class="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-xl border-l-4 border-primary">
+              <div class="flex items-center mb-4">
+                <div class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">1</div>
+                <h4 class="section-title text-xl">General Clinical Examination</h4>
+              </div>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h5 class="font-semibold mb-2">Comprehensive Assessment</h5>
+                  <ul class="text-sm space-y-1">
+                    <li>• Detailed symptom history (beyond typical/atypical classification)</li>
+                    <li>• Differential diagnosis consideration</li>
+                    <li>• Physical examination for CVD signs</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 class="font-semibold mb-2">Basic Testing</h5>
+                  <ul class="text-sm space-y-1">
+                    <li>• 12-lead resting ECG</li>
+                    <li>• Blood tests (lipid profile, glucose, renal function)</li>
+                    <li>• hs-CRP/fibrinogen (Class IIa, Level B)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl border-l-4 border-purple-500">
+              <div class="flex items-center mb-4">
+                <div class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">2</div>
+                <h4 class="section-title text-xl">Pre-test Clinical Likelihood Assessment</h4>
+              </div>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h5 class="font-semibold mb-2">Risk Factor-Weighted Clinical Likelihood (RF-CL) Model</h5>
+                  <p class="text-sm text-secondary mb-3">
+                    <strong class="evidence-level class-i">Class I, Level B</strong>
+                    Incorporates age, sex, symptom characteristics, and cardiovascular risk factors
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11840264/" class="citation" target="_blank">380</a>.
+                  </p>
+                  <div class="bg-purple-100 p-3 rounded text-xs">
+                    <strong>Key Impact:</strong> Tripled the number of individuals classified as very low likelihood (≤5%), reducing unnecessary testing
+                  </div>
+                </div>
+                <div>
+                  <h5 class="font-semibold mb-2">Additional Evaluations</h5>
+                  <ul class="text-sm space-y-1">
+                    <li>• Transthoracic Echocardiography (TTE)</li>
+                    <li>• Exercise ECG testing (selected patients)</li>
+                    <li>• Ambulatory ECG monitoring (suspected vasospasm)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-xl border-l-4 border-green-500">
+              <div class="flex items-center mb-4">
+                <div class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">3</div>
+                <h4 class="section-title text-xl">Confirming the Diagnosis</h4>
+              </div>
+              <div class="grid lg:grid-cols-3 gap-6">
+                <div class="bg-white p-4 rounded-lg shadow-sm">
+                  <h5 class="font-semibold mb-3 text-green-700">Anatomical Imaging</h5>
+                  <p class="text-sm mb-2"><strong>CCTA preferred</strong> for low-intermediate PCL (>5% to ≤50%)</p>
+                  <p class="text-xs text-secondary">High negative predictive value, assesses plaque burden and high-risk features</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm">
+                  <h5 class="font-semibold mb-3 text-green-700">Functional Imaging</h5>
+                  <ul class="text-sm space-y-1">
+                    <li>• Stress Echocardiography</li>
+                    <li>• Myocardial Perfusion SPECT/PET</li>
+                    <li>• Stress Cardiac MRI</li>
+                  </ul>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm">
+                  <h5 class="font-semibold mb-3 text-green-700">Invasive Tests</h5>
+                  <ul class="text-sm space-y-1">
+                    <li>• Invasive Coronary Angiography (ICA)</li>
+                    <li>• Functional Assessment (FFR, iFR)</li>
+                    <li>• Coronary Function Testing</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-xl border-l-4 border-amber-500">
+              <div class="flex items-center mb-4">
+                <div class="bg-amber-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">4</div>
+                <h4 class="section-title text-xl">Initial Therapy and Follow-up</h4>
+              </div>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h5 class="font-semibold mb-2">Initial Therapy</h5>
+                  <p class="text-sm">Intensification of lifestyle modifications, risk factor management, and guideline-directed medical therapy (GDMT)</p>
+                </div>
+                <div>
+                  <h5 class="font-semibold mb-2">Follow-up Considerations</h5>
+                  <p class="text-sm">Repeat revascularization for persistent symptoms despite optimized GDMT, functional testing for uncertain symptoms</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Management Section -->
+      <section id="management" class="py-16 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="section-title text-4xl text-primary mb-8">Management of Chronic Coronary Syndromes</h2>
+
+          <h3 class="section-title text-2xl text-secondary mb-8">Guideline-Directed Medical Therapy (GDMT)</h3>
+
+          <div class="grid lg:grid-cols-2 gap-8 mb-12">
+            <!-- Lifestyle Modifications -->
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+              <h4 class="section-title text-lg mb-4 flex items-center">
+                <i class="fas fa-heart-pulse text-red-500 mr-3"></i>
+                Lifestyle Modifications & Risk Factor Control
+              </h4>
+              <div class="space-y-4">
+                <div class="bg-red-50 p-4 rounded-lg">
+                  <h5 class="font-semibold mb-2">Core Interventions</h5>
+                  <ul class="text-sm space-y-1">
+                    <li>• Smoking cessation programs</li>
+                    <li>• Mediterranean or DASH diet</li>
+                    <li>• Regular physical activity (≥150 min moderate-intensity/week)</li>
+                    <li>• Weight management for overweight/obese patients</li>
+                  </ul>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                  <h5 class="font-semibold mb-2">Mobile Health Interventions</h5>
+                  <p class="text-sm">
+                    <strong class="evidence-level class-i">Class I, Level C</strong>
+                    Text messages, apps, wearable devices to improve adherence
+                    <a href="https://icus-society.org/wp-content/uploads/2024/09/ESCCCS-2024-guideline7.pdf" class="citation" target="_blank">151</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Antiplatelet Therapy -->
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+              <h4 class="section-title text-lg mb-4 flex items-center">
+                <i class="fas fa-pills text-blue-500 mr-3"></i>
+                Antiplatelet Therapy
+              </h4>
+              <div class="space-y-4">
+                <div class="bg-blue-50 p-4 rounded-lg">
+                  <h5 class="font-semibold mb-2">ESC 2024 Updates</h5>
+                  <p class="text-sm mb-2">
+                    <strong>Clopidogrel monotherapy (75mg daily)</strong>
+                    <span class="evidence-level class-i">Class I, Level A</span>
+                    for CCS patients with prior MI or remote PCI
+                  </p>
+                  <p class="text-xs text-secondary">
+                    Supported by HOST-EXAM trial showing superiority over aspirin
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11622220/" class="citation" target="_blank">131</a>
+                  </p>
+                </div>
+                <div class="bg-purple-50 p-4 rounded-lg">
+                  <h5 class="font-semibold mb-2">High Bleeding Risk Patients</h5>
+                  <p class="text-sm">
+                    Short DAPT duration (1-3 months) recommended based on Master-DAPT trial
+                    <a href="https://www.ecrjournal.com/articles/what-new-2024-european-society-cardiology-congress-management-chronic-coronary-syndromes?language_content_entity=en" class="citation" target="_blank">486</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lipid-Lowering Therapy -->
+          <div class="bg-white rounded-xl p-8 shadow-sm mb-8">
+            <h4 class="section-title text-xl mb-6 flex items-center">
+              <i class="fas fa-chart-line text-green-500 mr-3"></i>
+              Lipid-Lowering Therapy
+            </h4>
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <h5 class="font-semibold mb-3">ESC 2024 Targets</h5>
+                <div class="bg-green-50 p-4 rounded-lg mb-4">
+                  <p class="text-sm mb-2">
+                    <strong>Primary Goal:</strong> LDL-C &lt;1.4 mmol/L (55 mg/dL) and ≥50% reduction from baseline
+                  </p>
+                  <p class="text-xs text-secondary">
+                    <span class="evidence-level class-i">Class I, Level A</span>
+                    High-intensity statins up to maximum tolerated dose
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11840264/" class="citation" target="_blank">160</a>
+                  </p>
+                </div>
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-center">
+                    <i class="fas fa-arrow-right text-green-500 mr-2"></i>
+                    <span>Add ezetimibe if targets not met</span>
+                  </div>
+                  <div class="flex items-center">
+                    <i class="fas fa-arrow-right text-green-500 mr-2"></i>
+                    <span>Consider PCSK9 inhibitors if still not achieved</span>
+                  </div>
+                  <div class="flex items-center">
+                    <i class="fas fa-arrow-right text-green-500 mr-2"></i>
+                    <span>Bempedoic acid for statin-intolerant patients</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h5 class="font-semibold mb-3">ACC/AHA 2023 Approach</h5>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                  <p class="text-sm mb-2">
+                    High-intensity statins recommended. If contraindicated:
+                  </p>
+                  <p class="text-sm">
+                    Moderate-intensity statins targeting 30-49% LDL-C reduction
+                    <a href="https://www.nature.com/articles/s44325-024-00006-w" class="citation" target="_blank">346</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Novel Therapeutic Agents -->
+          <div class="bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl p-8 mb-8">
+            <h4 class="section-title text-xl mb-6 flex items-center">
+              <i class="fas fa-flask text-cyan-600 mr-3"></i>
+              Novel Therapeutic Agents
+            </h4>
+            <div class="grid lg:grid-cols-3 gap-6">
+              <!-- SGLT2 Inhibitors -->
+              <div class="bg-white p-6 rounded-lg">
+                <h5 class="font-semibold mb-3 text-cyan-700">SGLT2 Inhibitors</h5>
+                <p class="text-sm mb-3">
+                  <span class="evidence-level class-i">Class I, Level A</span>
+                  Recommended for CCS patients with T2DM to reduce CV events
+                </p>
+                <div class="text-xs text-secondary space-y-1">
+                  <p>• Proven CV benefits in DECLARE-TIMI 58, EMPA-REG OUTCOME</p>
+                  <p>• Benefits extend beyond glucose control</p>
+                </div>
+              </div>
+
+              <!-- GLP-1 Receptor Agonists -->
+              <div class="bg-white p-6 rounded-lg">
+                <h5 class="font-semibold mb-3 text-blue-700">GLP-1 Receptor Agonists</h5>
+                <p class="text-sm mb-3">
+                  <span class="evidence-level class-i">Class I, Level A</span> for T2DM
+                  <br>
+                  <span class="evidence-level class-ii">Class IIa, Level B</span> for obesity without diabetes
+                </p>
+                <div class="text-xs text-secondary space-y-1">
+                  <p>• SELECT trial: Semaglutide reduced MACE in obese patients without diabetes</p>
+                  <p>• Weight reduction and metabolic benefits</p>
+                </div>
+              </div>
+
+              <!-- Anti-inflammatory Therapy -->
+              <div class="bg-white p-6 rounded-lg">
+                <h5 class="font-semibold mb-3 text-purple-700">Colchicine</h5>
+                <p class="text-sm mb-3">
+                  <span class="evidence-level class-ii">Class IIb, Level A</span>
+                  Low-dose colchicine (0.5mg daily) considered in CCS patients with atherosclerotic CAD
+                </p>
+                <div class="text-xs text-secondary space-y-1">
+                  <p>• LoDoCo2 trial: 31% RRR in composite endpoint</p>
+                  <p>• Targets residual inflammatory risk</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Revascularization Strategies -->
+          <div class="bg-white rounded-xl p-8">
+            <h4 class="section-title text-xl mb-6 flex items-center">
+              <i class="fas fa-procedures text-red-600 mr-3"></i>
+              Revascularization Strategies
+            </h4>
+            <div class="grid lg:grid-cols-2 gap-8">
+              <div class="space-y-4">
+                <h5 class="font-semibold text-lg">Percutaneous Coronary Intervention (PCI)</h5>
+                <div class="bg-red-50 p-4 rounded-lg">
+                  <p class="text-sm mb-2">
+                    <strong>Indication:</strong> Symptomatic CCS patients with functionally significant obstructive CAD (FFR ≤0.80) who remain symptomatic despite GDMT
+                  </p>
+                  <p class="text-xs text-secondary">
+                    ORBITA-2 trial reinforced PCI efficacy for symptom relief
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11622220/" class="citation" target="_blank">355</a>
+                  </p>
+                </div>
+                <div class="bg-amber-50 p-3 rounded">
+                  <p class="text-sm">
+                    <strong>Intracoronary Imaging Guidance:</strong>
+                    <span class="evidence-level class-i">Class I</span>
+                    for complex lesions (left main, bifurcations, long lesions)
+                  </p>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <h5 class="font-semibold text-lg">Coronary Artery Bypass Grafting (CABG)</h5>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                  <p class="text-sm mb-2">
+                    <strong>Preferred for:</strong> Complex multivessel disease, left main disease, diabetes, LV dysfunction
+                  </p>
+                  <p class="text-xs text-secondary">
+                    STICH trial: CABG superior to medical therapy in ischemic cardiomyopathy with LVEF ≤35%
+                  </p>
+                </div>
+                <div class="bg-green-50 p-3 rounded">
+                  <p class="text-sm">
+                    <strong>Heart Team Approach:</strong>
+                    <span class="evidence-level class-i">Class I, Level C</span>
+                    Multidisciplinary decision-making essential
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent Clinical Trials Section -->
+      <section id="trials" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="section-title text-4xl text-primary mb-8">Recent Clinical Trials and Evolving Evidence (2022-2025)</h2>
+
+          <div class="grid lg:grid-cols-2 gap-8">
+            <!-- Medical Therapy Trials -->
+            <div class="space-y-6">
+              <h3 class="section-title text-xl text-secondary mb-4">Trials Informing Medical Therapy</h3>
+
+              <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-xl border-l-4 border-green-500">
+                <h4 class="font-bold mb-3 flex items-center">
+                  <i class="fas fa-pills text-green-600 mr-2"></i>
+                  Antiplatelet Therapy
+                </h4>
+                <div class="space-y-4">
+                  <div class="bg-white p-4 rounded-lg">
+                    <h5 class="font-semibold text-sm mb-2">HOST-EXAM Trial</h5>
+                    <p class="text-xs text-secondary mb-2">Clopidogrel vs Aspirin monotherapy post-PCI</p>
+                    <p class="text-sm">Clopidogrel superior in reducing composite endpoint (5.7% vs 7.7%, HR 0.73)</p>
+                  </div>
+                  <div class="bg-white p-4 rounded-lg">
+                    <h5 class="font-semibold text-sm mb-2">Master-DAPT Trial</h5>
+                    <p class="text-xs text-secondary mb-2">Abbreviated vs Standard DAPT in HBR patients</p>
+                    <p class="text-sm">1-month DAPT non-inferior for net adverse clinical events, superior for bleeding</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-xl border-l-4 border-blue-500">
+                <h4 class="font-bold mb-3 flex items-center">
+                  <i class="fas fa-flask text-blue-600 mr-2"></i>
+                  Novel Therapeutic Agents
+                </h4>
+                <div class="space-y-4">
+                  <div class="bg-white p-4 rounded-lg">
+                    <h5 class="font-semibold text-sm mb-2">LoDoCo2 Trial</h5>
+                    <p class="text-xs text-secondary mb-2">Low-dose colchicine (0.5mg) in chronic coronary disease</p>
+                    <p class="text-sm">31% reduction in composite CV endpoint (HR 0.69)</p>
+                  </div>
+                  <div class="bg-white p-4 rounded-lg">
+                    <h5 class="font-semibold text-sm mb-2">SELECT Trial</h5>
+                    <p class="text-xs text-secondary mb-2">Semaglutide in overweight/obese adults with CVD, no diabetes</p>
+                    <p class="text-sm">20% reduction in MACE (CV death, MI, stroke)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Revascularization Trials -->
+            <div class="space-y-6">
+              <h3 class="section-title text-xl text-secondary mb-4">Trials Informing Revascularization</h3>
+
+              <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl border-l-4 border-purple-500">
+                <h4 class="font-bold mb-3 flex items-center">
+                  <i class="fas fa-procedures text-purple-600 mr-2"></i>
+                  PCI Optimization
+                </h4>
+                <div class="space-y-4">
+                  <div class="bg-white p-4 rounded-lg">
+                    <h5 class="font-semibold text-sm mb-2">ORBITA-2 Trial</h5>
+                    <p class="text-xs text-secondary mb-2">PCI vs Sham in stable angina without antianginals</p>
+                    <p class="text-sm">PCI significantly improved angina symptoms and exercise tolerance</p>
+                  </div>
+                  <div class="bg-white p-4 rounded-lg">
+                    <h5 class="font-semibold text-sm mb-2">RENOVATE-COMPLEX-PCI</h5>
+                    <p class="text-xs text-secondary mb-2">IVUS-guided vs angiography-guided PCI</p>
+                    <p class="text-sm">38% reduction in composite endpoint with IVUS guidance</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-xl border-l-4 border-amber-500">
+                <h4 class="font-bold mb-3 flex items-center">
+                  <i class="fas fa-heart-pulse text-amber-600 mr-2"></i>
+                  Special Populations
+                </h4>
+                <div class="space-y-4">
+                  <div class="bg-white p-4 rounded-lg">
+                    <h5 class="font-semibold text-sm mb-2">REVIVED-BCIS2 Trial</h5>
+                    <p class="text-xs text-secondary mb-2">PCI + OMT vs OMT alone in ischemic LV dysfunction (LVEF ≤35%)</p>
+                    <p class="text-sm">No reduction in death or HF hospitalization with PCI</p>
+                  </div>
+                  <div class="bg-white p-4 rounded-lg">
+                    <h5 class="font-semibold text-sm mb-2">ISCHEMIA-EXTEND</h5>
+                    <p class="text-xs text-secondary mb-2">Long-term follow-up of ISCHEMIA trial cohorts</p>
+                    <p class="text-sm">No mortality difference between invasive vs conservative strategies</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ANOCA/INOCA Trials -->
+          <div class="mt-12 bg-gradient-to-r from-indigo-50 to-purple-50 p-8 rounded-xl">
+            <h3 class="section-title text-xl text-indigo-700 mb-6 flex items-center">
+              <i class="fas fa-microscope text-indigo-600 mr-3"></i>
+              ANOCA/INOCA Trials
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="bg-white p-4 rounded-lg">
+                <h4 class="font-semibold text-sm mb-2">CorMicA Trial</h4>
+                <p class="text-xs text-secondary">Stratified medical therapy based on invasive coronary function testing improved angina symptoms</p>
+              </div>
+              <div class="bg-white p-4 rounded-lg">
+                <h4 class="font-semibold text-sm mb-2">WARRIOR Trial</h4>
+                <p class="text-xs text-secondary">Intensive guideline-based cardioprotective regimen vs usual care in women with ischemia, no obstructive CAD</p>
+              </div>
+              <div class="bg-white p-4 rounded-lg">
+                <h4 class="font-semibold text-sm mb-2">PRIZE Trial</h4>
+                <p class="text-xs text-secondary">Zibotentan (endothelin receptor antagonist) in patients with microvascular angina</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Reference Tables Section -->
+      <section id="tables" class="py-16 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="section-title text-4xl text-primary mb-8">Quick Reference Tables</h2>
+
+          <!-- Table 1: ESC vs ACC/AHA Comparison -->
+          <div class="bg-white rounded-xl p-8 shadow-sm mb-8">
+            <h3 class="section-title text-xl mb-6">Table 1: Comparison of Key Recommendations - ESC 2024 vs. ACC/AHA 2023 Guidelines</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead class="bg-slate-100">
+                  <tr>
+                    <th class="text-left p-3 font-semibold">Aspect of Management</th>
+                    <th class="text-left p-3 font-semibold">2023 AHA/ACC CCD Guideline</th>
+                    <th class="text-left p-3 font-semibold">COR (AHA/ACC)</th>
+                    <th class="text-left p-3 font-semibold">2024 ESC CCS Guideline</th>
+                    <th class="text-left p-3 font-semibold">COR (ESC)</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200">
+                  <tr class="hover:bg-slate-50">
+                    <td class="p-3 font-medium">Terminology</td>
+                    <td class="p-3">"Chronic Coronary Disease (CCD)"</td>
+                    <td class="p-3">N/A</td>
+                    <td class="p-3">"Chronic Coronary Syndromes (CCS)"; emphasizes structural/functional alterations</td>
+                    <td class="p-3">N/A</td>
+                  </tr>
+                  <tr class="hover:bg-slate-50">
+                    <td class="p-3 font-medium">Pretest Likelihood</td>
+                    <td class="p-3">No specific model recommended</td>
+                    <td class="p-3">N/A</td>
+                    <td class="p-3">Risk factor-weighted clinical likelihood (RF-CL) model</td>
+                    <td class="p-3"><span class="evidence-level class-i">I B</span></td>
+                  </tr>
+                  <tr class="hover:bg-slate-50">
+                    <td class="p-3 font-medium">Antiplatelet Therapy</td>
+                    <td class="p-3">Low-dose aspirin (75-100mg) recommended</td>
+                    <td class="p-3"><span class="evidence-level class-i">I A</span></td>
+                    <td class="p-3">Clopidogrel monotherapy Class IA for post-MI/PCI patients</td>
+                    <td class="p-3"><span class="evidence-level class-i">I A</span></td>
+                  </tr>
+                  <tr class="hover:bg-slate-50">
+                    <td class="p-3 font-medium">Lipid-Lowering</td>
+                    <td class="p-3">High-intensity statin; mod-intensity if contraindicated</td>
+                    <td class="p-3"><span class="evidence-level class-i">I A</span></td>
+                    <td class="p-3">LDL-C &lt;1.4 mmol/L and ≥50% reduction</td>
+                    <td class="p-3"><span class="evidence-level class-i">I A</span></td>
+                  </tr>
+                  <tr class="hover:bg-slate-50">
+                    <td class="p-3 font-medium">SGLT2i/GLP-1RA</td>
+                    <td class="p-3">Recommended in T2DM for MACE reduction</td>
+                    <td class="p-3"><span class="evidence-level class-i">I A</span></td>
+                    <td class="p-3">Recommended in T2DM; GLP-1RA considered in obese without T2DM</td>
+                    <td class="p-3"><span class="evidence-level class-i">I A</span></td>
+                  </tr>
+                  <tr class="hover:bg-slate-50">
+                    <td class="p-3 font-medium">Multidisciplinary Team</td>
+                    <td class="p-3">Recommended for improved outcomes</td>
+                    <td class="p-3"><span class="evidence-level class-i">I A</span></td>
+                    <td class="p-3">Multidisciplinary behavioral approaches recommended</td>
+                    <td class="p-3"><span class="evidence-level class-i">I A</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Table 2: Major Clinical Trials -->
+          <div class="bg-white rounded-xl p-8 shadow-sm mb-8">
+            <h3 class="section-title text-xl mb-6">Table 2: Summary of Recent Major Clinical Trials in CCS (2022-2025)</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead class="bg-slate-100">
+                  <tr>
+                    <th class="text-left p-3 font-semibold">Trial</th>
+                    <th class="text-left p-3 font-semibold">Population</th>
+                    <th class="text-left p-3 font-semibold">Intervention</th>
+                    <th class="text-left p-3 font-semibold">Key Findings</th>
+                    <th class="text-left p-3 font-semibold">Impact</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200">
+                  <tr class="hover:bg-slate-50">
+                    <td class="p-3 font-medium">HOST-EXAM</td>
+                    <td class="p-3">Post-PCI patients</td>
+                    <td class="p-3">Clopidogrel vs Aspirin</td>
+                    <td class="p-3">Clopidogrel superior (5.7% vs 7.7%, HR 0.73)</td>
+                    <td class="p-3">Supported ESC Class IA for clopidogrel</td>
+                  </tr>
+                  <tr class="hover:bg-slate-50">
+                    <td class="p-3 font-medium">Master-DAPT</td>
+                    <td class="p-3">High bleeding risk post-PCI</td>
+                    <td class="p-3">1 vs ≥6 months DAPT</td>
+                    <td class="p-3">Abbreviated DAPT non-inferior, superior for bleeding</td>
+                    <td class="p-3">Reinforced shorter DAPT in HBR</td>
+                  </tr>
+                  <tr class="hover:bg-slate-50">
+                    <td class="p-3 font-medium">LoDoCo2</td>
+                    <td class="p-3">Chronic Coronary Disease</td>
+                    <td class="p-3">Colchicine 0.5mg vs Placebo</td>
+                    <td class="p-3">31% reduction in composite CV endpoint</td>
+                    <td class="p-3">ESC Class IIbA for colchicine</td>
+                  </tr>
+                  <tr class="hover:bg-slate-50">
+                    <td class="p-3 font-medium">SELECT</td>
+                    <td class="p-3">Obese with CVD, no diabetes</td>
+                    <td class="p-3">Semaglutide vs Placebo</td>
+                    <td class="p-3">20% reduction in MACE</td>
+                    <td class="p-3">ESC Class IIaB for GLP-1RA in obesity</td>
+                  </tr>
+                  <tr class="hover:bg-slate-50">
+                    <td class="p-3 font-medium">ORBITA-2</td>
+                    <td class="p-3">Stable angina, no antianginals</td>
+                    <td class="p-3">PCI vs Sham</td>
+                    <td class="p-3">PCI improved angina symptoms</td>
+                    <td class="p-3">Reinforced PCI for symptom relief</td>
+                  </tr>
+                  <tr class="hover:bg-slate-50">
+                    <td class="p-3 font-medium">REVIVED-BCIS2</td>
+                    <td class="p-3">Ischemic LV dysfunction</td>
+                    <td class="p-3">PCI + OMT vs OMT</td>
+                    <td class="p-3">No reduction in death/HF hospitalization</td>
+                    <td class="p-3">Emphasized OMT as primary strategy</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- ESC 2024 Diagnostic Approach -->
+          <div class="bg-white rounded-xl p-8 shadow-sm">
+            <h3 class="section-title text-xl mb-6">ESC 2024 Diagnostic Approach for Suspected CCS</h3>
+            <div class="grid lg:grid-cols-2 gap-8">
+              <div class="space-y-4">
+                <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                  <h4 class="font-semibold mb-2">Step 1: General Clinical Examination</h4>
+                  <p class="text-sm">Detailed symptom assessment, physical examination, 12-lead ECG, basic blood tests</p>
+                </div>
+                <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                  <h4 class="font-semibold mb-2">Step 2: Pre-test Likelihood Assessment</h4>
+                  <p class="text-sm">TTE, RF-CL model, exercise ECG in selected patients</p>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                  <h4 class="font-semibold mb-2">Step 3: Confirming Diagnosis</h4>
+                  <p class="text-sm">CCTA for low-intermediate PCL, functional imaging, invasive tests as needed</p>
+                </div>
+                <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
+                  <h4 class="font-semibold mb-2">Step 4: Initial Therapy & Follow-up</h4>
+                  <p class="text-sm">GDMT optimization, revascularization for persistent symptoms</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-primary text-white py-12">
+        <div class="max-w-6xl mx-auto px-8">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="section-title text-xl mb-4">Key References</h3>
+              <div class="space-y-2 text-sm">
+                <p>• 2024 ESC Guidelines for Chronic Coronary Syndromes</p>
+                <p>• 2023 ACC/AHA Guideline for Chronic Coronary Disease</p>
+                <p>• Braunwald's Textbook of Cardiovascular Medicine</p>
+                <p>• Major clinical trials: ISCHEMIA, ORBITA-2, LoDoCo2, SELECT</p>
+              </div>
+            </div>
+            <div>
+              <h3 class="section-title text-xl mb-4">Clinical Applications</h3>
+              <div class="space-y-2 text-sm">
+                <p>• Individualized risk assessment using RF-CL model</p>
+                <p>• Clopidogrel preference in post-MI/PCI patients</p>
+                <p>• Aggressive LDL-C targets with combination therapy</p>
+                <p>• Heart Team approach for revascularization decisions</p>
+              </div>
+            </div>
+          </div>
+          <div class="border-t border-blue-400 mt-8 pt-8 text-center text-sm">
+            <p>This comprehensive review synthesizes current evidence for CCS management based on the latest international guidelines and clinical trial data.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+        // Initialize Vanta.js background
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x1e40af,
+            backgroundColor: 0x0f172a,
+            points: 8.00,
+            maxDistance: 20.00,
+            spacing: 16.00
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const tocToggle = document.createElement('button');
+        tocToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        tocToggle.className = 'fixed top-4 left-4 z-50 bg-primary text-white p-3 rounded-lg shadow-lg lg:hidden';
+        const toc = document.querySelector('.toc-fixed');
+        
+        tocToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toc.classList.toggle('open');
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (toc.classList.contains('open') && !toc.contains(e.target) && !tocToggle.contains(e.target)) {
+                toc.classList.remove('open');
+            }
+        });
+        
+        document.body.appendChild(tocToggle);
+
+        // Highlight active section in TOC
+        const sections = document.querySelectorAll('section[id]');
+        const tocLinks = document.querySelectorAll('.toc-fixed a[href^="#"]');
+
+        const observerOptions = {
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    tocLinks.forEach(link => {
+                        link.classList.remove('bg-primary', 'text-white');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('bg-primary', 'text-white');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+  </body>
+
+</html>
