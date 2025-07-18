@@ -10,7 +10,9 @@
   <style>
     html, body {
       height: 100%;
-      overflow: hidden;
+      /* Allow scrolling on the page */
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     }
 
     body {
@@ -27,11 +29,13 @@
       animation: gradientBG 15s ease infinite;
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px; /* Increased top/bottom padding for scroll room */
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      min-height: 100vh; /* Ensure body takes at least full viewport height */
+      box-sizing: border-box;
     }
 
     @keyframes gradientBG {
@@ -42,6 +46,7 @@
 
     .container {
       animation: fadeIn 1s ease-in-out;
+      width: 100%;
     }
 
     @keyframes fadeIn {
@@ -70,7 +75,8 @@
     }
 
     h1 {
-      font-size: 3rem;
+      /* Reduced font size for the main heading */
+      font-size: 2.5rem;
       font-weight: 600;
       margin-bottom: 25px;
       text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -80,10 +86,13 @@
       list-style-type: none;
       padding: 0;
       margin: 30px 0;
+      display: flex; /* Use flexbox for layout */
+      flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+      justify-content: center;
     }
 
     nav li {
-      margin: 15px 0;
+      margin: 10px; /* Adjusted margin for wrapped items */
       animation: fadeIn 1s ease-in-out forwards;
       opacity: 0;
     }
@@ -101,12 +110,14 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 15px 30px;
+      /* Reduced padding for smaller buttons */
+      padding: 12px 25px;
       border-radius: 50px;
       display: inline-block;
       font-weight: 600;
       transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      font-size: 0.9rem; /* Reduced font size for button text */
     }
 
     nav a:hover {
@@ -115,14 +126,25 @@
       box-shadow: 0 8px 30px rgba(0,0,0,0.2);
     }
 
-    @media (min-width: 600px) {
-      nav ul {
-        display: flex;
-        justify-content: center;
+    /* Media query for mobile devices like iPhone */
+    @media (max-width: 600px) {
+      body {
+        justify-content: flex-start; /* Align content to the top on mobile */
+        padding: 60px 20px;
       }
-
+      .logo {
+        /* Increased logo size for mobile screens */
+        width: 75vw;
+        max-width: 280px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      nav ul {
+        flex-direction: column;
+      }
       nav li {
-        margin: 0 20px;
+        margin: 10px 0;
       }
     }
   </style>
