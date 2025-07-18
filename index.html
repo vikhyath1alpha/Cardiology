@@ -130,7 +130,8 @@
 <body>
 
   <div class="container">
-    <img src="logo.png" alt="Heart Logo" class="logo" />
+    <img id="logo-img" src="logo.png" alt="Heart Logo" class="logo" />
+    <video id="logo-video" src="logov.mp4" class="logo" style="display: none;" autoplay muted loop playsinline></video>
     <h1>Vikhyath's Database</h1>
   </div>
 
@@ -142,6 +143,29 @@
       <li><a href="PE.html">Pulmonary Embolism</a></li>
     </ul>
   </nav>
+
+  <script>
+    // Wait for the page to fully load
+    window.addEventListener('load', function() {
+      // Set a timeout for 2 seconds
+      setTimeout(function() {
+        const img = document.getElementById('logo-img');
+        const video = document.getElementById('logo-video');
+
+        // Check if both elements exist
+        if (img && video) {
+          // Hide the image and show the video
+          img.style.display = 'none';
+          video.style.display = 'block';
+          
+          // Ensure the video plays
+          video.play().catch(error => {
+            console.error("Video play failed:", error);
+          });
+        }
+      }, 2000); // 2000 milliseconds = 2 seconds
+    });
+  </script>
 
 </body>
 </html>
