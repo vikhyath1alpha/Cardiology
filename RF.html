@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rheumatic Fever & Rheumatic Heart Disease – Board-Ready Review</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root{
+      --scarlet:#b91c1c;
+      --scarlet-light:#f87171;
+      --scarlet-dark:#7f1d1d;
+      --paper:#fff7f7;
+      --text:#111827;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--text);line-height:1.6}
+    nav{position:fixed;top:0;left:0;width:260px;height:100vh;overflow-y:auto;
+        background:linear-gradient(135deg,var(--scarlet-dark),var(--scarlet));padding:2rem 1.25rem;transition:transform .3s;z-index:1000}
+    nav h3{color:#fff;margin-bottom:1rem;font-weight:700}
+    nav a{display:block;color:rgba(255,255,255,.85);text-decoration:none;padding:.5rem .75rem;
+         margin:.25rem 0;font-size:.9rem;border-left:3px solid transparent;transition:all .2s}
+    nav a:hover,nav a.active{color:#fff;border-left-color:#fff;background:rgba(255,255,255,.15);transform:translateX(4px)}
+    .content{margin-left:260px;padding:2rem 3rem}
+    .hero{background:linear-gradient(135deg,var(--scarlet),var(--scarlet-light));color:#fff;
+          padding:4rem 3rem;border-radius:1rem;margin-bottom:3rem}
+    .hero h1{font-size:3rem;font-weight:700;margin-bottom:.5rem}
+    .hero p{font-size:1.25rem;opacity:.9}
+    .hero .badge{background:rgba(255,255,255,.2);padding:.5rem 1rem;border-radius:9999px;font-size:.875rem;margin:.25rem}
+    h2{margin-top:3rem;font-size:2rem;color:var(--scarlet)}
+    h3{margin-top:2rem;font-size:1.5rem;color:var(--scarlet-dark)}
+    .card{background:#fff;border-radius:.75rem;box-shadow:0 1px 3px rgba(0,0,0,.1);padding:1.5rem}
+    .highlight{background:linear-gradient(135deg,#fee2e2,#fecaca);border-left:4px solid var(--scarlet);
+              padding:1rem 1.25rem;margin:1rem 0;border-radius:.5rem}
+    table{width:100%;border-collapse:collapse;margin:1rem 0}
+    th,td{padding:.75rem .5rem;text-align:left}
+    th{background:var(--scarlet-light);color:#fff}
+    tr:nth-child(even){background:#fef2f2}
+    .toggle-btn{display:none;position:fixed;top:1rem;left:1rem;background:var(--scarlet);color:#fff;
+                border:none;padding:.5rem;border-radius:.5rem;z-index:1100}
+    @media(max-width:1024px){
+      nav{transform:translateX(-100%)}
+      nav.open{transform:translateX(0)}
+      .content{margin-left:0;padding:1.5rem}
+      .toggle-btn{display:block}
+    }
+  </style>
+</head>
+<body>
+
+<button class="toggle-btn" onclick="toggleNav()"><i class="fas fa-bars"></i></button>
+
+<nav id="toc">
+  <h3>Table of Contents</h3>
+  <a href="#pathogenesis">Pathogenesis & Mechanisms</a>
+  <a href="#diagnosis">Diagnosis & Updated Criteria</a>
+  <a href="#epidemiology">Global Epidemiology</a>
+  <a href="#screening">Screening & AI</a>
+  <a href="#prophylaxis">Secondary Prophylaxis</a>
+  <a href="#india">Indian Scenario</a>
+  <a href="#tables">Quick Reference Tables</a>
+</nav>
+
+<div class="content">
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Rheumatic Fever & Rheumatic Heart Disease</h1>
+    <p>Comprehensive Board-Ready Review (July 2025)</p>
+    <div style="margin-top:1rem">
+      <span class="badge"><i class="fas fa-heart-pulse"></i> 2015 & 2023 Jones Criteria</span>
+      <span class="badge"><i class="fas fa-stethoscope"></i> AI-Guided Echo</span>
+      <span class="badge"><i class="fas fa-syringe"></i> IM Benzathine Penicillin G</span>
+    </div>
+  </div>
+
+  <!-- Pathogenesis -->
+  <section id="pathogenesis">
+    <h2><i class="fas fa-dna"></i> Pathogenesis & Molecular Mechanisms</h2>
+    <div class="card">
+      <h3>Molecular Mimicry</h3>
+      <p>Shared epitopes between <strong>Group A Streptococcus (GAS) M-protein</strong> and <strong>human cardiac myosin</strong> trigger autoreactive T-cell–mediated valve damage.</p>
+      <div class="highlight">
+        <strong>Key Pathways:</strong> VCAM-1–dependent granulomatous inflammation, IL-17/Th17 activation (rs2275913-A allele), and M1-macrophage–driven fibrosis via VLA4/VCAM-1.
+      </div>
+    </div>
+    <div class="card" style="margin-top:1rem">
+      <h3>Early RHD Biomarkers</h3>
+      <ul>
+        <li>Elevated IgG2 autoantibodies against N-acetyl-β-D-glucosamine (GlcNAc)</li>
+        <li>Epigenetic TNF-α/IL-6–triggered pro-fibrotic gene expression</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Diagnosis -->
+  <section id="diagnosis">
+    <h2><i class="fas fa-clipboard-check"></i> Diagnosis & Updated Criteria</h2>
+    <div class="card">
+      <h3>2015 Revised Jones Criteria – Key Changes</h3>
+      <ul>
+        <li><strong>Echocardiography</strong> = gold standard for carditis (≥2 views MR, jet ≥2 cm, Vmax >3 m/s)</li>
+        <li><strong>Subclinical carditis</strong> now a major manifestation</li>
+        <li>Risk-stratified thresholds (low vs moderate-high incidence regions)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Epidemiology -->
+  <section id="epidemiology">
+    <h2><i class="fas fa-globe-americas"></i> Global Epidemiology & Disparities</h2>
+    <table>
+      <thead><tr><th>Region</th><th>Incidence (per 100 000)</th><th>Prevalence</th><th>DALYs</th></tr></thead>
+      <tbody>
+        <tr><td>Sub-Saharan Africa</td><td>93.95</td><td>High</td><td>High</td></tr>
+        <tr><td>South Asia</td><td>Significant</td><td>High</td><td>High</td></tr>
+        <tr><td>Finland</td><td>1.48</td><td>Low</td><td>Low</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Screening -->
+  <section id="screening">
+    <h2><i class="fas fa-mobile-alt"></i> Advances in Screening & AI</h2>
+    <div class="card">
+      <h3>Handheld + AI Echocardiography</h3>
+      <ul>
+        <li>AUC 0.93 (support-vector machines) and 0.84 (deep learning)</li>
+        <li>Community nurses: 89 % accuracy after 2-month training (Fiji)</li>
+        <li>WHF 2023 Staging A–D continuum replaces “borderline/definite” labels</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Prophylaxis -->
+  <section id="prophylaxis">
+    <h2><i class="fas fa-shield-alt"></i> Secondary Prophylaxis</h2>
+    <div class="card">
+      <h3>IM Benzathine Penicillin G (BPG)</h3>
+      <ul>
+        <li><strong>Adherence ≥80 %</strong> → markedly ↓ ARF recurrence</li>
+        <li>SMS reminders improve compliance</li>
+        <li>Lidocaine mix reduces injection pain; oral-penicillin trials ongoing (GOALIE)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- India -->
+  <section id="india">
+    <h2><i class="fas fa-map-marker-alt"></i> Indian Scenario</h2>
+    <div class="card">
+      <ul>
+        <li>Dual burden: declining ARF in some states, rising Kawasaki disease in urban centres (e.g., Chandigarh)</li>
+        <li>Over 100 000 annual RHD deaths</li>
+        <li>POCUS & community-based penicillin programs emerging</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Tables -->
+  <section id="tables">
+    <h2><i class="fas fa-table"></i> Quick Reference Tables</h2>
+    <div class="card">
+      <h3>Major vs Minor Jones Criteria (2015)</h3>
+      <table>
+        <thead><tr><th>Major</th><th>Minor</th></tr></thead>
+        <tbody>
+          <tr><td>Carditis (clinical or subclinical)</td><td>Fever ≥38.5 °C</td></tr>
+          <tr><td>Arthritis / polyarthritis</td><td>Arthralgia</td></tr>
+          <tr><td>Chorea</td><td>↑ ESR / CRP</td></tr>
+          <tr><td>Erythema marginatum</td><td>Prolonged PR interval</td></tr>
+          <tr><td>Subcutaneous nodules</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer style="text-align:center;margin-top:3rem;color:var(--scarlet-dark);font-size:0.875rem">
+    © 2025 Rheumatic Fever & RHD Board-Ready Review
+  </footer>
+</div>
+
+<script>
+  const nav=document.getElementById('toc');
+  function toggleNav(){nav.classList.toggle('open')}
+  // active link highlight
+  window.addEventListener('scroll',()=>{
+    const links=nav.querySelectorAll('a');
+    const sections=[...document.querySelectorAll('section[id]')];
+    let active='';
+    sections.forEach(sec=>{if(window.scrollY>=sec.offsetTop-80)active=sec.id});
+    links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+active));
+  });
+</script>
+</body>
+</html>

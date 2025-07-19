@@ -8,162 +8,257 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    html, body {
-      height: 100%;
-      /* Allow scrolling on the page */
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    }
+    :root {
+  --accent: #FF5A5F;     /* vivid coral */
+  --glass: rgba(255,255,255,.12);
+  --glass-border: rgba(255,255,255,.25);
+  --shadow: 0 8px 32px rgba(0,0,0,.35);
+}
 
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(
-        -45deg,
-        #F44336,
-        #E53935,
-        #D32F2F,
-        #B71C1C
-      );
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      color: white;
-      text-align: center;
-      padding: 40px 20px; /* Increased top/bottom padding for scroll room */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh; /* Ensure body takes at least full viewport height */
-      box-sizing: border-box;
-    }
+*,*::before,*::after{box-sizing:border-box}
 
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+html,body{height:100%}
+:root {
+  --brand-red: #B71C1C;
+  --brand-crimson: #E53935;
+  --brand-scarlet: #FF5252;
+  --ice-blue: #E3F2FD;
+  --pure-white: #FFFFFF;
+}
 
-    .container {
-      animation: fadeIn 1s ease-in-out;
-      width: 100%;
-    }
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #111;
+  color: var(--pure-white);
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+/* Animated red gradient background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse at 20% 80%, var(--brand-crimson) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, var(--brand-scarlet) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 50%, var(--brand-red) 0%, transparent 70%);
+  animation: bgShift 18s ease-in-out infinite;
+}
 
-    .logo {
-      width: 30vw;
-      max-width: 180px;
-      height: auto;
-      margin: 0 auto 20px auto;
-      display: block;
-      animation: pulse 2.5s ease-in-out infinite;
-    }
+@keyframes bgShift {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(2deg); }
+}
 
-    @keyframes pulse {
-      0%, 100% {
-        transform: scale(1);
-        filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
-      }
-      50% {
-        transform: scale(1.08);
-        filter: drop-shadow(0 0 15px rgba(255,255,255,0.7));
-      }
-    }
+/* Soft glass overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: rgba(183, 28, 28, 0.08);
+  backdrop-filter: blur(120px);
+  -webkit-backdrop-filter: blur(120px);
+}
+@keyframes bgShift{
+  0%,100%{transform:rotate(0deg) scale(1)}
+  50%{transform:rotate(5deg) scale(1.1)}
+}
 
-    h1 {
-      /* Reduced font size for the main heading */
-      font-size: 2.5rem;
-      font-weight: 600;
-      margin-bottom: 25px;
-      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
+/* --- glassmorphism overlay --- */
+body::after{
+  content:'';
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  backdrop-filter:blur(120px);
+  -webkit-backdrop-filter:blur(120px);
+}
 
-    nav ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 30px 0;
-      display: flex; /* Use flexbox for layout */
-      flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-      justify-content: center;
-    }
+.container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  padding:40px 20px;
+  animation:fadeIn 1s ease-out;
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(30px)}}
 
-    nav li {
-      margin: 10px; /* Adjusted margin for wrapped items */
-      animation: fadeIn 1s ease-in-out forwards;
-      opacity: 0;
-    }
+.logo{
+  width:30vw;
+  max-width:180px;
+  margin-bottom:30px;
+  animation:pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1) rotate(0deg)}
+  50%{transform:scale(1.08) rotate(2deg)}
+}
 
-    nav li:nth-child(1) { animation-delay: 0.2s; }
-    nav li:nth-child(2) { animation-delay: 0.4s; }
-    nav li:nth-child(3) { animation-delay: 0.6s; }
-    nav li:nth-child(4) { animation-delay: 0.8s; }
+h1{
+  font-size:clamp(2.2rem,5vw,3.2rem);
+  font-weight:600;
+  margin:0 0 10px;
+  letter-spacing:.5px;
+  background:linear-gradient(135deg,#fff 40%,var(--accent));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  text-shadow:0 0 30px rgba(255,255,255,.4);
+}
 
+.tagline{
+  font-size:clamp(.9rem,2vw,1.1rem);
+  margin-bottom:45px;
+  opacity:.7;
+}
 
-    nav a {
-      text-decoration: none;
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      /* Reduced padding for smaller buttons */
-      padding: 12px 25px;
-      border-radius: 50px;
-      display: inline-block;
-      font-weight: 600;
-      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      font-size: 0.9rem; /* Reduced font size for button text */
-    }
+nav ul{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:18px;
+  list-style:none;
+  padding:0;
+}
 
-    nav a:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: scale(1.05) translateY(-2px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-    }
+nav a{
+  position:relative;
+  display:inline-block;
+  padding:14px 28px;
+  color:#fff;
+  font-weight:600;
+  font-size:.95rem;
+  text-decoration:none;
+  border-radius:50px;
+  background:var(--glass);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  transition:transform .3s, box-shadow .3s;
+}
 
-    /* Media query for mobile devices like iPhone */
-    @media (max-width: 600px) {
-      body {
-        justify-content: flex-start; /* Align content to the top on mobile */
-        padding: 60px 20px;
-      }
-      .logo {
-        /* Increased logo size for mobile screens */
-        width: 75vw;
-        max-width: 280px;
-      }
-      h1 {
-        font-size: 2rem;
-      }
-      nav ul {
-        flex-direction: column;
-      }
-      nav li {
-        margin: 10px 0;
-      }
-    }
+/* --- liquid shine on hover --- */
+nav a::before{
+  content:'';
+  position:absolute;
+  inset:-50%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
+  transform:rotate(35deg) translateY(-100%);
+  transition:transform .6s;
+}
+nav a:hover{
+  transform:translateY(-4px) scale(1.05);
+  box-shadow:0 12px 40px rgba(0,0,0,.5);
+}
+nav a:hover::before{
+  transform:rotate(35deg) translateY(100%);
+}
+
+/* --- mobile tweaks --- */
+@media(max-width:600px){
+  body{justify-content:flex-start;padding-top:80px}
+  .logo{max-width:220px}
+  nav ul{flex-direction:column;gap:12px}
+}
+/* --- Floating Topics button --- */
+.fab{
+  position:fixed;
+  bottom:24px;
+  right:24px;
+  z-index:100;
+  padding:14px 26px;
+  border:none;
+  border-radius:50px;
+  background:var(--brand-crimson);
+  color:#fff;
+  font-weight:600;
+  font-size:.95rem;
+  box-shadow:0 4px 20px rgba(0,0,0,.35);
+  cursor:pointer;
+  transition:transform .2s;
+}
+.fab:hover{transform:scale(1.08)}
+
+/* --- Pop-up panel --- */
+.panel{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:200;
+  animation:fadeIn .3s;
+}
+.panel.hidden{display:none}
+.panel ul{
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  border:1px solid var(--glass-border);
+  border-radius:18px;
+  padding:30px 40px;
+  list-style:none;
+  margin:0;
+  max-width:280px;
+  width:90%;
+  box-shadow:var(--shadow);
+}
+.panel li{margin:12px 0}
+.panel a{
+  color:#fff;
+  font-weight:600;
+  text-decoration:none;
+  font-size:1rem;
+}
+.panel a:hover{text-decoration:underline}
+.close{
+  position:absolute;
+  top:20px;
+  right:25px;
+  background:none;
+  border:none;
+  font-size:2.2rem;
+  color:#fff;
+  cursor:pointer;
+}
   </style>
 </head>
 <body>
 
   <div class="container">
-    <img id="logo-img" src="logo.png" alt="Heart Logo" class="logo" />
-    <video id="logo-video" src="logov.mp4" class="logo" style="display: none;" autoplay muted loop playsinline></video>
-    <h1>Vikhyath's Database</h1>
-  </div>
+  <img id="logo-img" src="logo.png" alt="Heart Logo" class="logo" />
+  <video id="logo-video" src="logov.mp4" class="logo" style="display:none" autoplay muted loop playsinline></video>
+
+  <h1>Vikhyath's Database</h1>
+  <p class="tagline">Evidence-based cardiology distilled for clinicians</p>
+</div>
 
   <nav>
-    <ul>
-      <li><a href="CCS.html">Chronic Coronary Syndrome</a></li>
-      <li><a href="RCM.html">Restrictive Cardiomyopathy</a></li>
-      <li><a href="pediatric-myocarditis.html">Pediatric Myocarditis</a></li>
-      <li><a href="PE.html">Pulmonary Embolism</a></li>
-    </ul>
+    <!-- NEW: floating button -->
+<button id="topicsBtn" class="fab">Topics</button>
+
+<!-- NEW: light-weight pop-up list -->
+<div id="topicsPanel" class="panel hidden">
+  <ul>
+    <li><a href="CCS.html">Chronic Coronary Syndrome</a></li>
+    <li><a href="RCM.html">Restrictive Cardiomyopathy</a></li>
+    <li><a href="pediatric-myocarditis.html">Pediatric Myocarditis</a></li>
+    <li><a href="PE.html">Pulmonary Embolism</a></li>
+    <li><a href="PH3.html">Pulmonary Hypertension</a></li>
+    <li><a href="RF.html">Rheumatic Fever</a></li>
+  </ul>
+  <button id="closeBtn" class="close">×</button>
+</div>
   </nav>
 
   <script>
@@ -188,6 +283,14 @@
       }, 2000); // 2000 milliseconds = 2 seconds
     });
   </script>
+<script>
+  const btn   = document.getElementById('topicsBtn');
+  const panel = document.getElementById('topicsPanel');
+  const close = document.getElementById('closeBtn');
+
+  btn.addEventListener('click',   () => panel.classList.remove('hidden'));
+  close.addEventListener('click', () => panel.classList.add('hidden'));
+</script>
 
 </body>
 </html>

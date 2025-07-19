@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Pulmonary Hypertension: A Cardiology Board Review</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary:#2563eb;--secondary:#64748b;--accent:#f59e0b;--neutral:#1f2937;
+      --base-100:#ffffff;--base-200:#f8fafc;--base-300:#e2e8f0;
+    }
+    body{font-family:'Inter',sans-serif;color:var(--neutral);line-height:1.6;}
+    .serif{font-family:'Crimson Text',serif;}
+    /* --- TOC & Layout --- */
+    .toc-fixed{position:fixed;top:0;left:0;width:280px;height:100vh;background:linear-gradient(135deg,#1e40af 0%,#3b82f6 100%);z-index:1000;padding:2rem 1.5rem;overflow-y:auto;transition:transform .3s;}
+    .content-wrapper{margin-left:280px;transition:margin-left .3s;}
+    @media(max-width:1024px){
+      .toc-fixed{transform:translateX(-100%);}
+      .toc-fixed.open{transform:translateX(0);}
+      .content-wrapper{margin-left:0;}
+    }
+    .toc-link{display:block;color:rgba(255,255,255,.8);padding:.5rem 0;border-left:2px solid transparent;padding-left:1rem;transition:.2s;}
+    .toc-link:hover,.toc-link.active{color:white;border-left-color:var(--accent);background:rgba(255,255,255,.1);transform:translateX(4px);}
+    .toc-link.sub{font-size:.9rem;padding-left:2rem;color:rgba(255,255,255,.7);}
+    /* --- Hero --- */
+    .hero-section{background:linear-gradient(135deg,#0f172a 0%,#1e293b 50%,#334155 100%);}
+    .hero-overlay{background:linear-gradient(45deg,rgba(15,23,42,.9),rgba(30,41,59,.7));backdrop-filter:blur(2px);}
+    .bento-grid{display:grid;grid-template-columns:2fr 1fr;gap:2rem;align-items:start;}
+    /* --- Components --- */
+    .section-divider{height:2px;background:linear-gradient(90deg,var(--primary),var(--accent),var(--primary));margin:3rem 0;border-radius:1px;}
+    .highlight-box{background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%);border-left:4px solid var(--accent);padding:1.5rem;margin:2rem 0;border-radius:.5rem;}
+    .data-table{background:white;border-radius:.75rem;overflow:hidden;box-shadow:0 4px 6px -1px rgba(0,0,0,.1);}
+    .data-table th{background:linear-gradient(135deg,var(--primary),#3b82f6);color:white;padding:1rem;font-weight:600;}
+    .data-table td{padding:1rem;border-bottom:1px solid var(--base-300);}
+    .data-table tr:nth-child(even){background:var(--base-200);}
+    .stat-card{background:white;border-radius:.75rem;padding:1.5rem;box-shadow:0 2px 4px rgba(0,0,0,.1);border-top:4px solid var(--primary);}
+    .toggle-toc{display:none;position:fixed;top:1rem;left:1rem;z-index:1100;background:var(--primary);color:white;border:none;border-radius:.5rem;padding:.75rem;cursor:pointer;box-shadow:0 4px 6px rgba(0,0,0,.1);}
+    @media(max-width:1024px){.toggle-toc{display:block;}}
+  </style>
+</head>
+<body class="bg-gray-50">
+<!-- Toggle TOC -->
+<button class="toggle-toc" onclick="toggleTOC()"><i class="fas fa-bars"></i></button>
+
+<!-- Fixed TOC -->
+<nav class="toc-fixed" id="toc">
+  <h3 class="text-white font-bold text-lg mb-4">Table of Contents</h3>
+  <a href="#exec-summary" class="toc-link">Executive Summary</a>
+  <a href="#definition" class="toc-link">1. Definition & Classification</a>
+  <a href="#hemodynamics" class="toc-link sub">1.1 Hemodynamic Criteria</a>
+  <a href="#clinical-groups" class="toc-link sub">1.2 Clinical Groups</a>
+  <a href="#algorithm" class="toc-link">2. Diagnostic Algorithm</a>
+  <a href="#risk" class="toc-link">3. Risk Stratification</a>
+  <a href="#therapy" class="toc-link">4. Therapeutic Strategies</a>
+  <a href="#pah" class="toc-link sub">4.1 Group 1 – PAH</a>
+  <a href="#lhd" class="toc-link sub">4.2 Group 2 – PH-LHD</a>
+  <a href="#lung" class="toc-link sub">4.3 Group 3 – Lung Disease</a>
+  <a href="#cteph" class="toc-link sub">4.4 Group 4 – CTEPH</a>
+  <a href="#board" class="toc-link">5. Board-Ready Key Points</a>
+</nav>
+
+<!-- Main Content -->
+<div class="content-wrapper">
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="hero-overlay">
+      <div class="container mx-auto px-6 py-16">
+        <div class="bento-grid">
+          <div class="space-y-8">
+            <h1 class="serif text-5xl md:text-6xl font-bold text-white leading-tight">
+              <em class="text-amber-300">Pulmonary Hypertension</em><br/>A Cardiology Board Review
+            </h1>
+            <p class="text-xl text-gray-200 max-w-2xl">
+              Evidence-based synthesis of the 2022 ESC/ERS guidelines, hemodynamic definitions, and modern therapeutic landscape.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+              <div class="stat-card bg-white/10 text-white"><div class="text-3xl font-bold text-amber-300">20 mmHg</div><div class="text-sm">New mPAP threshold</div></div>
+              <div class="stat-card bg-white/10 text-white"><div class="text-3xl font-bold text-amber-300">2 WU</div><div class="text-sm">PVR cut-off (pre-cap)</div></div>
+              <div class="stat-card bg-white/10 text-white"><div class="text-3xl font-bold text-amber-300">2024</div><div class="text-sm">Sotatercept FDA approval</div></div>
+            </div>
+          </div>
+          <img src="https://kimi-web-img.moonshot.cn/img/dfzljdn9uc3pi.cloudfront.net/1d5a7c9b6a2e2dec3f0f0c0e0a0e0a0e0a0e0a0e.jpg" alt="Pulmonary hypertension illustration" class="w-full h-96 object-cover rounded-lg shadow-2xl" size="large" aspect="wide" style="photo" query="pulmonary hypertension medical illustration" referrerpolicy="no-referrer" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXEC SUMMARY -->
+  <section id="exec-summary" class="py-16">
+    <div class="container mx-auto px-6">
+      <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6">
+        <h2 class="serif text-3xl font-bold text-gray-900 mb-4">Executive Summary</h2>
+        <p class="mb-4">Pulmonary hypertension (PH) is defined by <strong>mPAP &gt; 20 mmHg</strong> (2022 update). Correct classification (Groups 1-5) dictates therapy. Goals: achieve and maintain <strong>low-risk status</strong> using multiparametric risk tools.</p>
+        <ul class="list-disc list-inside text-gray-700 space-y-1">
+          <li>Pre-capillary PH: mPAP &gt;20, PAWP ≤15, PVR ≥2 WU.</li>
+          <li>Post-capillary PH: mPAWP &gt;15 mmHg; distinguish Ipc vs Cpc.</li>
+          <li>First-line PAH: dual oral (ERA + PDE5i); high-risk add prostacyclin.</li>
+          <li>CTEPH: PEA curative; riociguat/BPA for inoperable disease.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1 -->
+  <section id="definition" class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="serif text-4xl font-bold text-gray-900 mb-8">1. Definition & Classification</h2>
+
+      <div id="hemodynamics" class="mb-12">
+        <h3 class="serif text-2xl font-semibold text-gray-800 mb-4">1.1 Hemodynamic Criteria (2022)</h3>
+        <div class="data-table">
+          <table class="w-full">
+            <thead><tr><th class="text-left">Subtype</th><th class="text-left">mPAP</th><th class="text-left">PAWP</th><th class="text-left">PVR</th></tr></thead>
+            <tbody>
+              <tr><td class="font-semibold">Pre-capillary</td><td>&gt; 20 mmHg</td><td>≤ 15 mmHg</td><td>≥ 2 WU</td></tr>
+              <tr><td class="font-semibold">Ipc-PH</td><td>&gt; 20 mmHg</td><td>&gt; 15 mmHg</td><td>&lt; 2 WU</td></tr>
+              <tr><td class="font-semibold">Cpc-PH</td><td>&gt; 20 mmHg</td><td>&gt; 15 mmHg</td><td>≥ 2 WU</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="highlight-box">Exercise PH definition (research): mPAP/CO slope &gt; 3 mmHg/L/min.</div>
+      </div>
+
+      <div id="clinical-groups" class="mb-8">
+        <h3 class="serif text-2xl font-semibold text-gray-800 mb-4">1.2 Clinical Groups (6th WSPH)</h3>
+        <ul class="space-y-3 text-gray-700">
+          <li><strong>Group 1 – PAH</strong>: IPAH, HPAH (BMPR2), drugs/toxins, CTD, CHD, etc.</li>
+          <li><strong>Group 2 – PH-LHD</strong>: HFpEF/HFrEF; Ipc-PH vs Cpc-PH.</li>
+          <li><strong>Group 3 – Lung Disease</strong>: COPD, ILD, sleep-disordered breathing.</li>
+          <li><strong>Group 4 – CTEPH</strong>: Organized thrombi; PEA curative.</li>
+          <li><strong>Group 5 – Unclear/Multifactorial</strong>: Hemolytic anemias, sarcoidosis.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- DIAGNOSTIC ALGORITHM -->
+  <section id="algorithm" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="serif text-4xl font-bold text-gray-900 mb-8">2. Diagnostic Algorithm</h2>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700">
+        <li><strong>Suspicion</strong>: dyspnea, loud P₂, TR murmur, edema.</li>
+        <li><strong>TTE</strong>: probability based on TRV &gt;2.8 m/s + ancillary signs.</li>
+        <li><strong>V/Q scan</strong>: rule-out CTEPH (normal scan excludes CTEPH).</li>
+        <li><strong>RHC</strong>: confirm mPAP &gt;20 mmHg; vasoreactivity in Group 1 only.</li>
+        <li>Group-specific workup: CTD labs, HIV, HRCT, etc.</li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- RISK STRATIFICATION -->
+  <section id="risk" class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="serif text-4xl font-bold text-gray-900 mb-8">3. Risk Stratification (2022)</h2>
+      <p class="mb-4">Multiparametric model → low, intermediate, high 1-year mortality risk.</p>
+      <div class="data-table">
+        <table class="w-full text-sm">
+          <thead><tr><th>Parameter</th><th>Low (&lt;5 %)</th><th>Intermediate (5–10 %)</th><th>High (&gt;10 %)</th></tr></thead>
+          <tbody>
+            <tr><td>WHO FC</td><td>I–II</td><td>III</td><td>IV</td></tr>
+            <tr><td>6MWD</td><td>&gt;440 m</td><td>165–440 m</td><td>&lt;165 m</td></tr>
+            <tr><td>BNP / NT-proBNP</td><td>&lt;50 / &lt;300</td><td>50–300 / 300–1400</td><td>&gt;300 / &gt;1400</td></tr>
+            <tr><td>RA area (cm²)</td><td>&lt;18</td><td>18–26</td><td>&gt;26</td></tr>
+            <tr><td>Cardiac Index</td><td>≥2.5</td><td>2.0–2.4</td><td>&lt;2.0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight-box mt-6">Goal: achieve and maintain <strong>low-risk profile</strong>.</div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- THERAPEUTIC STRATEGIES -->
+  <section id="therapy" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="serif text-4xl font-bold text-gray-900 mb-8">4. Therapeutic Strategies by Group</h2>
+
+      <!-- Group 1 -->
+      <div id="pah" class="mb-12">
+        <h3 class="serif text-2xl font-semibold text-gray-800 mb-4">4.1 Group 1 – PAH</h3>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="stat-card">
+            <h4 class="font-semibold mb-2">Initial Low/Intermediate Risk</h4>
+            <ul class="text-sm space-y-1">
+              <li>ERA (ambrisentan/macitentan)</li>
+              <li>+ PDE5i (sildenafil/tadalafil)</li>
+              <li>OR sGC stimulator (riociguat)</li>
+            </ul>
+          </div>
+          <div class="stat-card">
+            <h4 class="font-semibold mb-2">High Risk</h4>
+            <ul class="text-sm space-y-1">
+              <li>IV prostacyclin (epoprostenol)</li>
+              <li>+ ERA + PDE5i</li>
+              <li>Consider sotatercept (2024)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-6 bg-white border rounded-lg p-4">
+          <strong>Key Trials:</strong> AMBITION (dual), GRIPHON (selexipag), STELLAR (sotatercept).
+        </div>
+      </div>
+
+      <!-- Groups 2-4 -->
+      <div id="lhd" class="mb-8"><h3 class="serif text-2xl font-semibold text-gray-800 mb-2">4.2 Group 2 – PH-LHD</h3><p class="text-gray-700 mb-2">Treat underlying left heart disease; avoid PAH drugs in Ipc-PH. Cpc-PH may enter trials.</p></div>
+      <div id="lung" class="mb-8"><h3 class="serif text-2xl font-semibold text-gray-800 mb-2">4.3 Group 3 – Lung Disease</h3><p class="text-gray-700 mb-2">Optimize lung therapy; inhaled treprostinil approved for PH-ILD (INCREASE trial).</p></div>
+      <div id="cteph" class="mb-8">
+        <h3 class="serif text-2xl font-semibold text-gray-800 mb-2">4.4 Group 4 – CTEPH</h3>
+        <ul class="list-disc list-inside text-gray-700">
+          <li>PEA: curative for surgically accessible disease.</li>
+          <li>Inoperable: riociguat, macitentan, or BPA.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- BOARD KEY POINTS -->
+  <section id="board" class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="serif text-4xl font-bold text-gray-900 mb-6">5. Board-Ready Key Points</h2>
+      <div class="highlight-box">
+        <ul class="list-disc list-inside space-y-2 text-gray-700">
+          <li>Know the <strong>mPAP &gt;20 mmHg & PVR ≥2 WU</strong> thresholds.</li>
+          <li>Always perform <strong>V/Q scan</strong> to exclude CTEPH.</li>
+          <li>Goal: achieve <strong>low-risk profile</strong> with multiparametric tools.</li>
+          <li>Initial PAH therapy: <strong>dual oral combination</strong>; high-risk add prostacyclin.</li>
+          <li>CTEPH: <strong>PEA</strong> first-line; BPA/riociguat for inoperable.</li>
+          <li>Group 2 Ipc-PH: <strong>no PAH drugs</strong>; optimize LHD therapy.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-white py-8 text-center">
+    <p class="text-gray-400">Evidence compiled from 2022 ESC/ERS Guidelines & 6th WSPH. Links embedded for deeper dives.</p>
+  </footer>
+</div>
+
+<script>
+function toggleTOC(){document.getElementById('toc').classList.toggle('open');}
+</script>
+</body>
+</html>
